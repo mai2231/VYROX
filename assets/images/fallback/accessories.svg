@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 1000" width="800" height="1000" role="img" aria-label="VYROX ACCESSORIES">
+  <rect width="800" height="1000" fill="#F5F5F5"/>
+  <g stroke="#E4E4E7" stroke-width="1">
+    <line x1="20" y1="0" x2="-180" y2="1000"/><line x1="90" y1="0" x2="-110" y2="1000"/><line x1="160" y1="0" x2="-40" y2="1000"/><line x1="230" y1="0" x2="30" y2="1000"/><line x1="300" y1="0" x2="100" y2="1000"/><line x1="370" y1="0" x2="170" y2="1000"/><line x1="440" y1="0" x2="240" y2="1000"/><line x1="510" y1="0" x2="310" y2="1000"/><line x1="580" y1="0" x2="380" y2="1000"/><line x1="650" y1="0" x2="450" y2="1000"/><line x1="720" y1="0" x2="520" y2="1000"/><line x1="790" y1="0" x2="590" y2="1000"/>
+  </g>
+  <rect x="0" y="0" width="800" height="8" fill="#111111"/>
+  <path d="M56 70h44l34 112 34-112h44L166 262h-44L56 70Z" fill="#E31B32"/>
+  <text x="200" y="176" font-family="Anton, Impact, 'Arial Black', sans-serif" font-size="76" fill="#111111" letter-spacing="2">VYROX</text>
+  <text x="56" y="486" font-family="Anton, Impact, 'Arial Black', sans-serif" font-size="124" fill="#111111" letter-spacing="-2">ACCESSORIES</text>
+  <text x="60" y="540" font-family="Inter, Arial, sans-serif" font-size="18" font-weight="600" letter-spacing="6" fill="#A1A1AA">CATALOGUE / 03</text>
+  <rect x="56" y="590" width="150" height="3" fill="#E31B32"/>
+  <text x="56" y="930" font-family="Inter, Arial, sans-serif" font-size="13" font-weight="700" letter-spacing="5" fill="#A1A1AA">YOUR WORLD. YOUR RULES.</text>
+  <rect x="690" y="60" width="54" height="54" fill="#E31B32"/>
+  <rect x="700" y="70" width="34" height="34" fill="#F5F5F5"/>
+</svg>

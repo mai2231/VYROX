@@ -1,0 +1,127 @@
+<!-- shared overlays: cart drawer, mobile menu, search, quick view, confirm, toasts -->
+<div data-scrim class="fixed inset-0 z-[60] hidden bg-ink/60 backdrop-blur-[2px]" hidden></div>
+
+<aside id="cart-drawer" data-cart-drawer class="fixed inset-y-0 right-0 z-[70] flex w-full max-w-[440px] translate-x-full flex-col border-l border-line bg-surface transition-transform duration-300" style="transition-timing-function:cubic-bezier(.22,1,.36,1)" aria-hidden="true" aria-labelledby="cart-drawer-title" role="dialog" aria-modal="true">
+  <div class="flex h-16 shrink-0 items-center justify-between border-b border-line px-5">
+    <div class="flex items-center gap-2">
+      <h2 id="cart-drawer-title" class="font-display text-xl uppercase">Your bag</h2>
+      <span class="badge badge-soft" data-cart-count-drawer>0</span>
+    </div>
+    <button type="button" class="icon-btn" data-cart-close aria-label="Close bag">
+      <svg class="h-5 w-5" aria-hidden="true"><use href="{{ROOT}}assets/icons/lucide-sprite.svg#i-x"></use></svg>
+    </button>
+  </div>
+
+  <div class="border-b border-line bg-panel px-5 py-3">
+    <p class="text-[11px] text-subtle" data-ship-text>Spend ₱2,500 for free shipping.</p>
+    <div class="progress-track mt-2"><span class="progress-fill" data-ship-bar style="width:0%"></span></div>
+  </div>
+
+  <div class="flex-1 overflow-y-auto px-5" data-cart-lines></div>
+
+  <div class="hidden flex-1 flex-col items-center justify-center gap-4 px-6 text-center" data-cart-empty>
+    <svg class="h-10 w-10 text-subtle" aria-hidden="true"><use href="{{ROOT}}assets/icons/lucide-sprite.svg#i-shopping-bag"></use></svg>
+    <p class="font-display text-2xl uppercase">Bag is empty</p>
+    <p class="text-xs text-subtle">Start with the pieces everyone is watching.</p>
+    <a href="{{ROOT}}shop.html" class="btn btn-dark btn-sm">Shop now</a>
+  </div>
+
+  <div class="shrink-0 border-t border-line p-5" data-cart-footer>
+    <dl class="space-y-2 text-sm">
+      <div class="flex items-center justify-between"><dt class="text-subtle">Subtotal</dt><dd data-cart-subtotal class="font-semibold">₱0</dd></div>
+      <div class="flex items-center justify-between text-[11px] text-subtle"><dt>Shipping</dt><dd>Calculated at checkout</dd></div>
+      <div class="flex items-center justify-between border-t border-line pt-2"><dt class="text-xs font-bold uppercase tracking-wide2">Total</dt><dd data-cart-total class="font-display text-xl">₱0</dd></div>
+    </dl>
+    <a href="{{ROOT}}checkout.html" class="btn btn-primary btn-block mt-4" data-cart-checkout>
+      Checkout
+      <svg class="h-4 w-4" aria-hidden="true"><use href="{{ROOT}}assets/icons/lucide-sprite.svg#i-arrow-right"></use></svg>
+    </a>
+    <a href="{{ROOT}}cart.html" class="mt-3 block text-center text-[11px] font-semibold uppercase tracking-wide2 text-subtle underline-grow">View full bag</a>
+    <p class="mt-4 text-center text-[10px] text-subtle">Demo bag · stored only in this browser</p>
+  </div>
+</aside>
+
+<div id="mobile-menu" class="fixed inset-y-0 left-0 z-[70] flex w-[86%] max-w-sm -translate-x-full flex-col border-r border-line bg-surface transition-transform duration-300" style="transition-timing-function:cubic-bezier(.22,1,.36,1)" aria-hidden="true" aria-labelledby="mobile-menu-title" role="dialog" aria-modal="true">
+  <div class="flex h-16 shrink-0 items-center justify-between border-b border-line px-4">
+    <a href="{{ROOT}}index.html" class="flex items-center gap-2" aria-label="VYROX home">
+      <svg viewBox="0 0 44 44" class="h-7 w-7" aria-hidden="true"><path d="M2 4h10l10 26L32 4h10L28 40H16L2 4Z" fill="#E31B32"/></svg>
+      <span id="mobile-menu-title" class="font-display text-2xl tracking-tight">VYROX</span>
+    </a>
+    <button type="button" class="icon-btn" data-menu-close aria-label="Close menu">
+      <svg class="h-5 w-5" aria-hidden="true"><use href="{{ROOT}}assets/icons/lucide-sprite.svg#i-x"></use></svg>
+    </button>
+  </div>
+  <nav class="flex-1 overflow-y-auto px-4 py-4" aria-label="Mobile primary">
+    <ul class="space-y-1">
+      <li><a href="{{ROOT}}shop.html" class="flex items-center justify-between py-3 text-lg font-semibold">Shop all <svg class="h-4 w-4 text-subtle" aria-hidden="true"><use href="{{ROOT}}assets/icons/lucide-sprite.svg#i-chevron-right"></use></svg></a></li>
+      <li><a href="{{ROOT}}shop.html?sort=newest" class="flex items-center justify-between py-3 text-lg font-semibold">New in <svg class="h-4 w-4 text-subtle" aria-hidden="true"><use href="{{ROOT}}assets/icons/lucide-sprite.svg#i-chevron-right"></use></svg></a></li>
+      <li><a href="{{ROOT}}shop.html?sale=1" class="flex items-center justify-between py-3 text-lg font-semibold text-red">Sale <svg class="h-4 w-4" aria-hidden="true"><use href="{{ROOT}}assets/icons/lucide-sprite.svg#i-chevron-right"></use></svg></a></li>
+    </ul>
+    <p class="mb-2 mt-6 text-[10px] font-bold uppercase tracking-brand text-subtle">Categories</p>
+    <div class="grid grid-cols-2 gap-1.5">
+      <a href="{{ROOT}}shop.html?category=fashion" class="border border-line px-3 py-2.5 text-xs font-semibold">Fashion</a>
+      <a href="{{ROOT}}shop.html?category=electronics" class="border border-line px-3 py-2.5 text-xs font-semibold">Electronics</a>
+      <a href="{{ROOT}}shop.html?category=accessories" class="border border-line px-3 py-2.5 text-xs font-semibold">Accessories</a>
+      <a href="{{ROOT}}shop.html?category=beauty" class="border border-line px-3 py-2.5 text-xs font-semibold">Beauty</a>
+      <a href="{{ROOT}}shop.html?category=home" class="border border-line px-3 py-2.5 text-xs font-semibold">Home</a>
+      <a href="{{ROOT}}shop.html?category=sports" class="border border-line px-3 py-2.5 text-xs font-semibold">Sports</a>
+    </div>
+    <p class="mb-2 mt-6 text-[10px] font-bold uppercase tracking-brand text-subtle">Account</p>
+    <ul class="space-y-1 text-sm">
+      <li><a href="{{ROOT}}login.html" class="flex items-center gap-3 py-2.5"><svg class="h-4 w-4 text-subtle" aria-hidden="true"><use href="{{ROOT}}assets/icons/lucide-sprite.svg#i-log-out"></use></svg> Sign in</a></li>
+      <li><a href="{{ROOT}}wishlist.html" class="flex items-center gap-3 py-2.5"><svg class="h-4 w-4 text-subtle" aria-hidden="true"><use href="{{ROOT}}assets/icons/lucide-sprite.svg#i-heart"></use></svg> Wishlist</a></li>
+      <li><a href="{{ROOT}}orders.html" class="flex items-center gap-3 py-2.5"><svg class="h-4 w-4 text-subtle" aria-hidden="true"><use href="{{ROOT}}assets/icons/lucide-sprite.svg#i-package"></use></svg> Orders</a></li>
+      <li><a href="{{ROOT}}tracking.html" class="flex items-center gap-3 py-2.5"><svg class="h-4 w-4 text-subtle" aria-hidden="true"><use href="{{ROOT}}assets/icons/lucide-sprite.svg#i-truck"></use></svg> Track order</a></li>
+    </ul>
+  </nav>
+  <div class="shrink-0 border-t border-line p-4">
+    <div class="flex items-center justify-between">
+      <span class="text-[10px] font-bold uppercase tracking-wide2 text-subtle">Demo storefront</span>
+      <button type="button" class="flex items-center gap-2 border border-line px-3 py-1.5 text-[10px] font-bold uppercase tracking-wide2" data-theme-toggle aria-label="Toggle dark mode">
+        <svg class="h-3.5 w-3.5 dark:hidden" aria-hidden="true"><use href="{{ROOT}}assets/icons/lucide-sprite.svg#i-moon"></use></svg>
+        <svg class="hidden h-3.5 w-3.5 dark:block" aria-hidden="true"><use href="{{ROOT}}assets/icons/lucide-sprite.svg#i-sun"></use></svg>
+        Theme
+      </button>
+    </div>
+  </div>
+</div>
+
+<div id="search-panel" class="fixed inset-x-0 top-0 z-[75] -translate-y-full border-b border-line bg-surface transition-transform duration-300" style="transition-timing-function:cubic-bezier(.22,1,.36,1)" aria-hidden="true" role="dialog" aria-modal="true" aria-label="Search VYROX">
+  <div class="container-vyrox py-5">
+    <form action="{{ROOT}}shop.html" method="get" role="search" class="flex items-center gap-3 border-b border-line pb-4">
+      <svg class="h-5 w-5 shrink-0 text-subtle" aria-hidden="true"><use href="{{ROOT}}assets/icons/lucide-sprite.svg#i-search"></use></svg>
+      <label for="global-search" class="sr-only">Search products</label>
+      <input id="global-search" data-search-input name="q" type="search" placeholder="Search products, categories…" autocomplete="off" class="h-10 w-full bg-transparent font-display text-2xl uppercase tracking-tight placeholder:text-subtle/50 focus:outline-none sm:text-3xl">
+      <button type="button" class="icon-btn" data-search-close aria-label="Close search">
+        <svg class="h-5 w-5" aria-hidden="true"><use href="{{ROOT}}assets/icons/lucide-sprite.svg#i-x"></use></svg>
+      </button>
+    </form>
+    <div class="mt-4 flex flex-wrap items-center gap-2">
+      <span class="text-[10px] font-bold uppercase tracking-wide2 text-subtle">Trending</span>
+      <a href="{{ROOT}}shop.html?q=headphones" class="chip">headphones</a>
+      <a href="{{ROOT}}shop.html?q=tee" class="chip">boxy tee</a>
+      <a href="{{ROOT}}shop.html?q=serum" class="chip">glow serum</a>
+      <a href="{{ROOT}}shop.html?q=sneakers" class="chip">sneakers</a>
+    </div>
+    <div class="mt-4 max-h-[46vh] overflow-y-auto" data-search-results></div>
+  </div>
+</div>
+
+<div id="quick-view" class="fixed inset-0 z-[90] hidden items-center justify-center bg-ink/70 p-4 backdrop-blur-sm" data-quickview role="dialog" aria-modal="true" aria-label="Quick view">
+  <button type="button" class="absolute inset-0 cursor-default" data-quickview-close aria-label="Close quick view"></button>
+  <div class="relative max-h-[92vh] w-full max-w-4xl overflow-y-auto border border-line bg-surface shadow-panel anim-scale-in" data-quickview-content></div>
+</div>
+
+<div id="confirm-modal" class="fixed inset-0 z-[95] hidden items-center justify-center bg-ink/70 p-4 backdrop-blur-sm" data-confirm-modal role="dialog" aria-modal="true" aria-labelledby="confirm-title">
+  <div class="w-full max-w-sm border border-line bg-surface p-6 shadow-panel anim-scale-in">
+    <p class="eyebrow">Please confirm</p>
+    <h2 id="confirm-title" data-confirm-title class="mt-2 font-display text-2xl uppercase">Are you sure?</h2>
+    <p data-confirm-body class="mt-2 text-sm text-subtle">This demo action cannot be undone.</p>
+    <div class="mt-6 flex justify-end gap-2">
+      <button type="button" class="btn btn-outline btn-sm" data-confirm-cancel>Cancel</button>
+      <button type="button" class="btn btn-primary btn-sm" data-confirm-ok>Confirm</button>
+    </div>
+  </div>
+</div>
+
+<div data-toast-host class="pointer-events-none fixed bottom-4 right-4 z-[100] flex w-[calc(100%-2rem)] max-w-sm flex-col gap-2" aria-live="polite" aria-atomic="false"></div>

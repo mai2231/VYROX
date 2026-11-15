@@ -1,0 +1,133 @@
+<a class="skip-link" href="#main">Skip to content</a>
+
+<!-- announcement -->
+<div class="bg-ink text-white">
+  <div class="container-vyrox flex h-9 items-center justify-between gap-4 text-[10px] font-medium uppercase tracking-[0.16em]">
+    <p class="flex items-center gap-2 truncate">
+      <span class="hidden h-1.5 w-1.5 shrink-0 bg-red sm:block"></span>
+      Free shipping over ₱2,500
+      <span class="hidden text-white/40 sm:inline">·</span>
+      <span class="hidden text-white/70 sm:inline">Cash on delivery nationwide</span>
+    </p>
+    <div class="hidden items-center gap-5 text-white/60 sm:flex">
+      <a href="{{ROOT}}tracking.html" class="transition hover:text-white">Track order</a>
+      <a href="{{ROOT}}faq.html" class="transition hover:text-white">Help</a>
+      <span class="flex items-center gap-1 text-white/40">PH · PHP ₱</span>
+    </div>
+  </div>
+</div>
+
+<header id="site-header" data-header class="sticky top-0 z-40 border-b border-line bg-surface/95 backdrop-blur transition-shadow duration-300">
+  <div class="container-vyrox flex h-[68px] items-center gap-2 sm:gap-4">
+    <button type="button" class="icon-btn -ml-2 lg:hidden" data-menu-open aria-label="Open menu" aria-controls="mobile-menu" aria-expanded="false">
+      <svg class="h-5 w-5" aria-hidden="true"><use href="{{ROOT}}assets/icons/lucide-sprite.svg#i-menu"></use></svg>
+    </button>
+
+    <a href="{{ROOT}}index.html" class="mr-auto flex shrink-0 items-center gap-2 lg:mr-6" aria-label="VYROX home">
+      <svg viewBox="0 0 44 44" class="h-8 w-8" aria-hidden="true">
+        <path d="M2 4h10l10 26L32 4h10L28 40H16L2 4Z" fill="#E31B32"/>
+        <rect x="33" y="4" width="7" height="7" fill="currentColor"/>
+      </svg>
+      <span class="font-display text-[26px] leading-none tracking-tight">VYROX</span>
+    </a>
+
+    <nav class="hidden h-full items-center gap-6 lg:flex" aria-label="Primary">
+      <div class="group/mega h-full" data-mega-wrap>
+        <button type="button" class="nav-link {{ACTIVE:shop}}" data-mega-trigger aria-expanded="false" aria-controls="mega-panel">
+          Shop
+          <svg class="ml-1 h-3 w-3 transition group-hover/mega:rotate-180" aria-hidden="true"><use href="{{ROOT}}assets/icons/lucide-sprite.svg#i-chevron-down"></use></svg>
+        </button>
+      </div>
+      <a href="{{ROOT}}shop.html?sort=newest" class="nav-link {{ACTIVE:new}}">New In</a>
+      <a href="{{ROOT}}categories.html" class="nav-link {{ACTIVE:categories}}">Categories</a>
+      <a href="{{ROOT}}shop.html?sale=1" class="nav-link text-red {{ACTIVE:sale}}">Sale</a>
+      <a href="{{ROOT}}about.html" class="nav-link {{ACTIVE:about}}">About</a>
+      <a href="{{ROOT}}contact.html" class="nav-link {{ACTIVE:contact}}">Contact</a>
+    </nav>
+
+    <form class="relative ml-auto hidden w-56 xl:block" role="search" action="{{ROOT}}shop.html" method="get">
+      <label for="nav-search" class="sr-only">Search products</label>
+      <svg class="pointer-events-none absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-subtle" aria-hidden="true"><use href="{{ROOT}}assets/icons/lucide-sprite.svg#i-search"></use></svg>
+      <input id="nav-search" name="q" type="search" placeholder="Search VYROX" autocomplete="off" class="h-10 w-full border border-line bg-panel pl-9 pr-3 text-xs placeholder:text-subtle/70 focus:border-red focus:bg-surface focus:outline-none">
+    </form>
+
+    <div class="flex items-center">
+      <button type="button" class="icon-btn xl:hidden" data-search-open aria-label="Search">
+        <svg class="h-5 w-5" aria-hidden="true"><use href="{{ROOT}}assets/icons/lucide-sprite.svg#i-search"></use></svg>
+      </button>
+
+      <button type="button" class="icon-btn hidden sm:inline-flex" data-theme-toggle aria-label="Toggle dark mode" aria-pressed="false">
+        <svg class="h-5 w-5 dark:hidden" aria-hidden="true"><use href="{{ROOT}}assets/icons/lucide-sprite.svg#i-moon"></use></svg>
+        <svg class="hidden h-5 w-5 dark:block" aria-hidden="true"><use href="{{ROOT}}assets/icons/lucide-sprite.svg#i-sun"></use></svg>
+      </button>
+
+      <div class="relative hidden sm:block">
+        <button type="button" class="icon-btn" data-account-toggle aria-label="Account menu" aria-expanded="false" aria-controls="account-menu">
+          <svg class="h-5 w-5" aria-hidden="true"><use href="{{ROOT}}assets/icons/lucide-sprite.svg#i-user"></use></svg>
+        </button>
+        <div id="account-menu" data-account-menu class="invisible absolute right-0 top-full z-50 w-56 translate-y-2 border border-line bg-surface p-2 opacity-0 shadow-panel transition-all duration-200" role="menu">
+          <div class="border-b border-line px-3 pb-3 pt-2">
+            <p class="text-[10px] font-bold uppercase tracking-wide2 text-subtle">Demo storefront</p>
+            <p class="mt-1 text-xs text-subtle">Accounts arrive in Phase 3.</p>
+          </div>
+          <a href="{{ROOT}}login.html" class="flex items-center gap-2 px-3 py-2.5 text-xs font-semibold uppercase tracking-wide2 hover:bg-panel" role="menuitem">
+            <svg class="h-4 w-4" aria-hidden="true"><use href="{{ROOT}}assets/icons/lucide-sprite.svg#i-log-out"></use></svg> Sign in
+          </a>
+          <a href="{{ROOT}}profile.html?demo=1" class="flex items-center gap-2 px-3 py-2.5 text-xs font-semibold uppercase tracking-wide2 hover:bg-panel" role="menuitem">
+            <svg class="h-4 w-4" aria-hidden="true"><use href="{{ROOT}}assets/icons/lucide-sprite.svg#i-user"></use></svg> Demo profile
+          </a>
+          <a href="{{ROOT}}orders.html" class="flex items-center gap-2 px-3 py-2.5 text-xs font-semibold uppercase tracking-wide2 hover:bg-panel" role="menuitem">
+            <svg class="h-4 w-4" aria-hidden="true"><use href="{{ROOT}}assets/icons/lucide-sprite.svg#i-package"></use></svg> Orders
+          </a>
+          <a href="{{ROOT}}admin/index.html" class="flex items-center gap-2 px-3 py-2.5 text-xs font-semibold uppercase tracking-wide2 text-red hover:bg-panel" role="menuitem">
+            <svg class="h-4 w-4" aria-hidden="true"><use href="{{ROOT}}assets/icons/lucide-sprite.svg#i-layout-dashboard"></use></svg> Admin console
+          </a>
+        </div>
+      </div>
+
+      <a href="{{ROOT}}wishlist.html" class="icon-btn" aria-label="Wishlist">
+        <svg class="h-5 w-5" aria-hidden="true"><use href="{{ROOT}}assets/icons/lucide-sprite.svg#i-heart"></use></svg>
+        <span class="count-badge hidden" data-wishlist-count>0</span>
+      </a>
+
+      <button type="button" class="icon-btn" data-cart-open aria-label="Open shopping bag" aria-controls="cart-drawer" aria-expanded="false">
+        <svg class="h-5 w-5" aria-hidden="true"><use href="{{ROOT}}assets/icons/lucide-sprite.svg#i-shopping-bag"></use></svg>
+        <span class="count-badge hidden" data-cart-count>0</span>
+      </button>
+    </div>
+  </div>
+
+  <!-- mega menu -->
+  <div id="mega-panel" class="mega-panel" data-mega-panel>
+    <div class="container-vyrox grid gap-8 py-9 lg:grid-cols-[1fr_320px]">
+      <div>
+        <p class="mb-4 text-[10px] font-bold uppercase tracking-brand text-subtle">Shop the VYROX catalogue</p>
+        <div class="grid grid-cols-2 gap-x-6 gap-y-1 sm:grid-cols-4">
+          <a href="{{ROOT}}shop.html?category=fashion" class="group flex items-center justify-between border-b border-line py-2.5 text-sm font-semibold transition hover:text-red"><span>Fashion</span><span class="text-[10px] text-subtle">04</span></a>
+          <a href="{{ROOT}}shop.html?category=electronics" class="group flex items-center justify-between border-b border-line py-2.5 text-sm font-semibold transition hover:text-red"><span>Electronics</span><span class="text-[10px] text-subtle">04</span></a>
+          <a href="{{ROOT}}shop.html?category=accessories" class="group flex items-center justify-between border-b border-line py-2.5 text-sm font-semibold transition hover:text-red"><span>Accessories</span><span class="text-[10px] text-subtle">03</span></a>
+          <a href="{{ROOT}}shop.html?category=beauty" class="group flex items-center justify-between border-b border-line py-2.5 text-sm font-semibold transition hover:text-red"><span>Beauty</span><span class="text-[10px] text-subtle">03</span></a>
+          <a href="{{ROOT}}shop.html?category=home" class="group flex items-center justify-between border-b border-line py-2.5 text-sm font-semibold transition hover:text-red"><span>Home &amp; Living</span><span class="text-[10px] text-subtle">03</span></a>
+          <a href="{{ROOT}}shop.html?category=lifestyle" class="group flex items-center justify-between border-b border-line py-2.5 text-sm font-semibold transition hover:text-red"><span>Lifestyle</span><span class="text-[10px] text-subtle">03</span></a>
+          <a href="{{ROOT}}shop.html?category=sports" class="group flex items-center justify-between border-b border-line py-2.5 text-sm font-semibold transition hover:text-red"><span>Sports</span><span class="text-[10px] text-subtle">02</span></a>
+          <a href="{{ROOT}}shop.html?category=general" class="group flex items-center justify-between border-b border-line py-2.5 text-sm font-semibold transition hover:text-red"><span>Essentials</span><span class="text-[10px] text-subtle">02</span></a>
+        </div>
+        <div class="mt-6 flex flex-wrap gap-3 text-[11px] font-semibold uppercase tracking-wide2 text-subtle">
+          <a href="{{ROOT}}shop.html?sale=1" class="text-red underline-grow">Up to 30% off</a>
+          <a href="{{ROOT}}shop.html?sort=newest" class="underline-grow">New arrivals</a>
+          <a href="{{ROOT}}shop.html?sort=popular" class="underline-grow">Best sellers</a>
+          <a href="{{ROOT}}categories.html" class="underline-grow">All categories</a>
+        </div>
+      </div>
+      <a href="{{ROOT}}shop.html?sale=1" class="relative hidden overflow-hidden bg-ink p-6 text-white lg:block">
+        <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&fit=crop&w=600&q=80" alt="" class="absolute inset-0 h-full w-full object-cover opacity-40 transition duration-700 hover:scale-105" loading="lazy" onerror="this.style.display='none'">
+        <div class="relative flex h-full flex-col justify-end">
+          <span class="badge badge-red mb-3 w-fit">Limited drop</span>
+          <p class="font-display text-3xl leading-none">THE RED<br>ROOM</p>
+          <p class="mt-2 text-[11px] text-white/70">Up to 30% off selected pieces.</p>
+          <span class="mt-4 inline-flex items-center gap-2 text-[11px] font-bold uppercase tracking-wide2">Shop the drop <svg class="h-4 w-4" aria-hidden="true"><use href="{{ROOT}}assets/icons/lucide-sprite.svg#i-arrow-right"></use></svg></span>
+        </div>
+      </a>
+    </div>
+  </div>
+</header>

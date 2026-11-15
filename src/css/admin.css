@@ -1,0 +1,120 @@
+/* ==========================================================================
+   VYROX admin console
+   ========================================================================== */
+
+@layer components {
+  .admin-shell {
+    @apply flex min-h-screen bg-panel;
+  }
+
+  .admin-sidebar {
+    @apply fixed inset-y-0 left-0 z-50 flex w-[260px] -translate-x-full flex-col bg-ink text-white transition-transform duration-300 lg:sticky lg:top-0 lg:h-screen lg:translate-x-0;
+    transition-timing-function: cubic-bezier(0.22, 1, 0.36, 1);
+  }
+  .admin-sidebar.is-open {
+    @apply translate-x-0;
+  }
+  .admin-sidebar.is-collapsed {
+    @apply lg:w-[76px];
+  }
+  .admin-sidebar.is-collapsed .admin-label,
+  .admin-sidebar.is-collapsed .admin-group-title,
+  .admin-sidebar.is-collapsed .admin-brand-text {
+    @apply lg:hidden;
+  }
+
+  .admin-nav-link {
+    @apply relative flex items-center gap-3 px-4 py-2.5 text-[12px] font-medium text-white/60 transition hover:bg-white/5 hover:text-white;
+  }
+  .admin-nav-link svg {
+    @apply h-[18px] w-[18px] shrink-0;
+  }
+  .admin-nav-link.is-active {
+    @apply bg-red/10 text-white;
+  }
+  .admin-nav-link.is-active::before {
+    content: '';
+    @apply absolute inset-y-0 left-0 w-[3px] bg-red;
+  }
+
+  .admin-group-title {
+    @apply px-4 pb-2 pt-6 text-[9px] font-bold uppercase tracking-brand text-white/30;
+  }
+
+  .admin-main {
+    @apply flex min-w-0 flex-1 flex-col;
+  }
+
+  .admin-topbar {
+    @apply sticky top-0 z-30 flex h-16 items-center gap-3 border-b border-line bg-surface/95 px-4 backdrop-blur sm:px-6;
+  }
+
+  .kpi-card {
+    @apply relative border border-line bg-surface p-5 transition hover:border-ink/20 dark:hover:border-white/20;
+  }
+  .kpi-value {
+    @apply font-display text-3xl leading-none tracking-tight text-body lg:text-4xl;
+  }
+
+  .chart-box {
+    @apply relative border border-line bg-surface p-4 sm:p-5;
+  }
+
+  .admin-table-wrap {
+    @apply overflow-x-auto border border-line bg-surface;
+  }
+
+  .admin-filter {
+    @apply flex h-9 flex-wrap items-center gap-2;
+  }
+
+  .admin-pagination {
+    @apply flex items-center gap-1 text-[11px];
+  }
+  .admin-pagination button {
+    @apply flex h-8 min-w-8 items-center justify-center border border-line px-2 transition hover:border-ink disabled:opacity-40;
+  }
+  .admin-pagination button.is-current {
+    @apply border-ink bg-ink text-white dark:border-white dark:bg-white dark:text-ink;
+  }
+
+  .modal-backdrop {
+    @apply fixed inset-0 z-[80] hidden items-center justify-center bg-ink/60 p-4 backdrop-blur-sm;
+  }
+  .modal-backdrop.is-open {
+    @apply flex;
+  }
+  .modal-panel {
+    @apply relative max-h-[90vh] w-full max-w-lg overflow-y-auto border border-line bg-surface shadow-panel;
+  }
+
+  .drawer-panel {
+    @apply fixed inset-y-0 right-0 z-[85] w-full max-w-md translate-x-full border-l border-line bg-surface transition-transform duration-300;
+    transition-timing-function: cubic-bezier(0.22, 1, 0.36, 1);
+  }
+  .drawer-panel.is-open {
+    @apply translate-x-0;
+  }
+
+  .stat-spark {
+    @apply h-8 w-full;
+  }
+
+  .admin-empty {
+    @apply flex flex-col items-center justify-center gap-3 px-6 py-16 text-center text-sm text-subtle;
+  }
+
+  .admin-scrim {
+    @apply fixed inset-0 z-40 bg-ink/60 backdrop-blur-sm;
+  }
+
+  .admin-search {
+    @apply relative;
+  }
+  .admin-search svg {
+    @apply pointer-events-none absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-subtle;
+  }
+  .admin-search input {
+    @apply h-9 w-full min-w-[180px] border border-line bg-surface pl-9 pr-3 text-xs focus:border-red focus:outline-none;
+  }
+}

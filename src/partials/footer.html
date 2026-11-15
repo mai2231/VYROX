@@ -1,0 +1,83 @@
+<footer class="mt-auto border-t border-line bg-surface">
+  <div class="border-b border-line bg-ink text-white">
+    <div class="container-vyrox grid gap-8 py-12 lg:grid-cols-[1.1fr_1fr] lg:items-center lg:py-14">
+      <div>
+        <p class="eyebrow !text-red-bright">Join the list</p>
+        <h2 class="mt-3 font-display text-3xl leading-none sm:text-4xl">EARLY ACCESS.<br>NO NOISE.</h2>
+        <p class="mt-3 max-w-md text-sm text-white/60">Drops, restocks and members-only pricing. One email a week. Unsubscribe whenever.</p>
+      </div>
+      <form data-validate data-newsletter class="flex flex-col gap-3 sm:flex-row" novalidate>
+        <div class="flex-1">
+          <label for="footer-email" class="sr-only">Email address</label>
+          <input id="footer-email" name="email" type="email" data-rules="required|email" class="h-12 w-full border border-white/20 bg-white/5 px-4 text-sm text-white placeholder:text-white/40 focus:border-red focus:outline-none" placeholder="you@email.com" autocomplete="email">
+          <p class="mt-1 hidden text-[11px] text-red-bright" data-error-for="footer-email"></p>
+        </div>
+        <button type="submit" class="btn btn-primary h-12 shrink-0">Subscribe
+          <svg class="h-4 w-4" aria-hidden="true"><use href="{{ROOT}}assets/icons/lucide-sprite.svg#i-arrow-right"></use></svg>
+        </button>
+      </form>
+    </div>
+  </div>
+
+  <div class="container-vyrox grid gap-10 py-14 sm:grid-cols-2 lg:grid-cols-[1.4fr_repeat(3,1fr)]">
+    <div>
+      <a href="{{ROOT}}index.html" class="inline-flex items-center gap-2" aria-label="VYROX home">
+        <svg viewBox="0 0 44 44" class="h-9 w-9" aria-hidden="true"><path d="M2 4h10l10 26L32 4h10L28 40H16L2 4Z" fill="#E31B32"/><rect x="33" y="4" width="7" height="7" fill="currentColor"/></svg>
+        <span class="font-display text-3xl leading-none tracking-tight">VYROX</span>
+      </a>
+      <p class="mt-4 max-w-xs text-sm leading-relaxed text-subtle">General commerce for people who move differently. Curated in Manila, shipped nationwide.</p>
+      <p class="mt-5 font-display text-lg tracking-brand text-red">YOUR WORLD. YOUR RULES.</p>
+      <div class="mt-5 flex gap-2">
+        <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" class="flex h-9 w-9 items-center justify-center border border-line transition hover:border-red hover:text-red" aria-label="VYROX on Instagram"><svg class="h-4 w-4" aria-hidden="true"><use href="{{ROOT}}assets/icons/lucide-sprite.svg#i-instagram"></use></svg></a>
+        <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" class="flex h-9 w-9 items-center justify-center border border-line transition hover:border-red hover:text-red" aria-label="VYROX on Facebook"><svg class="h-4 w-4" aria-hidden="true"><use href="{{ROOT}}assets/icons/lucide-sprite.svg#i-facebook"></use></svg></a>
+        <a href="https://youtube.com" target="_blank" rel="noopener noreferrer" class="flex h-9 w-9 items-center justify-center border border-line transition hover:border-red hover:text-red" aria-label="VYROX on YouTube"><svg class="h-4 w-4" aria-hidden="true"><use href="{{ROOT}}assets/icons/lucide-sprite.svg#i-youtube"></use></svg></a>
+      </div>
+    </div>
+
+    <nav aria-label="Shop links">
+      <h3 class="mb-4 text-[10px] font-bold uppercase tracking-brand text-subtle">Shop</h3>
+      <ul class="space-y-2.5 text-sm">
+        <li><a href="{{ROOT}}shop.html" class="link-underline">All products</a></li>
+        <li><a href="{{ROOT}}shop.html?sort=newest" class="link-underline">New arrivals</a></li>
+        <li><a href="{{ROOT}}shop.html?sort=popular" class="link-underline">Best sellers</a></li>
+        <li><a href="{{ROOT}}categories.html" class="link-underline">Categories</a></li>
+        <li><a href="{{ROOT}}shop.html?sale=1" class="link-underline text-red">Sale</a></li>
+      </ul>
+    </nav>
+
+    <nav aria-label="Account links">
+      <h3 class="mb-4 text-[10px] font-bold uppercase tracking-brand text-subtle">Account</h3>
+      <ul class="space-y-2.5 text-sm">
+        <li><a href="{{ROOT}}login.html" class="link-underline">Sign in</a></li>
+        <li><a href="{{ROOT}}register.html" class="link-underline">Create account</a></li>
+        <li><a href="{{ROOT}}orders.html" class="link-underline">Orders</a></li>
+        <li><a href="{{ROOT}}wishlist.html" class="link-underline">Wishlist</a></li>
+        <li><a href="{{ROOT}}tracking.html" class="link-underline">Track an order</a></li>
+      </ul>
+    </nav>
+
+    <nav aria-label="Company links">
+      <h3 class="mb-4 text-[10px] font-bold uppercase tracking-brand text-subtle">Company</h3>
+      <ul class="space-y-2.5 text-sm">
+        <li><a href="{{ROOT}}about.html" class="link-underline">About VYROX</a></li>
+        <li><a href="{{ROOT}}contact.html" class="link-underline">Contact</a></li>
+        <li><a href="{{ROOT}}faq.html" class="link-underline">FAQ</a></li>
+        <li><a href="{{ROOT}}privacy-policy.html" class="link-underline">Privacy policy</a></li>
+        <li><a href="{{ROOT}}terms.html" class="link-underline">Terms</a></li>
+      </ul>
+    </nav>
+  </div>
+
+  <div class="border-t border-line">
+    <div class="container-vyrox flex flex-col gap-4 py-6 text-[11px] text-subtle sm:flex-row sm:items-center sm:justify-between">
+      <p>© <span data-year>{{YEAR}}</span> VYROX Commerce. Demonstration storefront — Phase 1 frontend.</p>
+      <div class="flex flex-wrap items-center gap-2">
+        <span class="text-[9px] font-bold uppercase tracking-wide2 text-subtle">We accept</span>
+        <span class="border border-line px-2 py-1 text-[9px] font-bold uppercase tracking-wide2">GCash</span>
+        <span class="border border-line px-2 py-1 text-[9px] font-bold uppercase tracking-wide2">Maya</span>
+        <span class="border border-line px-2 py-1 text-[9px] font-bold uppercase tracking-wide2">COD</span>
+        <span class="border border-line px-2 py-1 text-[9px] font-bold uppercase tracking-wide2">Bank</span>
+      </div>
+    </div>
+  </div>
+</footer>
