@@ -72,7 +72,9 @@ for (const file of pages) {
   const title = meta.title || 'VYROX';
   const desc = meta.desc || 'VYROX — Your World. Your Rules. Premium general commerce, built for the bold.';
 
-  const tokens = { PAGE: page, TITLE: title, DESC: desc, ROOT: rootPath, BODY: applyTokens(body, { PAGE: page, ROOT: rootPath, YEAR: String(new Date().getFullYear()) }), YEAR: String(new Date().getFullYear()) };
+  const year = String(new Date().getFullYear());
+  const bodyHtml = applyTokens(body, { PAGE: page, ROOT: rootPath, YEAR: year });
+  const tokens = { PAGE: page, TITLE: title, DESC: desc, ROOT: rootPath, BODY: bodyHtml, YEAR: year };
 
   let html;
   if (isAdmin) {
@@ -83,7 +85,7 @@ for (const file of pages) {
     html = applyTokens(partials.head, tokens)
       + applyTokens(partials.header, tokens)
       + applyTokens(partials.overlays, tokens)
-      + `<main id="main">\n${body}\n</main>\n`
+      + `<main id="main">\n${bodyHtml}\n</main>\n`
       + applyTokens(partials.footer, tokens)
       + applyTokens(partials.scripts, tokens);
   }

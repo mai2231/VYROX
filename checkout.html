@@ -325,7 +325,7 @@
 
 <section class="border-b border-line bg-soft">
   <div class="container-vyrox py-8">
-    <nav class="breadcrumb" aria-label="Breadcrumb"><a href="{{ROOT}}index.html">Home</a><span>/</span><a href="{{ROOT}}cart.html">Bag</a><span>/</span><span class="text-body">Checkout</span></nav>
+    <nav class="breadcrumb" aria-label="Breadcrumb"><a href="./index.html">Home</a><span>/</span><a href="./cart.html">Bag</a><span>/</span><span class="text-body">Checkout</span></nav>
     <div class="mt-4 flex flex-wrap items-end justify-between gap-4">
       <div>
         <p class="eyebrow">Secure demo checkout</p>
@@ -356,7 +356,7 @@
     <div data-checkout-empty class="hidden border border-line bg-surface px-6 py-16 text-center">
       <p class="font-display text-3xl uppercase">Your bag is empty.</p>
       <p class="mx-auto mt-2 max-w-md text-sm text-subtle">Add a piece before checking out. Demo orders need at least one line item.</p>
-      <a href="{{ROOT}}shop.html" class="btn btn-primary mt-6">Shop the edit</a>
+      <a href="./shop.html" class="btn btn-primary mt-6">Shop the edit</a>
     </div>
 
     <form class="grid gap-8 lg:grid-cols-[1fr_380px]" data-checkout novalidate data-checkout-content>
@@ -367,7 +367,7 @@
             <h2 class="font-display text-2xl uppercase">Contact &amp; shipping</h2>
             <span class="text-[9px] font-bold uppercase tracking-brand text-subtle">Step 01</span>
           </div>
-          <p class="mt-4 text-xs text-subtle">All fields marked required. Demo autofill: <a href="{{ROOT}}checkout.html?demo=1" class="font-semibold text-red underline">use sample account</a>.</p>
+          <p class="mt-4 text-xs text-subtle">All fields marked required. Demo autofill: <a href="./checkout.html?demo=1" class="font-semibold text-red underline">use sample account</a>.</p>
 
           <div class="mt-5 grid gap-4 sm:grid-cols-2">
             <div><label for="co-first" class="label">First name *</label><input id="co-first" name="firstName" type="text" class="input" autocomplete="given-name" data-rules="required"><p class="field-error" data-error-for="co-first" hidden></p></div>
@@ -383,7 +383,7 @@
           </div>
 
           <div class="mt-6 flex justify-end">
-            <button type="button" class="btn btn-primary" data-next-step="2">Continue to delivery <svg class="h-4 w-4" aria-hidden="true"><use href="{{ROOT}}assets/icons/lucide-sprite.svg#i-arrow-right"></use></svg></button>
+            <button type="button" class="btn btn-primary" data-next-step="2">Continue to delivery <svg class="h-4 w-4" aria-hidden="true"><use href="./assets/icons/lucide-sprite.svg#i-arrow-right"></use></svg></button>
           </div>
         </section>
 
@@ -412,19 +412,19 @@
             <legend class="label">Payment method</legend>
             <div class="grid gap-2 sm:grid-cols-2">
               <button type="button" class="border border-red bg-red/5 p-4 text-left" data-payment-option="gcash" aria-checked="true" role="radio">
-                <span class="flex items-center gap-2 text-xs font-bold uppercase tracking-wide2"><svg class="h-4 w-4" aria-hidden="true"><use href="{{ROOT}}assets/icons/lucide-sprite.svg#i-smartphone"></use></svg> GCash</span>
+                <span class="flex items-center gap-2 text-xs font-bold uppercase tracking-wide2"><svg class="h-4 w-4" aria-hidden="true"><use href="./assets/icons/lucide-sprite.svg#i-smartphone"></use></svg> GCash</span>
                 <span class="mt-1 block text-[11px] text-subtle">Scan the demo QR, then enter a reference.</span>
               </button>
               <button type="button" class="border border-line p-4 text-left" data-payment-option="maya" aria-checked="false" role="radio">
-                <span class="flex items-center gap-2 text-xs font-bold uppercase tracking-wide2"><svg class="h-4 w-4" aria-hidden="true"><use href="{{ROOT}}assets/icons/lucide-sprite.svg#i-wallet"></use></svg> Maya</span>
+                <span class="flex items-center gap-2 text-xs font-bold uppercase tracking-wide2"><svg class="h-4 w-4" aria-hidden="true"><use href="./assets/icons/lucide-sprite.svg#i-wallet"></use></svg> Maya</span>
                 <span class="mt-1 block text-[11px] text-subtle">Same flow — verification is manual in Phase 1.</span>
               </button>
               <button type="button" class="border border-line p-4 text-left" data-payment-option="cod" aria-checked="false" role="radio">
-                <span class="flex items-center gap-2 text-xs font-bold uppercase tracking-wide2"><svg class="h-4 w-4" aria-hidden="true"><use href="{{ROOT}}assets/icons/lucide-sprite.svg#i-banknote"></use></svg> Cash on delivery</span>
+                <span class="flex items-center gap-2 text-xs font-bold uppercase tracking-wide2"><svg class="h-4 w-4" aria-hidden="true"><use href="./assets/icons/lucide-sprite.svg#i-banknote"></use></svg> Cash on delivery</span>
                 <span class="mt-1 block text-[11px] text-subtle">Pay the courier. Marked unpaid until handover.</span>
               </button>
               <button type="button" class="border border-line p-4 text-left" data-payment-option="bank" aria-checked="false" role="radio">
-                <span class="flex items-center gap-2 text-xs font-bold uppercase tracking-wide2"><svg class="h-4 w-4" aria-hidden="true"><use href="{{ROOT}}assets/icons/lucide-sprite.svg#i-landmark"></use></svg> Bank transfer</span>
+                <span class="flex items-center gap-2 text-xs font-bold uppercase tracking-wide2"><svg class="h-4 w-4" aria-hidden="true"><use href="./assets/icons/lucide-sprite.svg#i-landmark"></use></svg> Bank transfer</span>
                 <span class="mt-1 block text-[11px] text-subtle">Use the demo account details and upload a reference.</span>
               </button>
             </div>
@@ -465,7 +465,7 @@
             <div>
               <label for="co-proof" class="label">Proof of payment</label>
               <label for="co-proof" class="flex cursor-pointer items-center gap-3 border border-dashed border-line bg-panel px-3 py-2.5 text-[11px] text-subtle transition hover:border-red">
-                <svg class="h-4 w-4 shrink-0" aria-hidden="true"><use href="{{ROOT}}assets/icons/lucide-sprite.svg#i-upload"></use></svg>
+                <svg class="h-4 w-4 shrink-0" aria-hidden="true"><use href="./assets/icons/lucide-sprite.svg#i-upload"></use></svg>
                 <span data-proof-label>PNG or JPG, up to 5MB</span>
               </label>
               <input id="co-proof" type="file" accept="image/png,image/jpeg" class="sr-only" data-proof-upload>
@@ -473,8 +473,8 @@
           </div>
 
           <div class="mt-6 flex flex-wrap justify-between gap-3">
-            <button type="button" class="btn btn-ghost" data-prev-step="1"><svg class="h-4 w-4" aria-hidden="true"><use href="{{ROOT}}assets/icons/lucide-sprite.svg#i-arrow-left"></use></svg> Back</button>
-            <button type="button" class="btn btn-primary" data-next-step="3">Review order <svg class="h-4 w-4" aria-hidden="true"><use href="{{ROOT}}assets/icons/lucide-sprite.svg#i-arrow-right"></use></svg></button>
+            <button type="button" class="btn btn-ghost" data-prev-step="1"><svg class="h-4 w-4" aria-hidden="true"><use href="./assets/icons/lucide-sprite.svg#i-arrow-left"></use></svg> Back</button>
+            <button type="button" class="btn btn-primary" data-next-step="3">Review order <svg class="h-4 w-4" aria-hidden="true"><use href="./assets/icons/lucide-sprite.svg#i-arrow-right"></use></svg></button>
           </div>
         </section>
 
@@ -495,7 +495,7 @@
           </div>
 
           <div class="mt-6 flex flex-wrap justify-between gap-3">
-            <button type="button" class="btn btn-ghost" data-prev-step="2"><svg class="h-4 w-4" aria-hidden="true"><use href="{{ROOT}}assets/icons/lucide-sprite.svg#i-arrow-left"></use></svg> Back</button>
+            <button type="button" class="btn btn-ghost" data-prev-step="2"><svg class="h-4 w-4" aria-hidden="true"><use href="./assets/icons/lucide-sprite.svg#i-arrow-left"></use></svg> Back</button>
             <button type="button" class="btn btn-primary" data-place-order>Place order · Awaiting payment verification</button>
           </div>
           <p class="mt-3 text-right text-[10px] text-subtle">By placing this demo order you create a sample record in <code>localStorage</code>.</p>
@@ -520,19 +520,19 @@
           </div>
 
           <p class="mt-3 hidden items-center gap-2 text-[10px] font-semibold uppercase tracking-wide2 text-emerald-600 dark:text-emerald-400" data-checkout-coupon>
-            <svg class="h-3.5 w-3.5" aria-hidden="true"><use href="{{ROOT}}assets/icons/lucide-sprite.svg#i-tag"></use></svg> Coupon <span data-checkout-coupon-code></span> applied
+            <svg class="h-3.5 w-3.5" aria-hidden="true"><use href="./assets/icons/lucide-sprite.svg#i-tag"></use></svg> Coupon <span data-checkout-coupon-code></span> applied
           </p>
           <p class="mt-3 text-[10px] leading-relaxed text-subtle">VAT inclusive. Totals come from the same pricing module as the bag, admin orders and tracking.</p>
         </div>
 
         <div class="border border-line bg-panel p-4">
           <div class="flex items-center gap-2 text-[10px] font-bold uppercase tracking-wide2 text-subtle">
-            <svg class="h-4 w-4 text-red" aria-hidden="true"><use href="{{ROOT}}assets/icons/lucide-sprite.svg#i-shield-check"></use></svg> Phase 1 payment policy
+            <svg class="h-4 w-4 text-red" aria-hidden="true"><use href="./assets/icons/lucide-sprite.svg#i-shield-check"></use></svg> Phase 1 payment policy
           </div>
           <p class="mt-2 text-[11px] leading-relaxed text-subtle">No card numbers, e-wallet credentials or proof files are stored. Orders remain <strong class="text-body">Awaiting verification</strong> until an admin approves them in the demo queue.</p>
         </div>
 
-        <a href="{{ROOT}}cart.html" class="inline-flex items-center gap-2 text-[10px] font-bold uppercase tracking-wide2 text-subtle hover:text-red"><svg class="h-3.5 w-3.5" aria-hidden="true"><use href="{{ROOT}}assets/icons/lucide-sprite.svg#i-arrow-left"></use></svg> Back to bag</a>
+        <a href="./cart.html" class="inline-flex items-center gap-2 text-[10px] font-bold uppercase tracking-wide2 text-subtle hover:text-red"><svg class="h-3.5 w-3.5" aria-hidden="true"><use href="./assets/icons/lucide-sprite.svg#i-arrow-left"></use></svg> Back to bag</a>
       </aside>
     </form>
   </div>
