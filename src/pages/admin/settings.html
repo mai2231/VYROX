@@ -1,0 +1,79 @@
+<!-- @title: Settings — VYROX Admin @desc: Sample store settings: shipping, payments, maintenance and demo reset. @page: settings -->
+
+<div class="flex flex-wrap items-end justify-between gap-4">
+  <div>
+    <p class="text-[9px] font-bold uppercase tracking-brand text-subtle">System / Settings</p>
+    <h1 class="mt-1 font-display text-3xl uppercase leading-none sm:text-4xl">Settings</h1>
+    <p class="mt-2 text-xs text-subtle">Store configuration for the demo console.</p>
+  </div>
+</div>
+
+<div class="mt-5 grid gap-4 lg:grid-cols-[1fr_1fr]">
+  <form class="space-y-5 border border-line bg-surface p-5 lg:p-6" data-admin-settings-form novalidate>
+    <div class="flex items-center justify-between gap-3 border-b border-line pb-4">
+      <h2 class="font-display text-xl uppercase">Store</h2>
+      <p class="text-[10px] font-bold uppercase tracking-brand text-red">Live edit</p>
+    </div>
+    <div class="space-y-3">
+      <div><label for="s-store-name" class="label">Store name</label><input id="s-store-name" name="storeName" type="text" class="input" placeholder="VYROX" required></div>
+      <div><label for="s-support-email" class="label">Support email</label><input id="s-support-email" name="supportEmail" type="email" class="input" placeholder="care@vyrox.ph" required></div>
+      <div class="grid gap-2 sm:grid-cols-2">
+        <div><label for="s-shipping-fee" class="label">Standard shipping (₱)</label><input id="s-shipping-fee" name="shippingFee" type="number" min="0" step="1" class="input" placeholder="99"></div>
+        <div><label for="s-provincial-fee" class="label">Provincial shipping (₱)</label><input id="s-provincial-fee" name="provincialFee" type="number" min="0" step="1" class="input" placeholder="149"></div>
+      </div>
+      <div><label for="s-free-shipping" class="label">Free shipping threshold (₱)</label><input id="s-free-shipping" name="freeShipping" type="number" min="0" step="1" class="input" placeholder="2500"></div>
+    </div>
+    <div class="border-t border-line pt-4 mt-4">
+      <p class="text-[9px] font-bold uppercase tracking-brand text-subtle">Payment methods</p>
+      <div class="mt-3 space-y-2 text-xs">
+        <label class="flex cursor-pointer items-center gap-2"><input type="checkbox" name="codEnabled" class="checkbox"><span>Cash on delivery</span></label>
+        <label class="flex cursor-pointer items-center gap-2"><input type="checkbox" name="gcashEnabled" class="checkbox"><span>GCash</span></label>
+        <label class="flex cursor-pointer items-center gap-2"><input type="checkbox" name="mayaEnabled" class="checkbox"><span>Maya</span></label>
+        <label class="flex cursor-pointer items-center gap-2"><input type="checkbox" name="bankEnabled" class="checkbox"><span>Bank transfer</span></label>
+      </div>
+    </div>
+    <div class="border-t border-line pt-4 mt-4">
+      <label class="flex cursor-pointer items-center gap-2"><input type="checkbox" name="maintenance" class="checkbox"><span>Maintenance mode (blocks storefront actions in demo)</span></label>
+    </div>
+    <button type="submit" class="btn btn-dark mt-3">Save settings</button>
+  </form>
+
+  <div class="space-y-4">
+    <div class="border border-line bg-surface p-5">
+      <p class="text-[9px] font-bold uppercase tracking-brand text-subtle">Demo data reset</p>
+      <p class="mt-1 text-xs text-subtle">Clears cart, wishlist, orders, addresses, stock, coupons and settings stored in this browser.</p>
+      <button type="button" class="btn btn-dark btn-sm mt-3" data-admin-reset>Reset all demo data</button>
+    </div>
+
+    <div class="border border-line bg-panel p-5">
+      <p class="text-[9px] font-bold uppercase tracking-brand text-subtle">Tabs</p>
+      <p class="mt-2 text-[11px] leading-relaxed text-subtle">Use the tabs above (shared admin shell) to switch between Store, Payments, Shipping, Appearance and Security. They edit this demo state together.</p>
+    </div>
+  </div>
+</div>
+
+<div class="mt-5 grid gap-4 lg:grid-cols-[1fr_1fr]">
+  <div class="border border-line bg-panel p-5">
+    <p class="text-[10px] font-bold uppercase tracking-wide2 text-subtle">Available tabs</p>
+    <ul class="mt-2 space-y-2 text-[11px]">
+      <li class="flex gap-3"><span class="flex h-6 w-6 shrink-0 items-center justify-center border border-line rounded px-1 text-[10px] font-bold">1</span><span>Store</span></li>
+      <li class="flex gap-3"><span class="flex h-6 w-6 shrink-0 items-center justify-center border border-line rounded px-1 text-[10px] font-bold">2</span><span>Payments</span></li>
+      <li class="flex gap-3"><span class="flex h-6 w-6 shrink-0 items-center justify-center border border-line rounded px-1 text-[10px] font-bold">3</span><span>Shipping</span></li>
+      <li class="flex gap-3"><span class="flex h-6 w-6 shrink-0 items-center justify-center border border-line rounded px-1 text-[10px] font-bold">4</span><span>Appearance</span></li>
+      <li class="flex gap-3"><span class="flex h-6 w-6 shrink-0 items-center justify-center border border-line rounded px-1 text-[10px] font-bold">5</span><span>Security</span></li>
+    </ul>
+  </div>
+
+  <div class="border border-line bg-panel p-5">
+    <p class="text-[10px] font-bold uppercase tracking-wide2 text-subtle">Phase 1 limits</p>
+    <p class="mt-2 text-[11px] leading-relaxed text-subtle">No server writes, no password policy, no role enforcement. Settings persist under `vyrox_admin_v1` only.</p>
+  </div>
+</div>
+
+<div class="admin-tab-panels" style="display:none">
+  <div data-admin-panel="store"></div>
+  <div data-admin-panel="payments" class="hidden"></div>
+  <div data-admin-panel="shipping" class="hidden"></div>
+  <div data-admin-panel="appearance" class="hidden"></div>
+  <div data-admin-panel="security" class="hidden"></div>
+</div>

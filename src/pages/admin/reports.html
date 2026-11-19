@@ -1,0 +1,48 @@
+<!-- @title: Reports — VYROX Admin @desc: Sample reports by category and payment method with date range and CSV export. @page: reports -->
+
+<div class="flex flex-wrap items-end justify-between gap-4">
+  <div>
+    <p class="text-[9px] font-bold uppercase tracking-brand text-subtle">Commerce / Reports</p>
+    <h1 class="mt-1 font-display text-3xl uppercase leading-none sm:text-4xl">Reports</h1>
+    <p class="mt-2 text-xs text-subtle">Sample reporting over demo orders.</p>
+  </div>
+  <div class="flex flex-wrap gap-2">
+    <button type="button" class="btn btn-outline btn-sm" data-admin-reports-export>Export CSV</button>
+    <button type="button" class="btn btn-dark btn-sm" data-admin-report-range="7" title="Last 7 days">7D</button>
+    <button type="button" class="btn btn-dark btn-sm" data-admin-report-range="30" title="Last 30 days">30D</button>
+    <button type="button" class="btn btn-dark btn-sm" data-admin-report-range="90" title="Last 90 days">90D</button>
+  </div>
+</div>
+
+<div class="mt-5 grid gap-3 sm:grid-cols-4">
+  <div class="kpi-card"><p class="text-[9px] font-bold uppercase tracking-brand text-subtle">Revenue (range)</p><p class="kpi-value mt-2" data-admin-report-revenue>₱0</p><p class="mt-1 text-[10px] text-subtle">Paid sample orders</p></div>
+  <div class="kpi-card"><p class="text-[9px] font-bold uppercase tracking-brand text-subtle">Orders</p><p class="kpi-value mt-2" data-admin-report-orders>0</p><p class="mt-1 text-[10px] text-subtle">In the window</p></div>
+  <div class="kpi-card"><p class="text-[9px] font-bold uppercase tracking-brand text-subtle">Average order</p><p class="kpi-value mt-2" data-admin-report-aov>₱0</p><p class="mt-1 text-[10px] text-subtle">Revenue ÷ paid orders</p></div>
+  <div class="kpi-card"><p class="text-[9px] font-bold uppercase tracking-brand text-subtle">Units</p><p class="kpi-value mt-2" data-admin-report-units>0</p><p class="mt-1 text-[10px] text-subtle">Line quantities</p></div>
+</div>
+
+<div class="mt-4 flex flex-wrap items-end justify-between gap-3 border border-line bg-surface p-3">
+  <div class="flex flex-wrap items-center gap-2">
+    <label class="text-[9px] font-bold uppercase tracking-wide2 text-subtle">From</label><input type="date" class="input input-sm" data-admin-report-from>
+    <label class="ml-3 text-[9px] font-bold uppercase tracking-wide2 text-subtle">To</label><input type="date" class="input input-sm" data-admin-report-to>
+    <button type="button" class="btn btn-dark btn-sm" data-admin-report-apply>Apply range</button>
+  </div>
+  <span class="text-[10px] text-subtle">Paid orders and demo products only.</span>
+</div>
+
+<div class="admin-table-wrap mt-3">
+  <table class="data-table min-w-[600px]">
+    <thead><tr><th>Category</th><th>Share</th><th class="text-right">Revenue</th></tr></thead>
+    <tbody data-admin-reports-body></tbody>
+  </table>
+</div>
+
+<div class="mt-4 border border-line bg-surface p-4">
+  <p class="text-[10px] font-bold uppercase tracking-wide2 text-subtle">Payment mix</p>
+  <ul class="mt-2" data-admin-report-payments></ul>
+</div>
+
+<div class="mt-4 border border-line bg-panel p-4">
+  <p class="text-[10px] font-bold uppercase tracking-wide2 text-subtle">Report demo behaviour</p>
+  <p class="mt-1 text-xs text-subtle">Recalculated locally from `vyrox_orders_v1` and demo orders. Export builds a CSV of the current window.</p>
+</div>

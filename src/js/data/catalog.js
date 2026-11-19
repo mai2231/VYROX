@@ -116,7 +116,7 @@ export const products = seed.map(([category, name, id, price, compareAt, rating,
 
 export const getProduct = (id) => products.find((p) => p.id === id) ?? products.find((p) => p.id === 'fashion-tee');
 
-export const queryProducts = ({ q = '', category = 'all', min = 0, max = 0, rating = 0, inStock = false, sort = 'featured', page = 1, perPage = 9 } = {}) => {
+export const queryProducts = ({ q = '', category = 'all', min = 0, max = 0, rating = 0, inStock = false, sale = false, sort = 'featured', page = 1, perPage = 9 } = {}) => {
   const term = q.trim().toLowerCase();
   let list = products.filter((p) => {
     if (category !== 'all' && p.category !== category) return false;
@@ -125,6 +125,7 @@ export const queryProducts = ({ q = '', category = 'all', min = 0, max = 0, rati
     if (max && p.price > max) return false;
     if (rating && p.rating < rating) return false;
     if (inStock && p.stock < 1) return false;
+    if (sale && !p.compareAt) return false;
     return true;
   });
 

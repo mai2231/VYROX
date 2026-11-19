@@ -1,0 +1,115 @@
+<!-- @title: Your Bag — VYROX @desc: Review your VYROX bag, apply a demo coupon and check delivery totals before checkout. @page: cart -->
+
+<section class="border-b border-line bg-soft">
+  <div class="container-vyrox py-8 sm:py-10">
+    <nav class="breadcrumb" aria-label="Breadcrumb"><a href="{{ROOT}}index.html">Home</a><span>/</span><span class="text-body">Bag</span></nav>
+    <div class="mt-5 flex flex-wrap items-end justify-between gap-4">
+      <div>
+        <p class="eyebrow">Step 01 / 03</p>
+        <h1 class="display-xl mt-2">YOUR BAG.</h1>
+      </div>
+      <span class="demo-chip">Demo cart · stored in this browser</span>
+    </div>
+  </div>
+</section>
+
+<section class="section-tight">
+  <div class="container-vyrox">
+    <div data-cart-page-empty class="hidden border border-line bg-surface px-6 py-16 text-center">
+      <span class="mx-auto flex h-16 w-16 items-center justify-center border border-line bg-panel text-subtle">
+        <svg class="h-7 w-7" aria-hidden="true"><use href="{{ROOT}}assets/icons/lucide-sprite.svg#i-shopping-bag"></use></svg>
+      </span>
+      <p class="mt-5 font-display text-3xl uppercase">Nothing in the bag.</p>
+      <p class="mx-auto mt-2 max-w-sm text-sm text-subtle">The good stuff is one click away. Start with the full edit or a category you already love.</p>
+      <div class="mt-6 flex flex-wrap justify-center gap-3">
+        <a href="{{ROOT}}shop.html" class="btn btn-primary">Shop the edit</a>
+        <a href="{{ROOT}}wishlist.html" class="btn btn-outline">Open wishlist</a>
+      </div>
+    </div>
+
+    <div class="grid gap-8 lg:grid-cols-[1fr_380px]" data-cart-page-body>
+      <div class="min-w-0">
+        <div class="table-scroll border border-line bg-surface">
+          <table class="data-table min-w-[560px]">
+            <thead>
+              <tr><th>Item</th><th class="hidden sm:table-cell">Price</th><th>Qty</th><th class="text-right">Total</th></tr>
+            </thead>
+            <tbody data-cart-page-lines></tbody>
+          </table>
+        </div>
+
+        <div class="mt-4 flex flex-wrap items-center justify-between gap-3">
+          <a href="{{ROOT}}shop.html" class="inline-flex items-center gap-2 text-[10px] font-bold uppercase tracking-wide2 text-subtle hover:text-red">
+            <svg class="h-4 w-4" aria-hidden="true"><use href="{{ROOT}}assets/icons/lucide-sprite.svg#i-arrow-left"></use></svg> Continue shopping
+          </a>
+          <button type="button" class="btn btn-ghost btn-sm text-subtle hover:text-red" data-cart-clear>
+            <svg class="h-3.5 w-3.5" aria-hidden="true"><use href="{{ROOT}}assets/icons/lucide-sprite.svg#i-trash-2"></use></svg> Clear bag
+          </button>
+        </div>
+
+        <div class="mt-6 border border-line bg-panel p-5" data-reveal>
+          <p class="font-display text-xl uppercase">Good to know</p>
+          <ul class="mt-3 grid gap-3 text-xs text-subtle sm:grid-cols-3">
+            <li class="flex gap-2"><svg class="h-4 w-4 shrink-0 text-red" aria-hidden="true"><use href="{{ROOT}}assets/icons/lucide-sprite.svg#i-truck"></use></svg> Free shipping over ₱2,500. Metro Manila ₱99, provincial ₱149.</li>
+            <li class="flex gap-2"><svg class="h-4 w-4 shrink-0 text-red" aria-hidden="true"><use href="{{ROOT}}assets/icons/lucide-sprite.svg#i-rotate-ccw"></use></svg> 30-day returns on unused pieces, original packaging.</li>
+            <li class="flex gap-2"><svg class="h-4 w-4 shrink-0 text-red" aria-hidden="true"><use href="{{ROOT}}assets/icons/lucide-sprite.svg#i-shield-check"></use></svg> Payment is never captured in this Phase 1 demo.</li>
+          </ul>
+        </div>
+      </div>
+
+      <aside class="space-y-4 lg:sticky lg:top-[112px] lg:h-fit">
+        <div class="border border-line bg-surface p-5">
+          <h2 class="font-display text-2xl uppercase">Summary</h2>
+
+          <form class="mt-4" data-coupon-form>
+            <label for="coupon-code" class="label">Coupon code</label>
+            <div class="flex gap-2">
+              <input id="coupon-code" type="text" class="input input-sm" placeholder="VYROX10" autocomplete="off" data-coupon-code>
+              <button type="submit" class="btn btn-dark btn-sm shrink-0">Apply</button>
+            </div>
+            <p class="mt-2 text-[10px] text-subtle" data-coupon-message role="status"></p>
+            <button type="button" class="mt-1 text-[10px] font-semibold uppercase tracking-wide2 text-subtle underline hover:text-red" data-coupon-clear>Remove coupon</button>
+            <p class="mt-2 text-[10px] leading-relaxed text-subtle">Try <strong class="text-body">VYROX10</strong>, <strong class="text-body">URBAN500</strong> or <strong class="text-body">FREESHIP</strong>. One code at a time.</p>
+          </form>
+
+          <div class="mt-5 border-t border-line pt-5" data-cart-summary></div>
+
+          <div class="mt-5">
+            <label for="cart-region" class="label">Delivery region</label>
+            <select id="cart-region" class="input input-sm" data-cart-region>
+              <option>Metro Manila</option>
+              <option>Cavite</option>
+              <option>Laguna</option>
+              <option>Batangas</option>
+              <option>Rizal</option>
+              <option>Bulacan</option>
+              <option>Pampanga</option>
+              <option>Cebu</option>
+              <option>Davao</option>
+              <option>Iloilo</option>
+              <option>Baguio</option>
+              <option>Other province</option>
+            </select>
+          </div>
+
+          <a href="{{ROOT}}checkout.html" class="btn btn-primary btn-block mt-5" data-cart-checkout>
+            Checkout <svg class="h-4 w-4" aria-hidden="true"><use href="{{ROOT}}assets/icons/lucide-sprite.svg#i-arrow-right"></use></svg>
+          </a>
+          <p class="mt-3 text-center text-[10px] text-subtle">VAT inclusive · shipping calculated by region</p>
+        </div>
+
+        <div class="border border-line bg-panel p-4">
+          <p class="text-[10px] font-bold uppercase tracking-wide2 text-subtle">Demo notice</p>
+          <p class="mt-1 text-[11px] leading-relaxed text-subtle">Totals are recalculated from the shared pricing module. Nothing is charged and no payment details are collected.</p>
+        </div>
+      </aside>
+    </div>
+  </div>
+</section>
+
+<section class="border-t border-line bg-ink py-10 text-white">
+  <div class="container-vyrox flex flex-col items-start justify-between gap-4 sm:flex-row sm:items-center">
+    <div><p class="text-[10px] font-bold uppercase tracking-brand text-white/50">Need a hand?</p><p class="mt-1 font-display text-2xl uppercase">SIZE, STOCK, OR SHIPPING — WE REPLY FAST.</p></div>
+    <a href="{{ROOT}}contact.html" class="btn btn-lg border-white/25 text-white hover:border-white hover:bg-white hover:text-ink">Talk to us</a>
+  </div>
+</section>

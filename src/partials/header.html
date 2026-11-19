@@ -3,12 +3,43 @@
 <!-- announcement -->
 <div class="bg-ink text-white">
   <div class="container-vyrox flex h-9 items-center justify-between gap-4 text-[10px] font-medium uppercase tracking-[0.16em]">
-    <p class="flex items-center gap-2 truncate">
-      <span class="hidden h-1.5 w-1.5 shrink-0 bg-red sm:block"></span>
-      Free shipping over ₱2,500
-      <span class="hidden text-white/40 sm:inline">·</span>
-      <span class="hidden text-white/70 sm:inline">Cash on delivery nationwide</span>
-    </p>
+    <div class="marquee-host overflow-hidden flex items-center gap-4 min-w-0">
+      <div class="marquee-track flex items-center gap-8 shrink-0">
+        <span class="flex items-center gap-2">
+          <span class="hidden h-1.5 w-1.5 shrink-0 bg-red sm:block"></span>
+          Free shipping over ₱2,500
+        </span>
+        <span class="hidden text-red sm:inline">◆</span>
+        <span class="flex items-center gap-2">
+          Cash on delivery nationwide
+        </span>
+        <span class="hidden text-red sm:inline">◆</span>
+        <span class="flex items-center gap-2">
+          GCash · Maya · Bank
+        </span>
+        <span class="hidden text-red sm:inline">◆</span>
+        <span class="flex items-center gap-2">
+          Curated in Manila
+        </span>
+        <!-- duplicated for a seamless infinite loop -->
+        <span class="flex items-center gap-2">
+          <span class="hidden h-1.5 w-1.5 shrink-0 bg-red sm:block"></span>
+          Free shipping over ₱2,500
+        </span>
+        <span class="hidden text-red sm:inline">◆</span>
+        <span class="flex items-center gap-2">
+          Cash on delivery nationwide
+        </span>
+        <span class="hidden text-red sm:inline">◆</span>
+        <span class="flex items-center gap-2">
+          GCash · Maya · Bank
+        </span>
+        <span class="hidden text-red sm:inline">◆</span>
+        <span class="flex items-center gap-2">
+          Curated in Manila
+        </span>
+      </div>
+    </div>
     <div class="hidden items-center gap-5 text-white/60 sm:flex">
       <a href="{{ROOT}}tracking.html" class="transition hover:text-white">Track order</a>
       <a href="{{ROOT}}faq.html" class="transition hover:text-white">Help</a>

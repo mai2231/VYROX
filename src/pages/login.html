@@ -1,0 +1,51 @@
+<!-- @title: Sign In — VYROX @desc: Demo sign-in for the VYROX Phase 1 storefront. No credentials are stored or transmitted. @page: login -->
+
+<section class="bg-ink text-white">
+  <div class="container-vyrox grid min-h-[calc(100svh-104px)] items-center gap-10 py-10 lg:grid-cols-[1.05fr_.95fr]">
+    <div class="relative hidden overflow-hidden lg:block">
+      <img src="https://images.unsplash.com/photo-1553062407-98eeb64c6a62?auto=format&fit=crop&w=1200&q=80" alt="VYROX commuter backpack editorial" class="h-[560px] w-full object-cover opacity-80" onerror="this.src='{{ROOT}}assets/images/fallback/accessories.svg'">
+      <div class="absolute inset-0 bg-gradient-to-t from-ink via-transparent"></div>
+      <div class="absolute inset-x-0 bottom-0 p-8">
+        <p class="text-[9px] font-bold uppercase tracking-brand text-white/50">Members get first access</p>
+        <p class="mt-2 font-display text-4xl uppercase leading-none">YOUR WORLD.<br>YOUR RULES.</p>
+        <p class="mt-3 max-w-sm text-sm text-white/60">Drops, restocks and the pieces that never make the front page.</p>
+      </div>
+    </div>
+
+    <div class="mx-auto w-full max-w-md">
+      <a href="{{ROOT}}index.html" class="inline-flex items-center gap-2 text-[10px] font-bold uppercase tracking-wide2 text-white/50 hover:text-white"><svg class="h-3.5 w-3.5" aria-hidden="true"><use href="{{ROOT}}assets/icons/lucide-sprite.svg#i-arrow-left"></use></svg> Back to store</a>
+      <p class="eyebrow mt-7 !text-red-bright">Account</p>
+      <h1 class="mt-2 font-display text-4xl uppercase leading-none sm:text-5xl">WELCOME<br>BACK.</h1>
+      <p class="mt-3 text-sm text-white/60">This is a demonstration sign-in. Any valid-format values work — nothing is stored.</p>
+
+      <div class="mt-5 flex items-start gap-2 border border-white/15 bg-white/5 p-3 text-[11px] leading-relaxed text-white/70">
+        <svg class="mt-0.5 h-4 w-4 shrink-0 text-red-bright" aria-hidden="true"><use href="{{ROOT}}assets/icons/lucide-sprite.svg#i-shield-check"></use></svg>
+        <span><strong class="text-white">No fake auth.</strong> No password is written to storage. Phase 1 simulates the session and opens the demo profile.</span>
+      </div>
+
+      <form class="mt-6 space-y-4" data-validate data-auth-form data-redirect="{{ROOT}}profile.html?demo=1">
+        <div>
+          <label for="login-email" class="label !text-white/70">Email</label>
+          <input id="login-email" name="email" type="email" class="input border-white/20 bg-white/5 text-white placeholder:text-white/30" placeholder="you@example.com" autocomplete="email" data-rules="required|email">
+          <p class="field-error" data-error-for="login-email" hidden></p>
+        </div>
+        <div>
+          <div class="flex items-center justify-between">
+            <label for="login-password" class="label !text-white/70">Password</label>
+            <a href="{{ROOT}}forgot-password.html" class="text-[10px] font-semibold text-white/50 hover:text-white">Forgot?</a>
+          </div>
+          <div class="relative">
+            <input id="login-password" name="password" type="password" class="input border-white/20 bg-white/5 pr-11 text-white placeholder:text-white/30" placeholder="At least 8 characters" autocomplete="current-password" data-rules="required|min:8">
+            <button type="button" class="absolute right-0 top-0 flex h-full w-11 items-center justify-center text-white/50 hover:text-white" data-password-toggle="login-password" aria-label="Show password" aria-pressed="false"><svg class="h-4 w-4" aria-hidden="true"><use href="{{ROOT}}assets/icons/lucide-sprite.svg#i-eye"></use></svg></button>
+          </div>
+          <p class="field-error" data-error-for="login-password" hidden></p>
+        </div>
+        <label class="flex cursor-pointer items-center gap-2.5 text-[11px] text-white/60"><input type="checkbox" class="checkbox border-white/30" name="remember"><span>Keep me signed in on this device</span></label>
+        <button type="submit" class="btn btn-primary btn-block btn-lg">Sign in <svg class="h-4 w-4" aria-hidden="true"><use href="{{ROOT}}assets/icons/lucide-sprite.svg#i-arrow-right"></use></svg></button>
+      </form>
+
+      <p class="mt-6 text-center text-xs text-white/50">New here? <a href="{{ROOT}}register.html" class="font-semibold text-white underline hover:text-red-bright">Create an account</a></p>
+      <p class="mt-3 text-center text-[10px] uppercase tracking-wide2 text-white/30">Demo credentials: any valid email · 8+ character password</p>
+    </div>
+  </div>
+</section>

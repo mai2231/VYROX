@@ -1,0 +1,62 @@
+<!-- @title: Orders — VYROX Admin @desc: Sample order management with status filters, detail drawer, invoice print and CSV export. @page: orders -->
+
+<div class="flex flex-wrap items-end justify-between gap-4">
+  <div>
+    <p class="text-[9px] font-bold uppercase tracking-brand text-subtle">Commerce / Fulfilment</p>
+    <h1 class="mt-1 font-display text-3xl uppercase leading-none sm:text-4xl">Orders</h1>
+    <p class="mt-2 text-xs text-subtle"><span data-admin-orders-total>0</span> sample orders · status changes persist locally.</p>
+  </div>
+  <div class="flex flex-wrap gap-2">
+    <button type="button" class="btn btn-outline btn-sm" data-admin-orders-export>Export CSV</button>
+    <a href="{{ROOT}}admin/payments.html" class="btn btn-dark btn-sm">Payment queue</a>
+  </div>
+</div>
+
+<div class="mt-5 grid gap-3 sm:grid-cols-3">
+  <div class="kpi-card"><p class="text-[9px] font-bold uppercase tracking-brand text-subtle">Orders</p><p class="kpi-value mt-2" data-admin-orders-total>0</p><p class="mt-1 text-[10px] text-subtle">Includes this browser’s demo orders</p></div>
+  <div class="kpi-card"><p class="text-[9px] font-bold uppercase tracking-brand text-subtle">Pending fulfilment</p><p class="kpi-value mt-2 text-red" data-admin-orders-pending>0</p><p class="mt-1 text-[10px] text-subtle">Status = pending</p></div>
+  <div class="kpi-card"><p class="text-[9px] font-bold uppercase tracking-brand text-subtle">Verified revenue</p><p class="kpi-value mt-2" data-admin-orders-revenue>₱0</p><p class="mt-1 text-[10px] text-subtle">Paid sample orders</p></div>
+</div>
+
+<div class="mt-4 flex flex-wrap items-center gap-2 border border-line bg-surface p-3">
+  <label for="admin-order-search" class="sr-only">Search orders</label>
+  <div class="relative min-w-[200px] flex-1">
+    <svg class="pointer-events-none absolute left-3 top-1/2 h-3.5 w-3.5 -translate-y-1/2 text-subtle" aria-hidden="true"><use href="{{ROOT}}assets/icons/lucide-sprite.svg#i-search"></use></svg>
+    <input id="admin-order-search" type="search" class="input input-sm pl-9" placeholder="Reference, customer or method" data-admin-order-search autocomplete="off">
+  </div>
+  <label for="admin-order-status" class="sr-only">Status</label>
+  <select id="admin-order-status" class="input input-sm w-auto" data-admin-order-status>
+    <option value="all">All statuses</option>
+    <option value="pending">Pending</option>
+    <option value="processing">Processing</option>
+    <option value="ready">Ready to ship</option>
+    <option value="shipped">Shipped</option>
+    <option value="delivered">Delivered</option>
+    <option value="cancelled">Cancelled</option>
+  </select>
+  <label for="admin-order-payment" class="sr-only">Payment</label>
+  <select id="admin-order-payment" class="input input-sm w-auto" data-admin-order-payment>
+    <option value="all">All payments</option>
+    <option value="paid">Paid</option>
+    <option value="pending">Pending</option>
+    <option value="unpaid">Unpaid</option>
+    <option value="refunded">Refunded</option>
+  </select>
+  <span class="ml-auto text-[10px] font-bold uppercase tracking-wide2 text-subtle"><span data-admin-orders-count>0</span> shown</span>
+</div>
+
+<div class="admin-table-wrap mt-3">
+  <table class="data-table min-w-[720px]">
+    <thead><tr><th>Order</th><th>Customer</th><th class="hidden md:table-cell">Items</th><th class="text-right">Total</th><th>Payment</th><th>Status</th><th class="text-right">View</th></tr></thead>
+    <tbody data-admin-orders-body></tbody>
+  </table>
+</div>
+
+<div class="mt-4 flex flex-wrap items-center justify-between gap-3">
+  <p class="text-[10px] text-subtle">Demo orders created at checkout appear first. Payment wording is never inflated.</p>
+  <nav class="admin-pagination" data-admin-order-pagination aria-label="Order pages"></nav>
+</div>
+
+<aside class="drawer-panel overflow-y-auto" data-admin-order-drawer aria-hidden="true" aria-label="Order detail">
+  <div class="p-5" data-admin-order-detail></div>
+</aside>

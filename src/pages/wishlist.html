@@ -1,0 +1,48 @@
+<!-- @title: Wishlist — VYROX @desc: Your saved VYROX pieces. Move them to the bag or remove them — saved only in this browser. @page: wishlist -->
+
+<section class="border-b border-line bg-soft">
+  <div class="container-vyrox py-8 sm:py-10">
+    <nav class="breadcrumb" aria-label="Breadcrumb"><a href="{{ROOT}}index.html">Home</a><span>/</span><span class="text-body">Wishlist</span></nav>
+    <div class="mt-5 flex flex-wrap items-end justify-between gap-4">
+      <div>
+        <p class="eyebrow">Saved for later</p>
+        <h1 class="display-xl mt-2">THE SHORTLIST.</h1>
+        <p class="mt-3 max-w-lg text-sm text-subtle">Everything you marked. Prices and stock are demo data; the bag checks stock again at add time.</p>
+      </div>
+      <p class="border border-line bg-surface px-4 py-2 text-[10px] font-bold uppercase tracking-wide2"><span data-wishlist-total>0</span> saved</p>
+    </div>
+  </div>
+</section>
+
+<section class="section-tight">
+  <div class="container-vyrox">
+    <div data-wishlist-empty class="hidden border border-line bg-surface px-6 py-16 text-center">
+      <span class="mx-auto flex h-16 w-16 items-center justify-center border border-line bg-panel text-subtle">
+        <svg class="h-7 w-7" aria-hidden="true"><use href="{{ROOT}}assets/icons/lucide-sprite.svg#i-heart"></use></svg>
+      </span>
+      <p class="mt-5 font-display text-3xl uppercase">Nothing saved. Yet.</p>
+      <p class="mx-auto mt-2 max-w-sm text-sm text-subtle">Tap the heart on any product card to keep it here while you decide.</p>
+      <a href="{{ROOT}}shop.html" class="btn btn-primary mt-6">Find something good</a>
+    </div>
+
+    <div class="grid grid-cols-2 gap-3 sm:gap-4 lg:grid-cols-4" data-wishlist-grid></div>
+
+    <div class="mt-10 flex flex-col items-start justify-between gap-4 border border-line bg-panel p-5 sm:flex-row sm:items-center">
+      <div>
+        <p class="font-display text-xl uppercase">Made a decision?</p>
+        <p class="mt-1 text-xs text-subtle">Your wishlist lives in this browser only — no account required.</p>
+      </div>
+      <div class="flex flex-wrap gap-2">
+        <a href="{{ROOT}}shop.html" class="btn btn-outline btn-sm">Keep browsing</a>
+        <a href="{{ROOT}}cart.html" class="btn btn-dark btn-sm">View bag</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="bg-red text-white">
+  <div class="container-vyrox flex flex-col items-start justify-between gap-5 py-10 sm:flex-row sm:items-center">
+    <div><p class="text-[10px] font-bold uppercase tracking-brand text-white/70">The VYROX standard</p><h2 class="mt-1 font-display text-3xl uppercase leading-none">SAVED NOW. GONE LATER.</h2></div>
+    <a href="{{ROOT}}shop.html?sort=newest" class="btn btn-light shrink-0">See new arrivals</a>
+  </div>
+</section>

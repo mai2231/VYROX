@@ -1,0 +1,48 @@
+<!-- @title: Reviews — VYROX Admin @desc: Sample review moderation: approve, hide, reply. @page: reviews -->
+
+<div class="flex flex-wrap items-end justify-between gap-4">
+  <div>
+    <p class="text-[9px] font-bold uppercase tracking-brand text-subtle">Commerce / Reviews</p>
+    <h1 class="mt-1 font-display text-3xl uppercase leading-none sm:text-4xl">Reviews</h1>
+    <p class="mt-2 text-xs text-subtle">Sample product notes awaiting moderation.</p>
+  </div>
+</div>
+
+<div class="mt-5 grid gap-3 sm:grid-cols-4">
+  <div class="kpi-card"><p class="text-[9px] font-bold uppercase tracking-brand text-subtle">Total</p><p class="kpi-value mt-2">8</p><p class="mt-1 text-[10px] text-subtle">Sample notes</p></div>
+  <div class="kpi-card"><p class="text-[9px] font-bold uppercase tracking-brand text-subtle">Pending</p><p class="kpi-value mt-2" data-admin-reviews-pending>0</p><p class="mt-1 text-[10px] text-subtle">Awaiting approval</p></div>
+  <div class="kpi-card"><p class="text-[9px] font-bold uppercase tracking-brand text-subtle">Approved</p><p class="kpi-value mt-2" data-admin-reviews-approved>0</p><p class="mt-1 text-[10px] text-subtle">Visible on storefront</p></div>
+</div>
+
+<div class="mt-4 flex flex-wrap items-center gap-2 border border-line bg-surface p-3">
+  <div class="relative min-w-[200px] flex-1">
+    <svg class="pointer-events-none absolute left-3 top-1/2 h-3.5 w-3.5 -translate-y-1/2 text-subtle" aria-hidden="true"><use href="{{ROOT}}assets/icons/lucide-sprite.svg#i-search"></use></svg>
+    <input type="search" class="input input-sm pl-9" placeholder="Search name, title or product" data-admin-review-search autocomplete="off">
+  </div>
+  <select class="input input-sm w-auto" data-admin-review-filter>
+    <option value="all">All reviews</option>
+    <option value="pending">Pending</option>
+    <option value="approved">Approved</option>
+    <option value="hidden">Hidden</option>
+  </select>
+</div>
+
+<div class="mt-4 space-y-3" data-admin-reviews-list></div>
+
+<div class="modal-backdrop" data-admin-reply-modal role="dialog" aria-modal="true" aria-labelledby="admin-reply-title">
+  <div class="modal-panel max-w-lg">
+    <div class="flex items-start justify-between gap-3 border-b border-line p-5">
+      <div><p class="text-[9px] font-bold uppercase tracking-brand text-red">Moderation</p><h2 id="admin-reply-title" class="font-display text-xl uppercase leading-none">Reply to review</h2></div>
+      <button type="button" class="icon-btn -mr-2 -mt-2" data-admin-reply-close aria-label="Close reply"><svg class="h-5 w-5" aria-hidden="true"><use href="{{ROOT}}assets/icons/lucide-sprite.svg#i-x"></use></svg></button>
+    </div>
+    <form class="space-y-4 p-5" data-admin-reply-form novalidate>
+      <div><label class="label">Product</label><p class="mt-1 text-xs text-subtle" data-reply-product></p></div>
+      <div><label class="label">Reviewer</label><p class="mt-1 text-xs text-subtle" data-reply-reviewer></p></div>
+      <div><label class="label">Your reply</label><textarea name="reply" rows="4" class="input resize-y" required></textarea></div>
+      <div class="flex justify-end gap-2 border-t border-line pt-4">
+        <button type="button" class="btn btn-ghost btn-sm" data-admin-reply-close>Cancel</button>
+        <button type="submit" class="btn btn-dark btn-sm">Approve &amp; post</button>
+      </div>
+    </form>
+  </div>
+</div>

@@ -1,0 +1,61 @@
+<!-- @title: Addresses — VYROX @desc: Manage demo delivery addresses in this browser. No address is transmitted. @page: addresses -->
+
+<section class="border-b border-line bg-soft">
+  <div class="container-vyrox py-8 sm:py-10">
+    <nav class="breadcrumb" aria-label="Breadcrumb"><a href="{{ROOT}}index.html">Home</a><span>/</span><a href="{{ROOT}}profile.html?demo=1">Account</a><span>/</span><span class="text-body">Addresses</span></nav>
+    <div class="mt-5 flex flex-wrap items-end justify-between gap-4">
+      <div>
+        <p class="eyebrow">Delivery book</p>
+        <h1 class="display-xl mt-2">WHERE IT<br>LANDS.</h1>
+        <p class="mt-3 max-w-lg text-sm text-subtle">Addresses are stored only in this browser under <code class="text-body">vyrox_addresses_v1</code>. Delete them any time.</p>
+      </div>
+      <div class="flex items-center gap-2">
+        <span class="border border-line bg-surface px-4 py-2 text-[10px] font-bold uppercase tracking-wide2"><span data-address-count>0</span> saved</span>
+        <button type="button" class="btn btn-primary btn-sm" data-address-new><svg class="h-3.5 w-3.5" aria-hidden="true"><use href="{{ROOT}}assets/icons/lucide-sprite.svg#i-plus"></use></svg> New address</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section-tight">
+  <div class="container-vyrox">
+    <div class="grid gap-4 sm:grid-cols-2 lg:grid-cols-3" data-address-list></div>
+
+    <div class="mt-4 hidden border border-line bg-panel px-6 py-10 text-center" data-address-empty>
+      <p class="font-display text-2xl uppercase">No addresses saved.</p>
+      <p class="mt-2 text-sm text-subtle">Add one to speed up the demo checkout.</p>
+    </div>
+
+    <form class="mt-6 hidden border border-line bg-surface p-5 sm:p-6" data-validate data-address-form>
+      <div class="flex items-center justify-between gap-3 border-b border-line pb-4">
+        <h2 class="font-display text-2xl uppercase" data-address-form-title>New address</h2>
+        <button type="button" class="icon-btn" data-address-cancel aria-label="Close address form"><svg class="h-5 w-5" aria-hidden="true"><use href="{{ROOT}}assets/icons/lucide-sprite.svg#i-x"></use></svg></button>
+      </div>
+
+      <div class="mt-5 grid gap-4 sm:grid-cols-2">
+        <div><label for="addr-label" class="label">Label</label><input id="addr-label" name="label" type="text" class="input" placeholder="Home, Studio, Parents" data-rules="required"><p class="field-error" data-error-for="addr-label" hidden></p></div>
+        <div><label for="addr-name" class="label">Full name</label><input id="addr-name" name="fullName" type="text" class="input" autocomplete="name" data-rules="required"><p class="field-error" data-error-for="addr-name" hidden></p></div>
+        <div><label for="addr-phone" class="label">Mobile</label><input id="addr-phone" name="phone" type="tel" class="input" autocomplete="tel" data-rules="required|phone"><p class="field-error" data-error-for="addr-phone" hidden></p></div>
+        <div><label for="addr-city" class="label">City</label><input id="addr-city" name="city" type="text" class="input" autocomplete="address-level2" data-rules="required"><p class="field-error" data-error-for="addr-city" hidden></p></div>
+        <div class="sm:col-span-2"><label for="addr-line1" class="label">Address line 1</label><input id="addr-line1" name="line1" type="text" class="input" autocomplete="address-line1" data-rules="required"><p class="field-error" data-error-for="addr-line1" hidden></p></div>
+        <div class="sm:col-span-2"><label for="addr-line2" class="label">Address line 2</label><input id="addr-line2" name="line2" type="text" class="input" autocomplete="address-line2" placeholder="Unit, floor, landmark"></div>
+        <div><label for="addr-region" class="label">Region</label><select id="addr-region" name="region" class="input" data-region-select></select></div>
+        <div><label for="addr-postal" class="label">Postal code</label><input id="addr-postal" name="postal" type="text" inputmode="numeric" class="input" autocomplete="postal-code" data-rules="required|postal"><p class="field-error" data-error-for="addr-postal" hidden></p></div>
+      </div>
+
+      <div class="mt-5 flex flex-wrap items-center justify-between gap-3 border-t border-line pt-4">
+        <label class="flex cursor-pointer items-center gap-2.5 text-[11px] text-subtle"><input type="checkbox" name="isDefault" class="checkbox"> <span>Make this the default delivery address</span></label>
+        <div class="flex gap-2">
+          <button type="button" class="btn btn-ghost btn-sm" data-address-cancel>Cancel</button>
+          <button type="submit" class="btn btn-dark btn-sm">Save address</button>
+        </div>
+      </div>
+      <p class="mt-3 text-[10px] text-subtle">Saved locally. No address is sent anywhere in Phase 1.</p>
+    </form>
+
+    <div class="mt-8 grid gap-4 border border-line bg-panel p-5 sm:grid-cols-2">
+      <div><p class="text-[10px] font-bold uppercase tracking-wide2 text-subtle">Default address</p><p class="mt-1 text-sm font-semibold">The red border marks where we ship by default.</p><p class="mt-1 text-xs text-subtle">Change it with “Make default” on any card.</p></div>
+      <div><p class="text-[10px] font-bold uppercase tracking-wide2 text-subtle">Demo reset</p><p class="mt-1 text-sm font-semibold">Clearing site data restores the two sample addresses.</p><p class="mt-1 text-xs text-subtle">Or reset everything from Admin → Settings.</p></div>
+    </div>
+  </div>
+</section>

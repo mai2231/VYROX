@@ -1,0 +1,48 @@
+<!-- @title: Payments — VYROX Admin @desc: Sample payment verification queue. Every action is manual and reversible. @page: payments -->
+
+<div class="flex flex-wrap items-end justify-between gap-4">
+  <div>
+    <p class="text-[9px] font-bold uppercase tracking-brand text-subtle">Commerce / Payments</p>
+    <h1 class="mt-1 font-display text-3xl uppercase leading-none sm:text-4xl">Payments</h1>
+    <p class="mt-2 text-xs text-subtle">Manual verification queue. Nothing is ever marked paid automatically.</p>
+  </div>
+  <button type="button" class="btn btn-outline btn-sm" data-admin-payments-export>Export queue</button>
+</div>
+
+<div class="mt-5 grid gap-3 sm:grid-cols-3">
+  <div class="kpi-card"><p class="text-[9px] font-bold uppercase tracking-brand text-subtle">Awaiting review</p><p class="kpi-value mt-2 text-red" data-admin-payments-count>0</p><p class="mt-1 text-[10px] text-subtle">Pending + unpaid sample orders</p></div>
+  <div class="kpi-card"><p class="text-[9px] font-bold uppercase tracking-brand text-subtle">Queue value</p><p class="kpi-value mt-2" data-admin-payments-value>₱0</p><p class="mt-1 text-[10px] text-subtle">Never captured in Phase 1</p></div>
+  <div class="kpi-card"><p class="text-[9px] font-bold uppercase tracking-brand text-subtle">Policy</p><p class="mt-2 font-display text-xl uppercase leading-none">Verify first.</p><p class="mt-1 text-[10px] leading-relaxed text-subtle">A paid status requires a checked reference in this demo.</p></div>
+</div>
+
+<div class="mt-4 flex flex-wrap items-center gap-2 border border-line bg-surface p-3">
+  <label for="admin-payment-search" class="sr-only">Search payment queue</label>
+  <div class="relative min-w-[220px] flex-1">
+    <svg class="pointer-events-none absolute left-3 top-1/2 h-3.5 w-3.5 -translate-y-1/2 text-subtle" aria-hidden="true"><use href="{{ROOT}}assets/icons/lucide-sprite.svg#i-search"></use></svg>
+    <input id="admin-payment-search" type="search" class="input input-sm pl-9" placeholder="Reference, order or customer" data-admin-payment-search autocomplete="off">
+  </div>
+  <button type="button" class="btn btn-ghost btn-sm" data-admin-proof-view>Preview proof file</button>
+</div>
+
+<div class="admin-table-wrap mt-3">
+  <table class="data-table min-w-[720px]">
+    <thead><tr><th>Order</th><th>Customer</th><th>Method / reference</th><th class="text-right">Total</th><th>Status</th><th class="text-right">Action</th></tr></thead>
+    <tbody data-admin-payments-body></tbody>
+  </table>
+</div>
+
+<div class="mt-4 grid gap-4 lg:grid-cols-2">
+  <div class="border border-line bg-surface p-4">
+    <p class="text-[10px] font-bold uppercase tracking-wide2 text-red">Honest status semantics</p>
+    <ul class="mt-2 space-y-2 text-[11px] leading-relaxed text-subtle">
+      <li><strong class="text-body">Awaiting verification</strong> — customer says they paid; nobody has checked.</li>
+      <li><strong class="text-body">Unpaid · on delivery</strong> — COD order, cash not yet handed over.</li>
+      <li><strong class="text-body">Paid · verified</strong> — a demo admin checked the reference.</li>
+      <li><strong class="text-body">Refunded</strong> — sample reversal recorded.</li>
+    </ul>
+  </div>
+  <div class="border border-line bg-panel p-4">
+    <p class="text-[10px] font-bold uppercase tracking-wide2 text-subtle">Phase 1 limits</p>
+    <p class="mt-2 text-[11px] leading-relaxed text-subtle">Proof-of-payment files are never uploaded or stored. The “preview” control explains this. Live verification, webhooks and reconciliation belong to Phase 4.</p>
+  </div>
+</div>

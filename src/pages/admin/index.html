@@ -1,0 +1,127 @@
+<!-- @title: Dashboard — VYROX Admin @desc: VYROX admin dashboard with sample revenue, orders, stock alerts and recent activity. @page: index -->
+
+<div class="flex flex-wrap items-end justify-between gap-4">
+  <div>
+    <p class="text-[9px] font-bold uppercase tracking-brand text-subtle">Overview</p>
+    <h1 class="mt-1 font-display text-3xl uppercase leading-none sm:text-4xl">Dashboard</h1>
+    <p class="mt-2 text-xs text-subtle">Welcome back, Alexis. Everything here is sample data.</p>
+  </div>
+  <div class="flex flex-wrap items-center gap-2">
+    <select class="admin-filter border border-line bg-surface px-2 text-[11px]" data-dashboard-range aria-label="Dashboard range">
+      <option>Last 7 days</option>
+      <option selected>Last 30 days</option>
+      <option>Last 90 days</option>
+      <option>Year to date</option>
+    </select>
+    <a href="{{ROOT}}admin/orders.html" class="btn btn-dark btn-sm">View orders</a>
+  </div>
+</div>
+
+<div class="mt-5 grid gap-3 sm:grid-cols-2 xl:grid-cols-4">
+  <div class="kpi-card">
+    <div class="flex items-start justify-between">
+      <p class="text-[9px] font-bold uppercase tracking-brand text-subtle">Verified revenue</p>
+      <span class="text-[9px] font-bold text-emerald-600 dark:text-emerald-400">+12.4%</span>
+    </div>
+    <p class="kpi-value mt-3" data-kpi-revenue>₱0</p>
+    <p class="mt-2 text-[10px] text-subtle">Paid + verified sample orders only</p>
+    <div class="mt-3 flex h-1 gap-px"><span class="flex-1 bg-red"></span><span class="flex-1 bg-red"></span><span class="flex-1 bg-red"></span><span class="flex-1 bg-line"></span></div>
+  </div>
+  <div class="kpi-card">
+    <div class="flex items-start justify-between">
+      <p class="text-[9px] font-bold uppercase tracking-brand text-subtle">Orders</p>
+      <span class="text-[9px] font-bold text-subtle">All time</span>
+    </div>
+    <p class="kpi-value mt-3" data-kpi-orders>0</p>
+    <p class="mt-2 text-[10px] text-subtle"><span data-kpi-pending>0</span> awaiting payment verification</p>
+    <div class="mt-3 flex h-1 gap-px"><span class="flex-1 bg-ink dark:bg-white"></span><span class="flex-1 bg-ink dark:bg-white"></span><span class="flex-1 bg-line"></span><span class="flex-1 bg-line"></span></div>
+  </div>
+  <div class="kpi-card">
+    <div class="flex items-start justify-between">
+      <p class="text-[9px] font-bold uppercase tracking-brand text-subtle">Customers</p>
+      <span class="text-[9px] font-bold text-subtle">Sample</span>
+    </div>
+    <p class="kpi-value mt-3" data-kpi-customers>0</p>
+    <p class="mt-2 text-[10px] text-subtle">Average order <span class="font-semibold text-body" data-kpi-aov>₱0</span></p>
+    <div class="mt-3 flex h-1 gap-px"><span class="flex-1 bg-ink dark:bg-white"></span><span class="flex-1 bg-ink dark:bg-white"></span><span class="flex-1 bg-ink dark:bg-white"></span><span class="flex-1 bg-line"></span></div>
+  </div>
+  <div class="kpi-card border-red/40">
+    <div class="flex items-start justify-between">
+      <p class="text-[9px] font-bold uppercase tracking-brand text-red">Low stock</p>
+      <span class="flex h-5 items-center bg-red px-1.5 text-[9px] font-bold text-white">Action</span>
+    </div>
+    <p class="kpi-value mt-3" data-kpi-low-stock>0</p>
+    <p class="mt-2 text-[10px] text-subtle">Pieces at 10 units or fewer</p>
+    <a href="{{ROOT}}admin/inventory.html" class="mt-3 inline-flex items-center gap-1 text-[10px] font-bold uppercase tracking-wide2 text-red">Open inventory →</a>
+  </div>
+</div>
+
+<div class="mt-4 grid gap-4 xl:grid-cols-[1.6fr_1fr]">
+  <div class="chart-box">
+    <div class="flex flex-wrap items-start justify-between gap-2">
+      <div>
+        <p class="text-[9px] font-bold uppercase tracking-brand text-subtle">Revenue trend</p>
+        <p class="mt-1 font-display text-xl uppercase leading-none">Last 7 sample days</p>
+      </div>
+      <div class="flex gap-1">
+        <button type="button" class="chip chip-active" data-admin-quick-filter="7 days">7D</button>
+        <button type="button" class="chip" data-admin-quick-filter="30 days">30D</button>
+        <button type="button" class="chip" data-admin-quick-filter="90 days">90D</button>
+      </div>
+    </div>
+    <canvas data-chart="revenue" class="mt-4 h-[250px] w-full" role="img" aria-label="Sample revenue line chart"></canvas>
+    <p class="mt-2 text-[10px] text-subtle">Illustrative series built from sample orders. Canvas is DPR-aware and animates once.</p>
+  </div>
+
+  <div class="chart-box">
+    <p class="text-[9px] font-bold uppercase tracking-brand text-subtle">Orders this week</p>
+    <p class="mt-1 font-display text-xl uppercase leading-none">Volume</p>
+    <canvas data-chart="orders" class="mt-4 h-[190px] w-full" role="img" aria-label="Sample orders bar chart"></canvas>
+    <p class="mt-2 text-[10px] text-subtle">Peak day: Saturday · 32 sample orders</p>
+  </div>
+</div>
+
+<div class="mt-4 grid gap-4 xl:grid-cols-[1.6fr_1fr]">
+  <div class="admin-table-wrap">
+    <div class="flex items-center justify-between gap-3 border-b border-line px-4 py-3">
+      <div><p class="text-[9px] font-bold uppercase tracking-brand text-subtle">Commerce</p><p class="font-display text-xl uppercase leading-none">Recent orders</p></div>
+      <a href="{{ROOT}}admin/orders.html" class="text-[10px] font-bold uppercase tracking-wide2 text-red">All orders →</a>
+    </div>
+    <table class="data-table">
+      <thead><tr><th>Order</th><th>Customer</th><th class="text-right">Total</th><th>Status</th><th></th></tr></thead>
+      <tbody data-admin-recent-orders></tbody>
+    </table>
+  </div>
+
+  <div class="space-y-4">
+    <div class="border border-line bg-surface p-4">
+      <div class="flex items-center justify-between"><p class="text-[9px] font-bold uppercase tracking-brand text-subtle">Inventory</p><a href="{{ROOT}}admin/inventory.html" class="text-[10px] font-bold uppercase tracking-wide2 text-red">Manage →</a></div>
+      <p class="mt-1 font-display text-xl uppercase leading-none">Low stock</p>
+      <ul class="mt-2" data-admin-low-stock></ul>
+    </div>
+    <div class="border border-line bg-surface p-4">
+      <p class="text-[9px] font-bold uppercase tracking-brand text-subtle">Catalogue</p>
+      <p class="mt-1 font-display text-xl uppercase leading-none">Best sellers</p>
+      <ul class="mt-2" data-admin-best-sellers></ul>
+    </div>
+  </div>
+</div>
+
+<div class="mt-4 grid gap-4 xl:grid-cols-[1fr_1.6fr]">
+  <div class="border border-line bg-surface p-4">
+    <p class="text-[9px] font-bold uppercase tracking-brand text-subtle">Shortcuts</p>
+    <p class="mt-1 font-display text-xl uppercase leading-none">Quick actions</p>
+    <div class="mt-3 grid gap-2">
+      <a href="{{ROOT}}admin/products.html" class="flex items-center justify-between border border-line px-3 py-2.5 text-[11px] font-semibold hover:border-red hover:text-red"><span>Add or edit a product</span><span>→</span></a>
+      <a href="{{ROOT}}admin/payments.html" class="flex items-center justify-between border border-line px-3 py-2.5 text-[11px] font-semibold hover:border-red hover:text-red"><span>Verify payments</span><span>→</span></a>
+      <a href="{{ROOT}}admin/coupons.html" class="flex items-center justify-between border border-line px-3 py-2.5 text-[11px] font-semibold hover:border-red hover:text-red"><span>Create a coupon</span><span>→</span></a>
+      <a href="{{ROOT}}admin/reports.html" class="flex items-center justify-between border border-line px-3 py-2.5 text-[11px] font-semibold hover:border-red hover:text-red"><span>Export a report</span><span>→</span></a>
+    </div>
+  </div>
+
+  <div class="border border-line bg-surface p-4">
+    <div class="flex items-center justify-between"><p class="text-[9px] font-bold uppercase tracking-brand text-subtle">Audit</p><span class="demo-chip">Sample log</span></div>
+    <p class="mt-1 font-display text-xl uppercase leading-none">Latest activity</p>
+    <ul class="mt-2" data-admin-log></ul>
+  </div>
+</div>

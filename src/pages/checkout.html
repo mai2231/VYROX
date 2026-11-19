@@ -1,0 +1,216 @@
+<!-- @title: Checkout — VYROX @desc: Demo checkout in three steps. No payment is captured; orders await manual verification. @page: checkout -->
+
+<section class="border-b border-line bg-soft">
+  <div class="container-vyrox py-8">
+    <nav class="breadcrumb" aria-label="Breadcrumb"><a href="{{ROOT}}index.html">Home</a><span>/</span><a href="{{ROOT}}cart.html">Bag</a><span>/</span><span class="text-body">Checkout</span></nav>
+    <div class="mt-4 flex flex-wrap items-end justify-between gap-4">
+      <div>
+        <p class="eyebrow">Secure demo checkout</p>
+        <h1 class="display-xl mt-2" data-checkout-title>CHECKOUT.</h1>
+      </div>
+      <span class="demo-chip">Payment is not captured in Phase 1</span>
+    </div>
+
+    <ol class="mt-7 grid gap-2 sm:grid-cols-3" aria-label="Checkout progress">
+      <li class="flex items-center gap-3 border border-line bg-surface px-4 py-3" data-step-dot="1">
+        <span class="flex h-7 w-7 shrink-0 items-center justify-center bg-ink font-display text-xs text-white">01</span>
+        <span><span class="block text-[10px] font-bold uppercase tracking-wide2">Details</span><span class="text-[10px] text-subtle">Who and where</span></span>
+      </li>
+      <li class="flex items-center gap-3 border border-line bg-surface px-4 py-3" data-step-dot="2">
+        <span class="flex h-7 w-7 shrink-0 items-center justify-center border border-line font-display text-xs">02</span>
+        <span><span class="block text-[10px] font-bold uppercase tracking-wide2">Delivery &amp; payment</span><span class="text-[10px] text-subtle">How it gets there</span></span>
+      </li>
+      <li class="flex items-center gap-3 border border-line bg-surface px-4 py-3" data-step-dot="3">
+        <span class="flex h-7 w-7 shrink-0 items-center justify-center border border-line font-display text-xs">03</span>
+        <span><span class="block text-[10px] font-bold uppercase tracking-wide2">Review</span><span class="text-[10px] text-subtle">Confirm the order</span></span>
+      </li>
+    </ol>
+  </div>
+</section>
+
+<section class="section-tight">
+  <div class="container-vyrox">
+    <div data-checkout-empty class="hidden border border-line bg-surface px-6 py-16 text-center">
+      <p class="font-display text-3xl uppercase">Your bag is empty.</p>
+      <p class="mx-auto mt-2 max-w-md text-sm text-subtle">Add a piece before checking out. Demo orders need at least one line item.</p>
+      <a href="{{ROOT}}shop.html" class="btn btn-primary mt-6">Shop the edit</a>
+    </div>
+
+    <form class="grid gap-8 lg:grid-cols-[1fr_380px]" data-checkout novalidate data-checkout-content>
+      <div class="min-w-0 space-y-6">
+        <!-- STEP 1 -->
+        <section class="border border-line bg-surface p-5 sm:p-6" data-step="1">
+          <div class="flex items-center justify-between gap-3 border-b border-line pb-4">
+            <h2 class="font-display text-2xl uppercase">Contact &amp; shipping</h2>
+            <span class="text-[9px] font-bold uppercase tracking-brand text-subtle">Step 01</span>
+          </div>
+          <p class="mt-4 text-xs text-subtle">All fields marked required. Demo autofill: <a href="{{ROOT}}checkout.html?demo=1" class="font-semibold text-red underline">use sample account</a>.</p>
+
+          <div class="mt-5 grid gap-4 sm:grid-cols-2">
+            <div><label for="co-first" class="label">First name *</label><input id="co-first" name="firstName" type="text" class="input" autocomplete="given-name" data-rules="required"><p class="field-error" data-error-for="co-first" hidden></p></div>
+            <div><label for="co-last" class="label">Last name *</label><input id="co-last" name="lastName" type="text" class="input" autocomplete="family-name" data-rules="required"><p class="field-error" data-error-for="co-last" hidden></p></div>
+            <div><label for="co-email" class="label">Email *</label><input id="co-email" name="email" type="email" class="input" autocomplete="email" data-rules="required|email"><p class="field-error" data-error-for="co-email" hidden></p></div>
+            <div><label for="co-phone" class="label">Mobile *</label><input id="co-phone" name="phone" type="tel" class="input" autocomplete="tel" placeholder="0917 123 4567" data-rules="required|phone"><p class="field-error" data-error-for="co-phone" hidden></p></div>
+            <div class="sm:col-span-2"><label for="co-line1" class="label">Address line 1 *</label><input id="co-line1" name="line1" type="text" class="input" autocomplete="address-line1" data-rules="required"><p class="field-error" data-error-for="co-line1" hidden></p></div>
+            <div class="sm:col-span-2"><label for="co-line2" class="label">Address line 2</label><input id="co-line2" name="line2" type="text" class="input" autocomplete="address-line2" placeholder="Unit, floor, landmark"></div>
+            <div><label for="co-city" class="label">City *</label><input id="co-city" name="city" type="text" class="input" autocomplete="address-level2" data-rules="required"><p class="field-error" data-error-for="co-city" hidden></p></div>
+            <div><label for="co-region" class="label">Region *</label><select id="co-region" name="region" class="input" data-region data-rules="required"><option>Metro Manila</option><option>Cavite</option><option>Laguna</option><option>Batangas</option><option>Rizal</option><option>Bulacan</option><option>Pampanga</option><option>Cebu</option><option>Davao</option><option>Iloilo</option><option>Baguio</option><option>Other province</option></select><p class="field-error" data-error-for="co-region" hidden></p></div>
+            <div><label for="co-postal" class="label">Postal code *</label><input id="co-postal" name="postal" type="text" inputmode="numeric" class="input" autocomplete="postal-code" data-rules="required|postal"><p class="field-error" data-error-for="co-postal" hidden></p></div>
+            <div class="flex items-end"><label class="flex cursor-pointer items-start gap-2.5 text-[11px] leading-relaxed text-subtle"><input type="checkbox" class="checkbox mt-0.5" data-rules="checked"><span>Save this address to my demo address book.</span></label></div>
+          </div>
+
+          <div class="mt-6 flex justify-end">
+            <button type="button" class="btn btn-primary" data-next-step="2">Continue to delivery <svg class="h-4 w-4" aria-hidden="true"><use href="{{ROOT}}assets/icons/lucide-sprite.svg#i-arrow-right"></use></svg></button>
+          </div>
+        </section>
+
+        <!-- STEP 2 -->
+        <section class="hidden border border-line bg-surface p-5 sm:p-6" data-step="2">
+          <div class="flex items-center justify-between gap-3 border-b border-line pb-4">
+            <h2 class="font-display text-2xl uppercase">Delivery &amp; payment</h2>
+            <span class="text-[9px] font-bold uppercase tracking-brand text-subtle">Step 02</span>
+          </div>
+
+          <fieldset class="mt-5">
+            <legend class="label">Delivery speed</legend>
+            <div class="grid gap-2 sm:grid-cols-2">
+              <button type="button" class="border border-red bg-red/5 p-4 text-left" data-delivery-option="standard" aria-checked="true" role="radio">
+                <span class="flex items-center justify-between"><span class="text-xs font-bold uppercase tracking-wide2">Standard</span><span class="text-[10px] font-semibold">3–5 days</span></span>
+                <span class="mt-1 block text-[11px] text-subtle">₱99 Metro Manila · ₱149 provincial · free over ₱2,500</span>
+              </button>
+              <button type="button" class="border border-line p-4 text-left" data-delivery-option="express" aria-checked="false" role="radio">
+                <span class="flex items-center justify-between"><span class="text-xs font-bold uppercase tracking-wide2">Express</span><span class="text-[10px] font-semibold">1–2 days</span></span>
+                <span class="mt-1 block text-[11px] text-subtle">Adds ₱150 · priority dispatch before 2PM</span>
+              </button>
+            </div>
+          </fieldset>
+
+          <fieldset class="mt-6">
+            <legend class="label">Payment method</legend>
+            <div class="grid gap-2 sm:grid-cols-2">
+              <button type="button" class="border border-red bg-red/5 p-4 text-left" data-payment-option="gcash" aria-checked="true" role="radio">
+                <span class="flex items-center gap-2 text-xs font-bold uppercase tracking-wide2"><svg class="h-4 w-4" aria-hidden="true"><use href="{{ROOT}}assets/icons/lucide-sprite.svg#i-smartphone"></use></svg> GCash</span>
+                <span class="mt-1 block text-[11px] text-subtle">Scan the demo QR, then enter a reference.</span>
+              </button>
+              <button type="button" class="border border-line p-4 text-left" data-payment-option="maya" aria-checked="false" role="radio">
+                <span class="flex items-center gap-2 text-xs font-bold uppercase tracking-wide2"><svg class="h-4 w-4" aria-hidden="true"><use href="{{ROOT}}assets/icons/lucide-sprite.svg#i-wallet"></use></svg> Maya</span>
+                <span class="mt-1 block text-[11px] text-subtle">Same flow — verification is manual in Phase 1.</span>
+              </button>
+              <button type="button" class="border border-line p-4 text-left" data-payment-option="cod" aria-checked="false" role="radio">
+                <span class="flex items-center gap-2 text-xs font-bold uppercase tracking-wide2"><svg class="h-4 w-4" aria-hidden="true"><use href="{{ROOT}}assets/icons/lucide-sprite.svg#i-banknote"></use></svg> Cash on delivery</span>
+                <span class="mt-1 block text-[11px] text-subtle">Pay the courier. Marked unpaid until handover.</span>
+              </button>
+              <button type="button" class="border border-line p-4 text-left" data-payment-option="bank" aria-checked="false" role="radio">
+                <span class="flex items-center gap-2 text-xs font-bold uppercase tracking-wide2"><svg class="h-4 w-4" aria-hidden="true"><use href="{{ROOT}}assets/icons/lucide-sprite.svg#i-landmark"></use></svg> Bank transfer</span>
+                <span class="mt-1 block text-[11px] text-subtle">Use the demo account details and upload a reference.</span>
+              </button>
+            </div>
+          </fieldset>
+
+          <div class="mt-5 border border-line bg-panel p-4" data-payment-panel="gcash">
+            <div class="flex flex-col gap-4 sm:flex-row sm:items-center">
+              <div class="grid h-28 w-28 shrink-0 place-items-center border border-line bg-white p-2" aria-label="Demo QR code placeholder">
+                <div class="grid grid-cols-5 gap-1">
+                  <span class="h-3 w-3 bg-ink"></span><span class="h-3 w-3 bg-ink"></span><span class="h-3 w-3 bg-white"></span><span class="h-3 w-3 bg-ink"></span><span class="h-3 w-3 bg-ink"></span>
+                  <span class="h-3 w-3 bg-ink"></span><span class="h-3 w-3 bg-white"></span><span class="h-3 w-3 bg-ink"></span><span class="h-3 w-3 bg-white"></span><span class="h-3 w-3 bg-ink"></span>
+                  <span class="h-3 w-3 bg-white"></span><span class="h-3 w-3 bg-ink"></span><span class="h-3 w-3 bg-ink"></span><span class="h-3 w-3 bg-ink"></span><span class="h-3 w-3 bg-white"></span>
+                  <span class="h-3 w-3 bg-ink"></span><span class="h-3 w-3 bg-white"></span><span class="h-3 w-3 bg-ink"></span><span class="h-3 w-3 bg-white"></span><span class="h-3 w-3 bg-ink"></span>
+                  <span class="h-3 w-3 bg-ink"></span><span class="h-3 w-3 bg-ink"></span><span class="h-3 w-3 bg-white"></span><span class="h-3 w-3 bg-ink"></span><span class="h-3 w-3 bg-ink"></span>
+                </div>
+              </div>
+              <div class="min-w-0">
+                <p class="text-[10px] font-bold uppercase tracking-wide2 text-red">Demo payment interface</p>
+                <p class="mt-1 text-xs leading-relaxed text-subtle">Scan the placeholder QR or send to <strong class="text-body">VYROX Demo · 0917 000 0000</strong>. Then enter the reference below. Nothing is charged.</p>
+              </div>
+            </div>
+          </div>
+          <div class="mt-5 hidden border border-line bg-panel p-4" data-payment-panel="maya">
+            <p class="text-[10px] font-bold uppercase tracking-wide2 text-red">Maya demo</p>
+            <p class="mt-1 text-xs leading-relaxed text-subtle">Use reference <strong class="text-body">MAYA-DEMO-8841</strong> to simulate a pending transfer. Verification happens in the demo admin queue.</p>
+          </div>
+          <div class="mt-5 hidden border border-line bg-panel p-4" data-payment-panel="cod">
+            <p class="text-[10px] font-bold uppercase tracking-wide2 text-red">Cash on delivery</p>
+            <p class="mt-1 text-xs leading-relaxed text-subtle">Prepare exact change if possible. The order stays <strong class="text-body">Unpaid · on delivery</strong> until the courier confirms handover.</p>
+          </div>
+          <div class="mt-5 hidden border border-line bg-panel p-4" data-payment-panel="bank">
+            <p class="text-[10px] font-bold uppercase tracking-wide2 text-red">Bank transfer demo</p>
+            <p class="mt-1 text-xs leading-relaxed text-subtle">Account: <strong class="text-body">VYROX Demo · 0012 3456 7890</strong>. Enter your transfer reference below. Never send real money to demo details.</p>
+          </div>
+
+          <div class="mt-5 grid gap-4 sm:grid-cols-2">
+            <div><label for="co-reference" class="label">Payment reference</label><input id="co-reference" name="reference" type="text" class="input" placeholder="e.g. 8841-220" autocomplete="off"><p class="mt-1 text-[10px] text-subtle">Optional for COD. Sample only.</p></div>
+            <div>
+              <label for="co-proof" class="label">Proof of payment</label>
+              <label for="co-proof" class="flex cursor-pointer items-center gap-3 border border-dashed border-line bg-panel px-3 py-2.5 text-[11px] text-subtle transition hover:border-red">
+                <svg class="h-4 w-4 shrink-0" aria-hidden="true"><use href="{{ROOT}}assets/icons/lucide-sprite.svg#i-upload"></use></svg>
+                <span data-proof-label>PNG or JPG, up to 5MB</span>
+              </label>
+              <input id="co-proof" type="file" accept="image/png,image/jpeg" class="sr-only" data-proof-upload>
+            </div>
+          </div>
+
+          <div class="mt-6 flex flex-wrap justify-between gap-3">
+            <button type="button" class="btn btn-ghost" data-prev-step="1"><svg class="h-4 w-4" aria-hidden="true"><use href="{{ROOT}}assets/icons/lucide-sprite.svg#i-arrow-left"></use></svg> Back</button>
+            <button type="button" class="btn btn-primary" data-next-step="3">Review order <svg class="h-4 w-4" aria-hidden="true"><use href="{{ROOT}}assets/icons/lucide-sprite.svg#i-arrow-right"></use></svg></button>
+          </div>
+        </section>
+
+        <!-- STEP 3 -->
+        <section class="hidden border border-line bg-surface p-5 sm:p-6" data-step="3">
+          <div class="flex items-center justify-between gap-3 border-b border-line pb-4">
+            <h2 class="font-display text-2xl uppercase">Review &amp; place order</h2>
+            <span class="text-[9px] font-bold uppercase tracking-brand text-subtle">Step 03</span>
+          </div>
+
+          <div class="mt-5" data-review-summary></div>
+
+          <div class="mt-6 border border-line bg-panel p-4">
+            <label class="flex cursor-pointer items-start gap-2.5 text-[11px] leading-relaxed text-subtle">
+              <input type="checkbox" class="checkbox mt-0.5" data-rules="checked">
+              <span>I understand this is a Phase 1 demonstration. No payment is captured and the order is stored only in this browser.</span>
+            </label>
+          </div>
+
+          <div class="mt-6 flex flex-wrap justify-between gap-3">
+            <button type="button" class="btn btn-ghost" data-prev-step="2"><svg class="h-4 w-4" aria-hidden="true"><use href="{{ROOT}}assets/icons/lucide-sprite.svg#i-arrow-left"></use></svg> Back</button>
+            <button type="button" class="btn btn-primary" data-place-order>Place order · Awaiting payment verification</button>
+          </div>
+          <p class="mt-3 text-right text-[10px] text-subtle">By placing this demo order you create a sample record in <code>localStorage</code>.</p>
+        </section>
+      </div>
+
+      <aside class="space-y-4 lg:sticky lg:top-[112px] lg:h-fit">
+        <div class="border border-line bg-surface p-5">
+          <div class="flex items-center justify-between">
+            <h2 class="font-display text-2xl uppercase">Your order</h2>
+            <span class="text-[10px] font-bold uppercase tracking-wide2 text-subtle"><span data-checkout-count>0</span> items</span>
+          </div>
+
+          <div class="mt-3 divide-y divide-line" data-checkout-lines></div>
+
+          <div class="mt-4 space-y-2 border-t border-line pt-4 text-xs">
+            <div class="flex justify-between"><span class="text-subtle">Subtotal</span><span class="font-semibold" data-checkout-subtotal>₱0</span></div>
+            <div class="flex justify-between"><span class="text-subtle">Discount</span><span class="font-semibold text-emerald-600 dark:text-emerald-400" data-checkout-discount>₱0</span></div>
+            <div class="flex justify-between"><span class="text-subtle">Shipping</span><span class="font-semibold" data-checkout-shipping>₱0</span></div>
+            <div class="flex justify-between text-[10px]"><span class="text-subtle">Express upgrade</span><span class="text-subtle" data-checkout-express>—</span></div>
+            <div class="flex items-center justify-between border-t border-line pt-3"><span class="text-[10px] font-bold uppercase tracking-wide2">Total</span><span class="font-display text-2xl" data-checkout-total>₱0</span></div>
+          </div>
+
+          <p class="mt-3 hidden items-center gap-2 text-[10px] font-semibold uppercase tracking-wide2 text-emerald-600 dark:text-emerald-400" data-checkout-coupon>
+            <svg class="h-3.5 w-3.5" aria-hidden="true"><use href="{{ROOT}}assets/icons/lucide-sprite.svg#i-tag"></use></svg> Coupon <span data-checkout-coupon-code></span> applied
+          </p>
+          <p class="mt-3 text-[10px] leading-relaxed text-subtle">VAT inclusive. Totals come from the same pricing module as the bag, admin orders and tracking.</p>
+        </div>
+
+        <div class="border border-line bg-panel p-4">
+          <div class="flex items-center gap-2 text-[10px] font-bold uppercase tracking-wide2 text-subtle">
+            <svg class="h-4 w-4 text-red" aria-hidden="true"><use href="{{ROOT}}assets/icons/lucide-sprite.svg#i-shield-check"></use></svg> Phase 1 payment policy
+          </div>
+          <p class="mt-2 text-[11px] leading-relaxed text-subtle">No card numbers, e-wallet credentials or proof files are stored. Orders remain <strong class="text-body">Awaiting verification</strong> until an admin approves them in the demo queue.</p>
+        </div>
+
+        <a href="{{ROOT}}cart.html" class="inline-flex items-center gap-2 text-[10px] font-bold uppercase tracking-wide2 text-subtle hover:text-red"><svg class="h-3.5 w-3.5" aria-hidden="true"><use href="{{ROOT}}assets/icons/lucide-sprite.svg#i-arrow-left"></use></svg> Back to bag</a>
+      </aside>
+    </form>
+  </div>
+</section>

@@ -1,0 +1,32 @@
+<!-- @title: Customers — VYROX Admin @desc: Sample customer management with order history and profile drawers. @page: customers -->
+
+<div class="flex flex-wrap items-end justify-between gap-4">
+  <div>
+    <p class="text-[9px] font-bold uppercase tracking-brand text-subtle">Commerce / Customers</p>
+    <h1 class="mt-1 font-display text-3xl uppercase leading-none sm:text-4xl">Customers</h1>
+    <p class="mt-2 text-xs text-subtle">Sample customer base with order history.</p>
+  </div>
+  <button type="button" class="btn btn-outline btn-sm" data-admin-customers-export>Export CSV</button>
+</div>
+
+<div class="mt-5 grid gap-3 sm:grid-cols-3">
+  <div class="kpi-card"><p class="text-[9px] font-bold uppercase tracking-brand text-subtle">Customers</p><p class="kpi-value mt-2">8</p><p class="mt-1 text-[10px] text-subtle">Sample customer set</p></div>
+  <div class="kpi-card"><p class="text-[9px] font-bold uppercase tracking-brand text-subtle">Active</p><p class="kpi-value mt-2">7</p><p class="mt-1 text-[10px] text-subtle">Not inactive</p></div>
+  <div class="kpi-card"><p class="text-[9px] font-bold uppercase tracking-brand text-subtle">Lifetime spend</p><p class="kpi-value mt-2">₱114,420</p><p class="mt-1 text-[10px] text-subtle">Across sample orders</p></div>
+</div>
+
+<div class="admin-table-wrap mt-4">
+  <table class="data-table min-w-[720px]">
+    <thead><tr><th>Customer</th><th>Email</th><th class="hidden md:table-cell">Phone</th><th class="hidden lg:table-cell">Region</th><th>Orders</th><th class="text-right">Spent</th><th>Status</th><th class="text-right">View</th></tr></thead>
+    <tbody data-admin-customers-body></tbody>
+  </table>
+</div>
+
+<div class="mt-4 border border-line bg-surface p-4">
+  <p class="text-[10px] font-bold uppercase tracking-wide2 text-subtle">Customer demo behaviour</p>
+  <p class="mt-1 text-xs leading-relaxed text-subtle">Click a customer to open their profile drawer, order history and tier. No credentials are stored here.</p>
+</div>
+
+<aside class="drawer-panel overflow-y-auto" data-admin-customer-drawer aria-hidden="true" aria-label="Customer profile">
+  <div class="p-5" data-admin-customer-detail></div>
+</aside>

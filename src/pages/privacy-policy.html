@@ -1,0 +1,100 @@
+<!-- @title: Privacy Policy — VYROX @desc: How the VYROX Phase 1 demo handles data locally, and the policy that will govern the live store. @page: privacy-policy -->
+
+<section class="border-b border-line bg-soft">
+  <div class="container-vyrox py-10">
+    <nav class="breadcrumb" aria-label="Breadcrumb"><a href="{{ROOT}}index.html">Home</a><span>/</span><span class="text-body">Privacy</span></nav>
+    <p class="eyebrow mt-5">Legal</p>
+    <h1 class="display-xl mt-3">PRIVACY<br>POLICY.</h1>
+    <p class="mt-4 max-w-2xl text-sm text-subtle">Last updated 15 November 2026 · Phase 1 demonstration notice included below.</p>
+  </div>
+</section>
+
+<section class="section-tight">
+  <div class="container-vyrox grid gap-10 lg:grid-cols-[240px_1fr]">
+    <aside class="lg:sticky lg:top-[112px] lg:h-fit">
+      <p class="label">On this page</p>
+      <nav class="space-y-1 text-xs" aria-label="Table of contents">
+        <a href="#phase-1" class="block border-l-2 border-red py-1.5 pl-3 font-semibold text-body">Phase 1 notice</a>
+        <a href="#collect" class="block border-l-2 border-transparent py-1.5 pl-3 text-subtle hover:text-body">What we collect</a>
+        <a href="#storage" class="block border-l-2 border-transparent py-1.5 pl-3 text-subtle hover:text-body">Local storage</a>
+        <a href="#use" class="block border-l-2 border-transparent py-1.5 pl-3 text-subtle hover:text-body">How we use data</a>
+        <a href="#sharing" class="block border-l-2 border-transparent py-1.5 pl-3 text-subtle hover:text-body">Sharing</a>
+        <a href="#rights" class="block border-l-2 border-transparent py-1.5 pl-3 text-subtle hover:text-body">Your rights</a>
+        <a href="#contact" class="block border-l-2 border-transparent py-1.5 pl-3 text-subtle hover:text-body">Contact</a>
+      </nav>
+      <div class="mt-5 border border-amber-500/40 bg-amber-400/10 p-3">
+        <p class="text-[9px] font-bold uppercase tracking-wide2 text-amber-700 dark:text-amber-300">Demo document</p>
+        <p class="mt-1 text-[10px] leading-relaxed text-subtle">This page is sample legal copy for a front-end demonstration. It is not legal advice.</p>
+      </div>
+    </aside>
+
+    <article class="prose-vyrox max-w-3xl">
+      <section id="phase-1">
+        <h2>Phase 1 notice — read this first</h2>
+        <p>This build of VYROX is a front-end demonstration. There is no server, no database and no account system. Nothing you type into forms is transmitted. The only persistence is <code>localStorage</code> in your own browser, used for the demo cart, wishlist, theme, sample orders, sample addresses and admin demo state.</p>
+        <p>We do not store passwords, authentication tokens, card numbers or payment credentials — not even in the demo. When you submit the sign-in or registration form, the page validates the format and opens a sample profile; it does not create a credential.</p>
+      </section>
+
+      <section id="collect">
+        <h2>What a live store would collect</h2>
+        <p>When Phase 3 introduces a backend, a production VYROX store would collect only what is needed to fulfil an order and support a customer:</p>
+        <ul>
+          <li>Contact details: name, email address and Philippine mobile number.</li>
+          <li>Delivery details: address lines, city, region and postal code.</li>
+          <li>Order details: products, variants, quantities, prices and order status.</li>
+          <li>Payment references: the reference supplied by a payment provider. Never full card numbers or e-wallet credentials.</li>
+          <li>Support correspondence you choose to send us.</li>
+          <li>Basic technical data required to keep the site secure and working, such as request logs.</li>
+        </ul>
+      </section>
+
+      <section id="storage">
+        <h2>Local storage in this demo</h2>
+        <p>The following keys may exist in your browser after using this site. They are plain JSON and can be cleared at any time:</p>
+        <ul>
+          <li><code>vyrox_cart_v1</code> — demo bag lines and quantities.</li>
+          <li><code>vyrox_wishlist_v1</code> — saved product identifiers.</li>
+          <li><code>vyrox_theme_v1</code> — light or dark preference.</li>
+          <li><code>vyrox_orders_v1</code> — orders you created in the demo checkout.</li>
+          <li><code>vyrox_addresses_v1</code> — sample address book entries.</li>
+          <li><code>vyrox_admin_v1</code> — demo admin overrides such as stock, order status and settings.</li>
+        </ul>
+        <p>Session storage may hold a demo coupon code for the current tab. No third-party analytics or advertising scripts are loaded by this build. External images are requested from Unsplash and fonts from Google Fonts, which receive your IP address as part of a normal HTTP request.</p>
+      </section>
+
+      <section id="use">
+        <h2>How data would be used</h2>
+        <ul>
+          <li>To process and deliver orders, including sharing an address with a courier.</li>
+          <li>To verify a payment reference and prevent fraud.</li>
+          <li>To provide support, returns and warranty service.</li>
+          <li>To meet legal, tax and accounting obligations.</li>
+          <li>To improve the catalogue and store experience in aggregate.</li>
+        </ul>
+        <p>We would not sell personal data. Marketing messages would require a clear opt-in and every message would include an unsubscribe link.</p>
+      </section>
+
+      <section id="sharing">
+        <h2>Sharing</h2>
+        <p>A live store shares the minimum necessary data with payment providers, couriers and hosting providers. Those providers are bound by their own terms and, where required, data-processing agreements. We may disclose data where required by Philippine law or a valid legal order.</p>
+      </section>
+
+      <section id="rights">
+        <h2>Your rights</h2>
+        <p>Subject to applicable law, including the Philippine Data Privacy Act of 2012, you would have the right to access, correct, object to processing of, and request deletion of your personal data. In this demo, you can achieve the equivalent immediately by clearing site data or using <strong>Admin → Settings → Reset demo</strong>.</p>
+        <p>Demo records are not tied to a real identity and are not transmitted to VYROX. There is nothing for us to delete on our side because we never received it.</p>
+      </section>
+
+      <section id="contact">
+        <h2>Contact</h2>
+        <p>Questions about this policy can be sent to <a href="mailto:privacy@vyrox.ph">privacy@vyrox.ph</a> or through the <a href="{{ROOT}}contact.html">contact page</a>. For order help, include your reference so we can respond quickly.</p>
+        <p class="text-[11px] text-subtle">This document is sample copy prepared for the VYROX Phase 1 front-end deliverable. It must be reviewed by qualified counsel before any production launch.</p>
+      </section>
+
+      <div class="mt-10 flex flex-wrap gap-3 border-t border-line pt-6">
+        <a href="{{ROOT}}terms.html" class="btn btn-outline btn-sm">Terms of service</a>
+        <a href="{{ROOT}}faq.html" class="btn btn-ghost btn-sm">Read the FAQ</a>
+      </div>
+    </article>
+  </div>
+</section>

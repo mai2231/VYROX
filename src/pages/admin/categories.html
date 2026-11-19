@@ -1,0 +1,47 @@
+<!-- @title: Categories — VYROX Admin @desc: Sample category management for the VYROX catalogue. @page: categories -->
+
+<div class="flex flex-wrap items-end justify-between gap-4">
+  <div>
+    <p class="text-[9px] font-bold uppercase tracking-brand text-subtle">Commerce / Taxonomy</p>
+    <h1 class="mt-1 font-display text-3xl uppercase leading-none sm:text-4xl">Categories</h1>
+    <p class="mt-2 text-xs text-subtle"><span data-admin-categories-count>8</span> categories organise the sample catalogue.</p>
+  </div>
+  <button type="button" class="btn btn-dark btn-sm" data-admin-category-new>+ New category</button>
+</div>
+
+<div class="mt-5 grid gap-3 sm:grid-cols-3">
+  <div class="kpi-card"><p class="text-[9px] font-bold uppercase tracking-brand text-subtle">Categories</p><p class="kpi-value mt-2">8</p><p class="mt-1 text-[10px] text-subtle">Curated, not endless</p></div>
+  <div class="kpi-card"><p class="text-[9px] font-bold uppercase tracking-brand text-subtle">Products mapped</p><p class="kpi-value mt-2">24</p><p class="mt-1 text-[10px] text-subtle">Every piece has a home</p></div>
+  <div class="kpi-card"><p class="text-[9px] font-bold uppercase tracking-brand text-subtle">Average per category</p><p class="kpi-value mt-2">3</p><p class="mt-1 text-[10px] text-subtle">Small-batch by design</p></div>
+</div>
+
+<div class="admin-table-wrap mt-4">
+  <table class="data-table min-w-[620px]">
+    <thead><tr><th>Category</th><th class="hidden sm:table-cell">Tagline</th><th>Products</th><th>Status</th><th class="text-right">Actions</th></tr></thead>
+    <tbody data-admin-categories-body></tbody>
+  </table>
+</div>
+
+<div class="mt-4 border border-line bg-panel p-4">
+  <p class="text-[10px] font-bold uppercase tracking-wide2 text-subtle">Demo behaviour</p>
+  <p class="mt-1 text-xs leading-relaxed text-subtle">Renaming or archiving a category updates this console and persists locally. The storefront uses the static catalogue until the Phase 3 backend links the two.</p>
+</div>
+
+<div class="modal-backdrop" data-admin-category-modal role="dialog" aria-modal="true" aria-labelledby="admin-category-title">
+  <div class="modal-panel">
+    <div class="flex items-start justify-between gap-3 border-b border-line p-5">
+      <div><p class="text-[9px] font-bold uppercase tracking-brand text-red">Taxonomy</p><h2 id="admin-category-title" class="font-display text-2xl uppercase leading-none" data-admin-category-title>New category</h2></div>
+      <button type="button" class="icon-btn -mr-2 -mt-2" data-admin-category-modal-close aria-label="Close category editor"><svg class="h-5 w-5" aria-hidden="true"><use href="{{ROOT}}assets/icons/lucide-sprite.svg#i-x"></use></svg></button>
+    </div>
+    <form class="space-y-4 p-5" data-admin-category-form novalidate>
+      <div><label for="ac-name" class="label">Name</label><input id="ac-name" name="name" type="text" class="input" placeholder="Streetwear" required></div>
+      <div><label for="ac-slug" class="label">Slug</label><input id="ac-slug" name="slug" type="text" class="input" placeholder="streetwear"><p class="mt-1 text-[10px] text-subtle">Leave blank to generate from the name.</p></div>
+      <div><label for="ac-tagline" class="label">Tagline</label><input id="ac-tagline" name="tagline" type="text" class="input" placeholder="Built for the after-dark"></div>
+      <div><label for="ac-status" class="label">Status</label><select id="ac-status" name="status" class="input"><option value="active">Active</option><option value="archived">Archived</option></select></div>
+      <div class="flex justify-end gap-2 border-t border-line pt-4">
+        <button type="button" class="btn btn-ghost btn-sm" data-admin-category-modal-close>Cancel</button>
+        <button type="submit" class="btn btn-dark btn-sm">Save category</button>
+      </div>
+    </form>
+  </div>
+</div>

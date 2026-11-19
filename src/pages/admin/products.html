@@ -1,0 +1,81 @@
+<!-- @title: Products — VYROX Admin @desc: Sample catalogue management with search, filters, product editor and demo publishing. @page: products -->
+
+<div class="flex flex-wrap items-end justify-between gap-4">
+  <div>
+    <p class="text-[9px] font-bold uppercase tracking-brand text-subtle">Commerce / Catalogue</p>
+    <h1 class="mt-1 font-display text-3xl uppercase leading-none sm:text-4xl">Products</h1>
+    <p class="mt-2 text-xs text-subtle"><span data-admin-products-total>24</span> sample pieces. Edits persist in this browser only.</p>
+  </div>
+  <div class="flex flex-wrap gap-2">
+    <button type="button" class="btn btn-outline btn-sm" data-admin-products-export>Export CSV</button>
+    <button type="button" class="btn btn-dark btn-sm" data-admin-product-new>+ New product</button>
+  </div>
+</div>
+
+<div class="mt-5 flex flex-wrap items-center gap-2 border border-line bg-surface p-3">
+  <label for="admin-product-search" class="sr-only">Search products</label>
+  <div class="relative min-w-[200px] flex-1">
+    <svg class="pointer-events-none absolute left-3 top-1/2 h-3.5 w-3.5 -translate-y-1/2 text-subtle" aria-hidden="true"><use href="{{ROOT}}assets/icons/lucide-sprite.svg#i-search"></use></svg>
+    <input id="admin-product-search" type="search" class="input input-sm pl-9" placeholder="Search name, SKU or category" data-admin-product-search autocomplete="off">
+  </div>
+  <label for="admin-product-category" class="sr-only">Filter by category</label>
+  <select id="admin-product-category" class="input input-sm w-auto" data-admin-product-category>
+    <option value="all">All categories</option>
+    <option value="fashion">Fashion</option>
+    <option value="electronics">Electronics</option>
+    <option value="accessories">Accessories</option>
+    <option value="beauty">Beauty</option>
+    <option value="home">Home &amp; Living</option>
+    <option value="lifestyle">Lifestyle</option>
+    <option value="sports">Sports &amp; Fitness</option>
+    <option value="general">Essentials</option>
+  </select>
+  <label for="admin-product-status" class="sr-only">Filter by status</label>
+  <select id="admin-product-status" class="input input-sm w-auto" data-admin-product-status>
+    <option value="all">All statuses</option>
+    <option value="active">Active</option>
+    <option value="draft">Draft</option>
+    <option value="archived">Archived</option>
+  </select>
+  <span class="ml-auto text-[10px] font-bold uppercase tracking-wide2 text-subtle"><span data-admin-products-count>0</span> shown</span>
+</div>
+
+<div class="admin-table-wrap mt-3">
+  <table class="data-table min-w-[640px]">
+    <thead><tr><th>Product</th><th class="hidden sm:table-cell">Price</th><th>Stock</th><th>Status</th><th class="text-right">Actions</th></tr></thead>
+    <tbody data-admin-products-body></tbody>
+  </table>
+</div>
+
+<div class="mt-4 flex flex-wrap items-center justify-between gap-3">
+  <p class="text-[10px] text-subtle">Demo catalogue · images are remote Unsplash photography with local SVG fallbacks.</p>
+  <nav class="admin-pagination" data-admin-pagination aria-label="Product pages"></nav>
+</div>
+
+<div class="modal-backdrop" data-admin-product-modal role="dialog" aria-modal="true" aria-labelledby="admin-modal-title">
+  <div class="modal-panel max-w-2xl">
+    <div class="flex items-start justify-between gap-3 border-b border-line p-5">
+      <div><p class="text-[9px] font-bold uppercase tracking-brand text-red">Catalogue</p><h2 id="admin-modal-title" class="font-display text-2xl uppercase leading-none" data-admin-modal-title>New product</h2></div>
+      <button type="button" class="icon-btn -mr-2 -mt-2" data-admin-modal-close aria-label="Close product editor"><svg class="h-5 w-5" aria-hidden="true"><use href="{{ROOT}}assets/icons/lucide-sprite.svg#i-x"></use></svg></button>
+    </div>
+
+    <form class="space-y-4 p-5" data-admin-product-form novalidate>
+      <input type="hidden" name="id">
+      <div class="grid gap-4 sm:grid-cols-2">
+        <div class="sm:col-span-2"><label for="ap-name" class="label">Product name</label><input id="ap-name" name="name" type="text" class="input" placeholder="VYROX Studio Piece" required></div>
+        <div><label for="ap-category" class="label">Category</label><select id="ap-category" name="category" class="input"><option value="fashion">Fashion</option><option value="electronics">Electronics</option><option value="accessories">Accessories</option><option value="beauty">Beauty</option><option value="home">Home &amp; Living</option><option value="lifestyle">Lifestyle</option><option value="sports">Sports &amp; Fitness</option><option value="general">Essentials</option></select></div>
+        <div><label for="ap-status" class="label">Status</label><select id="ap-status" name="status" class="input"><option value="active">Active</option><option value="draft">Draft</option><option value="archived">Archived</option></select></div>
+        <div><label for="ap-price" class="label">Price (₱)</label><input id="ap-price" name="price" type="number" min="0" step="1" class="input" placeholder="1290"></div>
+        <div><label for="ap-compare" class="label">Compare-at price (₱)</label><input id="ap-compare" name="compareAt" type="number" min="0" step="1" class="input" placeholder="Optional"></div>
+        <div><label for="ap-stock" class="label">Stock units</label><input id="ap-stock" name="stock" type="number" min="0" step="1" class="input" placeholder="0"></div>
+        <div><label for="ap-image" class="label">Product image</label><input id="ap-image" type="file" accept="image/*" class="block w-full text-[11px] text-subtle file:mr-2 file:border-0 file:bg-ink file:px-3 file:py-1.5 file:text-[10px] file:font-bold file:uppercase file:tracking-wide2 file:text-white" data-admin-image-input><p class="mt-1 text-[10px] text-subtle" data-admin-image-hint>Preview only. Files are never uploaded in Phase 1.</p></div>
+        <div class="sm:col-span-2"><label for="ap-desc" class="label">Description</label><textarea id="ap-desc" name="description" rows="4" class="input resize-y" placeholder="What makes this piece worth keeping?"></textarea></div>
+        <div class="sm:col-span-2"><img alt="" class="hidden h-24 w-20 border border-line object-cover" data-admin-image-preview></div>
+      </div>
+      <div class="flex flex-wrap items-center justify-between gap-3 border-t border-line pt-4">
+        <p class="text-[10px] text-subtle">Saved to <code>vyrox_admin_v1</code> in this browser.</p>
+        <div class="flex gap-2"><button type="button" class="btn btn-ghost btn-sm" data-admin-modal-close>Cancel</button><button type="submit" class="btn btn-dark btn-sm">Save product</button></div>
+      </div>
+    </form>
+  </div>
+</div>

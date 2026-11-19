@@ -1,0 +1,87 @@
+<!-- @title: Contact — VYROX @desc: Reach the VYROX Manila team about orders, returns, stock or partnerships. @page: contact -->
+
+<section class="border-b border-line bg-soft">
+  <div class="container-vyrox py-10 sm:py-14">
+    <nav class="breadcrumb" aria-label="Breadcrumb"><a href="{{ROOT}}index.html">Home</a><span>/</span><span class="text-body">Contact</span></nav>
+    <div class="mt-6 grid gap-8 lg:grid-cols-[1fr_360px] lg:items-end">
+      <div>
+        <p class="eyebrow">Real humans</p>
+        <h1 class="display-xl mt-3">TALK<br>TO US.</h1>
+        <p class="mt-4 max-w-xl text-sm leading-relaxed text-subtle">Order questions, sizing, stock checks, returns or wholesale. Send a message and we will reply within one business day, Monday to Saturday.</p>
+      </div>
+      <div class="border border-line bg-surface p-5">
+        <p class="text-[10px] font-bold uppercase tracking-brand text-subtle">Demo notice</p>
+        <p class="mt-2 text-xs leading-relaxed text-subtle">This form validates locally and shows a success state. Nothing is sent or stored in Phase 1. For a real demo order, use the checkout and tracking pages.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section-tight">
+  <div class="container-vyrox grid gap-8 lg:grid-cols-[1fr_380px]">
+    <div>
+      <form class="border border-line bg-surface p-5 sm:p-7" data-validate data-demo="Message validated in the browser. Nothing was sent in Phase 1." data-reset="true">
+        <div class="border-b border-line pb-4">
+          <h2 class="font-display text-2xl uppercase">Send a message</h2>
+          <p class="mt-1 text-xs text-subtle">Required fields are marked. We never ask for passwords or payment details.</p>
+        </div>
+
+        <div class="mt-5 grid gap-4 sm:grid-cols-2">
+          <div><label for="contact-name" class="label">Full name *</label><input id="contact-name" name="name" type="text" class="input" autocomplete="name" data-rules="required"><p class="field-error" data-error-for="contact-name" hidden></p></div>
+          <div><label for="contact-email" class="label">Email *</label><input id="contact-email" name="email" type="email" class="input" autocomplete="email" data-rules="required|email"><p class="field-error" data-error-for="contact-email" hidden></p></div>
+          <div><label for="contact-phone" class="label">Mobile</label><input id="contact-phone" name="phone" type="tel" class="input" autocomplete="tel" placeholder="0917 123 4567" data-rules="phone"><p class="field-error" data-error-for="contact-phone" hidden></p></div>
+          <div><label for="contact-topic" class="label">Topic *</label><select id="contact-topic" name="topic" class="input" data-rules="required"><option value="">Choose a topic</option><option>Order status</option><option>Returns or exchange</option><option>Product or stock question</option><option>Wholesale</option><option>Press</option><option>Something else</option></select><p class="field-error" data-error-for="contact-topic" hidden></p></div>
+          <div class="sm:col-span-2"><label for="contact-order" class="label">Order reference (optional)</label><input id="contact-order" name="order" type="text" class="input" placeholder="VYX-2611-8841"></div>
+          <div class="sm:col-span-2"><label for="contact-message" class="label">Message *</label><textarea id="contact-message" name="message" rows="6" class="input resize-y" placeholder="Tell us what you need." data-rules="required|min:20"></textarea><p class="field-error" data-error-for="contact-message" hidden></p></div>
+        </div>
+
+        <label class="mt-4 flex cursor-pointer items-start gap-2.5 text-[11px] leading-relaxed text-subtle"><input type="checkbox" class="checkbox mt-0.5" data-rules="checked"><span>I understand this is a Phase 1 demo and no message is transmitted.</span></label>
+
+        <div class="mt-5 flex flex-wrap items-center gap-3">
+          <button type="submit" class="btn btn-primary">Send message</button>
+          <button type="reset" class="btn btn-ghost btn-sm">Clear</button>
+        </div>
+        <div class="mt-4 hidden border border-emerald-500/30 bg-emerald-500/10 p-4 text-xs text-subtle" data-form-success role="status">
+          <p class="font-bold uppercase tracking-wide2 text-emerald-700 dark:text-emerald-300">Message validated</p>
+          <p class="mt-1">Sample success state. In Phase 3 this would open a support ticket.</p>
+        </div>
+      </form>
+
+      <div class="mt-6 border border-line bg-panel p-5">
+        <p class="text-[10px] font-bold uppercase tracking-wide2 text-subtle">Visit the studio</p>
+        <div class="mt-3 grid min-h-[220px] place-items-center bg-ink text-white" aria-label="Map placeholder">
+          <div class="text-center">
+            <svg class="mx-auto h-8 w-8 text-red" aria-hidden="true"><use href="{{ROOT}}assets/icons/lucide-sprite.svg#i-map-pin"></use></svg>
+            <p class="mt-2 font-display text-2xl uppercase">Makati City</p>
+            <p class="text-[10px] uppercase tracking-wide2 text-white/50">Map placeholder · Phase 2</p>
+          </div>
+        </div>
+        <p class="mt-3 text-xs text-subtle">Unit 12B, The Meridian, 42 Kalayaan Avenue, Makati City 1210. Visits by appointment.</p>
+      </div>
+    </div>
+
+    <aside class="space-y-4">
+      <div class="border border-line bg-surface p-5">
+        <h2 class="font-display text-xl uppercase">Direct lines</h2>
+        <dl class="mt-4 space-y-4 text-xs">
+          <div class="flex gap-3"><svg class="h-4 w-4 shrink-0 text-red" aria-hidden="true"><use href="{{ROOT}}assets/icons/lucide-sprite.svg#i-mail"></use></svg><div><dt class="font-bold uppercase tracking-wide2 text-subtle">Support</dt><dd class="mt-0.5"><a href="mailto:care@vyrox.ph" class="hover:text-red">care@vyrox.ph</a></dd></div></div>
+          <div class="flex gap-3"><svg class="h-4 w-4 shrink-0 text-red" aria-hidden="true"><use href="{{ROOT}}assets/icons/lucide-sprite.svg#i-phone"></use></svg><div><dt class="font-bold uppercase tracking-wide2 text-subtle">Phone</dt><dd class="mt-0.5"><a href="tel:+63288881234" class="hover:text-red">+63 2 8888 1234</a></dd></div></div>
+          <div class="flex gap-3"><svg class="h-4 w-4 shrink-0 text-red" aria-hidden="true"><use href="{{ROOT}}assets/icons/lucide-sprite.svg#i-clock"></use></svg><div><dt class="font-bold uppercase tracking-wide2 text-subtle">Hours</dt><dd class="mt-0.5">Mon–Sat · 9:00–18:00 PHT</dd></div></div>
+          <div class="flex gap-3"><svg class="h-4 w-4 shrink-0 text-red" aria-hidden="true"><use href="{{ROOT}}assets/icons/lucide-sprite.svg#i-instagram"></use></svg><div><dt class="font-bold uppercase tracking-wide2 text-subtle">Social</dt><dd class="mt-0.5"><a href="https://instagram.com" target="_blank" rel="noopener" class="hover:text-red">@vyrox.ph</a></dd></div></div>
+        </dl>
+      </div>
+
+      <div class="border border-line bg-ink p-5 text-white">
+        <p class="text-[10px] font-bold uppercase tracking-brand text-white/50">Faster answers</p>
+        <p class="mt-2 text-sm leading-relaxed text-white/70">Most questions are already answered in the FAQ — sizing, shipping, coupons and returns.</p>
+        <a href="{{ROOT}}faq.html" class="btn btn-primary btn-sm mt-4">Read the FAQ</a>
+      </div>
+
+      <div class="border border-line bg-surface p-5">
+        <p class="text-[10px] font-bold uppercase tracking-wide2 text-subtle">Order help</p>
+        <p class="mt-2 text-xs leading-relaxed text-subtle">Have a reference? Track it first — the timeline usually answers “where is it?” instantly.</p>
+        <div class="mt-3 flex gap-2"><a href="{{ROOT}}tracking.html" class="btn btn-dark btn-sm">Track order</a><a href="{{ROOT}}orders.html" class="btn btn-outline btn-sm">History</a></div>
+      </div>
+    </aside>
+  </div>
+</section>

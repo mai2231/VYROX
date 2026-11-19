@@ -1,0 +1,45 @@
+<!-- @title: Compare — VYROX @desc: Compare up to four VYROX pieces side by side. @page: compare -->
+
+<section class="border-b border-line bg-ink py-12 text-white sm:py-16">
+  <div class="container-vyrox">
+    <nav class="breadcrumb !text-white/50" aria-label="Breadcrumb"><a href="{{ROOT}}index.html" class="hover:text-white">Home</a><span>/</span><span class="text-white">Compare</span></nav>
+    <div class="mt-6 flex flex-wrap items-end justify-between gap-6">
+      <div>
+        <p class="eyebrow !text-red-bright">Side by side</p>
+        <h1 class="display-xl mt-3">COMPARE<br>PIECES.</h1>
+        <p class="mt-3 max-w-lg text-sm text-white/60">Select up to four products from any product card to compare specs, price and stock.</p>
+      </div>
+      <p class="border border-white/20 px-4 py-2 text-[10px] font-bold uppercase tracking-wide2 text-white/70"><span data-compare-count>0</span> selected</p>
+    </div>
+  </div>
+</section>
+
+<section class="section-tight">
+  <div class="container-vyrox">
+    <div data-compare-empty class="hidden border border-line bg-surface px-6 py-20 text-center">
+      <span class="mx-auto flex h-16 w-16 items-center justify-center border border-line bg-panel text-subtle">
+        <svg class="h-7 w-7" aria-hidden="true"><use href="{{ROOT}}assets/icons/lucide-sprite.svg#i-sliders-horizontal"></use></svg>
+      </span>
+      <p class="mt-5 font-display text-3xl uppercase">Nothing to compare.</p>
+      <p class="mx-auto mt-2 max-w-md text-sm text-subtle">Add pieces to comparison from any product card, then return here to see them side by side.</p>
+      <div class="mt-6 flex flex-wrap justify-center gap-3">
+        <a href="{{ROOT}}shop.html" class="btn btn-primary">Shop the edit</a>
+        <a href="{{ROOT}}categories.html" class="btn btn-outline">Browse categories</a>
+      </div>
+    </div>
+
+    <div data-compare-body class="hidden">
+      <div class="overflow-x-auto border border-line bg-surface" data-reveal>
+        <table class="data-table min-w-[720px]" data-compare-table></table>
+      </div>
+
+      <div class="mt-6 flex flex-wrap justify-between items-center gap-4">
+        <div class="text-[10px] uppercase tracking-wide2 text-subtle">Add more pieces from the <a href="{{ROOT}}shop.html" class="text-red underline">full edit</a>.</div>
+        <div class="flex gap-2">
+          <button type="button" class="btn btn-ghost btn-sm" data-compare-clear>Clear all</button>
+          <a href="{{ROOT}}cart.html" class="btn btn-dark btn-sm">View bag</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

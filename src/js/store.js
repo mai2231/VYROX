@@ -11,6 +11,8 @@ export const THEME_KEY = 'vyrox_theme_v1';
 export const ADMIN_KEY = 'vyrox_admin_v1';
 export const ORDERS_KEY = 'vyrox_orders_v1';
 export const ADDRESS_KEY = 'vyrox_addresses_v1';
+export const RECENTLY_VIEWED_KEY = 'vyrox_recently_viewed_v1';
+export const COMPARE_KEY = 'vyrox_compare_v1';
 
 const listeners = new Set();
 const memory = new Map();
@@ -273,7 +275,7 @@ export const resetAdminState = () => {
 };
 
 export const resetDemo = () => {
-  [CART_KEY, WISH_KEY, ADMIN_KEY, ORDERS_KEY, ADDRESS_KEY].forEach((key) => {
+  [CART_KEY, WISH_KEY, ADMIN_KEY, ORDERS_KEY, ADDRESS_KEY, RECENTLY_VIEWED_KEY, COMPARE_KEY].forEach((key) => {
     memory.delete(key);
     try {
       storage()?.removeItem(key);
@@ -282,4 +284,54 @@ export const resetDemo = () => {
     }
   });
   emit('reset');
+};
+
+/* ---------------------------------------------------------- recently viewed */
+export const getRecentlyViewed = () => {
+  const value = read(RECENTLY_VIEWED_KEY, []);
+  return Array.isArray(value) ? value.filter((id) => typeof id === 'string') : [];
+};
+
+export const addRecentlyViewed = (id) => {
+  if (!id) return;
+  const list = getRecentlyViewed().filter((existing) => existing !== id);
+  const next = [id, ...list].slice(0, 8);
+  write(RECENTLY_VIEWED_KEY, next);
+  emit('recently-viewed');
+};
+
+export const clearRecentlyViewed = () => {
+  write(RECENTLY_VIEWED_KEY, []);
+  emit('recently-viewed');
+};
+
+/* ------------------------------------------------------------ comparison */
+export const COMPARE_MAX = 4;
+
+export const getCompared = () => {
+  const value = read(COMPARE_KEY, []);
+  return Array.isArray(value) ? value.filter((id) => typeof id === 'string') : [];
+};
+
+export const isCompared = (id) => getCompared().includes(id);
+
+export const addCompared = (id) => {
+  if (!id) return { added: false, list: getCompared() };
+  const list = getCompared();
+  if (list.includes(id)) return { added: false, list };
+  if (list.length >= COMPARE_MAX) return { added: false, list, reason: 'max' };
+  const next = [...list, id];
+  write(COMPARE_KEY, next);
+  emit('compare');
+  return { added: true, list: next };
+};
+
+export const removeCompared = (id) => {
+  write(COMPARE_KEY, getCompared().filter((existing) => existing !== id));
+  emit('compare');
+};
+
+export const clearCompared = () => {
+  write(COMPARE_KEY, []);
+  emit('compare');
 };

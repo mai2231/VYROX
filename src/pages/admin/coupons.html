@@ -1,0 +1,49 @@
+<!-- @title: Coupons — VYROX Admin @desc: Sample coupon management: create, toggle, export. @page: coupons -->
+
+<div class="flex flex-wrap items-end justify-between gap-4">
+  <div>
+    <p class="text-[9px] font-bold uppercase tracking-brand text-subtle">Commerce / Coupons</p>
+    <h1 class="mt-1 font-display text-3xl uppercase leading-none sm:text-4xl">Coupons</h1>
+    <p class="mt-2 text-xs text-subtle">Sample discount codes for the demo checkout.</p>
+  </div>
+  <button type="button" class="btn btn-dark btn-sm" data-admin-coupon-new>+ New coupon</button>
+</div>
+
+<div class="mt-5 grid gap-3 sm:grid-cols-4">
+  <div class="kpi-card"><p class="text-[9px] font-bold uppercase tracking-brand text-subtle">Total</p><p class="kpi-value mt-2" data-admin-coupons-count>0</p><p class="mt-1 text-[10px] text-subtle">Live + archived</p></div>
+  <div class="kpi-card"><p class="text-[9px] font-bold uppercase tracking-brand text-subtle">Active</p><p class="kpi-value mt-2" data-admin-coupons-active>0</p><p class="mt-1 text-[10px] text-subtle">Redeemable now</p></div>
+</div>
+
+<div class="admin-table-wrap mt-4">
+  <table class="data-table min-w-[700px]">
+    <thead><tr><th>Code</th><th>Type</th><th>Value</th><th class="hidden md:table-cell">Min / cap</th><th>Usage</th><th>Status</th><th class="hidden lg:table-cell">Expires</th><th class="text-right">Actions</th></tr></thead>
+    <tbody data-admin-coupons-body></tbody>
+  </table>
+</div>
+
+<div class="modal-backdrop" data-admin-coupon-modal role="dialog" aria-modal="true" aria-labelledby="admin-coupon-title">
+  <div class="modal-panel max-w-lg">
+    <div class="flex items-start justify-between gap-3 border-b border-line p-5">
+      <div><p class="text-[9px] font-bold uppercase tracking-brand text-red">Coupon editor</p><h2 id="admin-coupon-title" class="font-display text-xl uppercase leading-none">New coupon</h2></div>
+      <button type="button" class="icon-btn -mr-2 -mt-2" data-admin-coupon-close aria-label="Close coupon editor"><svg class="h-5 w-5" aria-hidden="true"><use href="{{ROOT}}assets/icons/lucide-sprite.svg#i-x"></use></svg></button>
+    </div>
+    <form class="space-y-4 p-5" data-admin-coupon-form novalidate>
+      <div class="grid gap-4 sm:grid-cols-3">
+        <div><label for="cc-code" class="label">Code</label><input id="cc-code" name="code" type="text" class="input" placeholder="VYROX10" required></div>
+        <div><label for="cc-type" class="label">Type</label><select id="cc-type" name="type" class="input"><option value="percent">Percent</option><option value="fixed">Fixed</option><option value="shipping">Free shipping</option></select></div>
+        <div><label for="cc-value" class="label">Value</label><input id="cc-value" name="value" type="number" step="1" class="input" placeholder="10 or 500"></div>
+      </div>
+      <div class="grid gap-4 sm:grid-cols-2">
+        <div><label for="cc-minimum" class="label">Minimum spend</label><input id="cc-minimum" name="minimum" type="number" step="1" class="input" placeholder="0"></div>
+        <div><label for="cc-cap" class="label">Cap (percent only)</label><input id="cc-cap" name="cap" type="number" step="1" class="input" placeholder="0"></div>
+        <div><label for="cc-limit" class="label">Usage limit</label><input id="cc-limit" name="limit" type="number" step="1" class="input" placeholder="100"></div>
+        <div><label for="cc-expires" class="label">Expires</label><input id="cc-expires" name="expires" type="date" class="input" value="2027-12-31"></div>
+      </div>
+      <div><label for="cc-note" class="label">Note</label><input id="cc-note" name="note" type="text" class="input" placeholder="Demo note"></div>
+      <div class="flex justify-end gap-2 border-t border-line pt-4">
+        <button type="button" class="btn btn-ghost btn-sm" data-admin-coupon-close>Cancel</button>
+        <button type="submit" class="btn btn-dark btn-sm">Create coupon</button>
+      </div>
+    </form>
+  </div>
+</div>

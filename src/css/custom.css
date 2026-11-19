@@ -37,9 +37,14 @@
     min-height: 100vh;
   }
 
-  h1, h2, h3, h4 {
+  h1, h2 {
     @apply font-display font-normal uppercase;
     line-height: 0.94;
+    letter-spacing: -0.01em;
+  }
+  h3, h4 {
+    @apply font-sans font-semibold uppercase;
+    line-height: 1.1;
     letter-spacing: -0.01em;
   }
 
@@ -298,6 +303,11 @@
 
   .chip-active {
     @apply border-ink bg-ink text-white hover:text-white dark:border-white dark:bg-white dark:text-ink;
+  }
+
+  /* Mobile filter drawer opened by shop.js */
+  .shop-filters.is-open {
+    @apply translate-x-0;
   }
 
   .status {

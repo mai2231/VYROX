@@ -72,7 +72,7 @@ for (const file of pages) {
   const title = meta.title || 'VYROX';
   const desc = meta.desc || 'VYROX — Your World. Your Rules. Premium general commerce, built for the bold.';
 
-  const tokens = { PAGE: page, TITLE: title, DESC: desc, ROOT: rootPath, BODY: body, YEAR: String(new Date().getFullYear()) };
+  const tokens = { PAGE: page, TITLE: title, DESC: desc, ROOT: rootPath, BODY: applyTokens(body, { PAGE: page, ROOT: rootPath, YEAR: String(new Date().getFullYear()) }), YEAR: String(new Date().getFullYear()) };
 
   let html;
   if (isAdmin) {

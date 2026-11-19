@@ -1,0 +1,107 @@
+<!-- @title: My Account — VYROX @desc: Demo VYROX profile, order snapshot and account settings. No credentials are stored. @page: profile -->
+
+<section class="border-b border-line bg-soft">
+  <div class="container-vyrox py-8 sm:py-10">
+    <nav class="breadcrumb" aria-label="Breadcrumb"><a href="{{ROOT}}index.html">Home</a><span>/</span><span class="text-body">Account</span></nav>
+    <div class="mt-5 flex flex-wrap items-end justify-between gap-5">
+      <div>
+        <p class="eyebrow">Your account</p>
+        <h1 class="display-xl mt-2">HELLO,<br><span data-demo-first>Mika</span>.</h1>
+      </div>
+      <div class="flex flex-wrap items-center gap-2">
+        <span class="badge badge-red" data-demo-tier>VYROX Red</span>
+        <a href="{{ROOT}}orders.html" class="btn btn-outline btn-sm">Order history</a>
+        <a href="{{ROOT}}login.html" class="btn btn-ghost btn-sm border border-line"><svg class="h-3.5 w-3.5" aria-hidden="true"><use href="{{ROOT}}assets/icons/lucide-sprite.svg#i-log-out"></use></svg> Sign out</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="container-vyrox section-tight" data-profile-page>
+  <div class="hidden items-start gap-3 border border-amber-500/40 bg-amber-400/10 p-4" data-demo-banner role="status">
+    <svg class="mt-0.5 h-5 w-5 shrink-0 text-amber-600 dark:text-amber-300" aria-hidden="true"><use href="{{ROOT}}assets/icons/lucide-sprite.svg#i-triangle-alert"></use></svg>
+    <div>
+      <p class="text-[10px] font-bold uppercase tracking-wide2 text-amber-700 dark:text-amber-300">Demo account</p>
+      <p class="mt-1 text-xs leading-relaxed text-subtle">You are viewing sample profile data. No session, password or token exists. Changes below are not saved in Phase 1.</p>
+    </div>
+  </div>
+
+  <div class="mt-6 grid gap-6 lg:grid-cols-[240px_1fr]">
+    <aside class="space-y-4">
+      <nav class="border border-line bg-surface" aria-label="Account sections">
+        <a href="{{ROOT}}profile.html?demo=1" class="flex items-center gap-2.5 border-l-2 border-red bg-panel px-4 py-3 text-[11px] font-bold uppercase tracking-wide2"><svg class="h-4 w-4" aria-hidden="true"><use href="{{ROOT}}assets/icons/lucide-sprite.svg#i-user"></use></svg> Profile</a>
+        <a href="{{ROOT}}orders.html" class="flex items-center gap-2.5 border-l-2 border-transparent px-4 py-3 text-[11px] font-semibold uppercase tracking-wide2 text-subtle hover:text-body"><svg class="h-4 w-4" aria-hidden="true"><use href="{{ROOT}}assets/icons/lucide-sprite.svg#i-package"></use></svg> Orders</a>
+        <a href="{{ROOT}}wishlist.html" class="flex items-center gap-2.5 border-l-2 border-transparent px-4 py-3 text-[11px] font-semibold uppercase tracking-wide2 text-subtle hover:text-body"><svg class="h-4 w-4" aria-hidden="true"><use href="{{ROOT}}assets/icons/lucide-sprite.svg#i-heart"></use></svg> Wishlist</a>
+        <a href="{{ROOT}}addresses.html" class="flex items-center gap-2.5 border-l-2 border-transparent px-4 py-3 text-[11px] font-semibold uppercase tracking-wide2 text-subtle hover:text-body"><svg class="h-4 w-4" aria-hidden="true"><use href="{{ROOT}}assets/icons/lucide-sprite.svg#i-map-pin"></use></svg> Addresses</a>
+        <a href="{{ROOT}}tracking.html" class="flex items-center gap-2.5 border-l-2 border-transparent px-4 py-3 text-[11px] font-semibold uppercase tracking-wide2 text-subtle hover:text-body"><svg class="h-4 w-4" aria-hidden="true"><use href="{{ROOT}}assets/icons/lucide-sprite.svg#i-truck"></use></svg> Track order</a>
+      </nav>
+
+      <div class="border border-line bg-ink p-4 text-white">
+        <p class="text-[9px] font-bold uppercase tracking-brand text-white/50">Loyalty · sample</p>
+        <p class="mt-1 font-display text-3xl leading-none"><span data-demo-points>1,840</span><span class="ml-1 text-[10px] font-sans font-bold uppercase tracking-wide2 text-white/40">pts</span></p>
+        <div class="mt-3 h-1 bg-white/15"><div class="h-full w-2/3 bg-red"></div></div>
+        <p class="mt-2 text-[10px] text-white/50">Member since <span data-demo-since>March 2025</span>. Points are demo data.</p>
+      </div>
+
+      <div class="border border-line bg-panel p-4">
+        <p class="text-[10px] font-bold uppercase tracking-wide2 text-subtle">Session</p>
+        <p class="mt-1 text-xs font-semibold">Demonstration only</p>
+        <p class="mt-1 text-[10px] leading-relaxed text-subtle">There is no auth token to revoke. Signing out simply returns you to the storefront.</p>
+      </div>
+    </aside>
+
+    <div class="min-w-0 space-y-6">
+      <div class="grid gap-4 sm:grid-cols-3">
+        <div class="border border-line bg-surface p-4"><p class="text-[9px] font-bold uppercase tracking-brand text-subtle">Orders</p><p class="mt-1 font-display text-3xl">06</p><a href="{{ROOT}}orders.html" class="mt-1 inline-block text-[10px] font-bold uppercase tracking-wide2 text-red">View all</a></div>
+        <div class="border border-line bg-surface p-4"><p class="text-[9px] font-bold uppercase tracking-brand text-subtle">Wishlist</p><p class="mt-1 font-display text-3xl" data-wishlist-count>0</p><a href="{{ROOT}}wishlist.html" class="mt-1 inline-block text-[10px] font-bold uppercase tracking-wide2 text-red">Open</a></div>
+        <div class="border border-line bg-surface p-4"><p class="text-[9px] font-bold uppercase tracking-brand text-subtle">Tier</p><p class="mt-1 font-display text-2xl uppercase" data-demo-tier>VYROX Red</p><p class="mt-1 text-[10px] text-subtle">Sample status</p></div>
+      </div>
+
+      <div class="grid gap-6 xl:grid-cols-[1fr_320px]">
+        <form class="border border-line bg-surface p-5" data-validate data-profile-form>
+          <div class="flex items-center justify-between gap-3 border-b border-line pb-4">
+            <h2 class="font-display text-2xl uppercase">Profile details</h2>
+            <span class="demo-chip">Demo</span>
+          </div>
+          <div class="mt-5 grid gap-4 sm:grid-cols-2">
+            <div><label for="profile-first" class="label">First name</label><input id="profile-first" name="firstName" type="text" class="input" data-rules="required"><p class="field-error" data-error-for="profile-first" hidden></p></div>
+            <div><label for="profile-last" class="label">Last name</label><input id="profile-last" name="lastName" type="text" class="input" data-rules="required"><p class="field-error" data-error-for="profile-last" hidden></p></div>
+            <div><label for="profile-email" class="label">Email</label><input id="profile-email" name="email" type="email" class="input" data-rules="required|email"><p class="field-error" data-error-for="profile-email" hidden></p></div>
+            <div><label for="profile-phone" class="label">Mobile</label><input id="profile-phone" name="phone" type="tel" class="input" data-rules="required|phone"><p class="field-error" data-error-for="profile-phone" hidden></p></div>
+          </div>
+          <button type="submit" class="btn btn-dark mt-5">Save changes</button>
+          <p class="mt-3 text-[10px] text-subtle">Phase 1 keeps this in the form only. Secure persistence arrives with the backend.</p>
+        </form>
+
+        <div class="border border-line bg-surface p-5">
+          <div class="flex items-center justify-between gap-3 border-b border-line pb-4">
+            <h2 class="font-display text-xl uppercase">Recent orders</h2>
+            <a href="{{ROOT}}orders.html" class="text-[10px] font-bold uppercase tracking-wide2 text-red">All</a>
+          </div>
+          <div class="mt-2" data-profile-orders></div>
+        </div>
+      </div>
+
+      <form class="border border-line bg-surface p-5" data-validate data-password-form>
+        <div class="flex items-center justify-between gap-3 border-b border-line pb-4">
+          <h2 class="font-display text-2xl uppercase">Change password</h2>
+          <span class="text-[9px] font-bold uppercase tracking-brand text-subtle">Disabled in Phase 1</span>
+        </div>
+        <div class="mt-5 grid gap-4 sm:grid-cols-3">
+          <div><label for="pw-current" class="label">Current password</label><input id="pw-current" name="current" type="password" class="input" autocomplete="current-password" data-rules="required|min:8"><p class="field-error" data-error-for="pw-current" hidden></p></div>
+          <div><label for="pw-new" class="label">New password</label><input id="pw-new" name="password" type="password" class="input" autocomplete="new-password" data-rules="required|min:8"><p class="field-error" data-error-for="pw-new" hidden></p></div>
+          <div><label for="pw-confirm" class="label">Confirm</label><input id="pw-confirm" name="confirm" type="password" class="input" autocomplete="new-password" data-rules="required|match:#pw-new"><p class="field-error" data-error-for="pw-confirm" hidden></p></div>
+        </div>
+        <div class="mt-5 flex flex-wrap items-center gap-3">
+          <button type="submit" class="btn btn-outline">Update password</button>
+          <p class="text-[10px] text-subtle">Demo submit only — nothing is written to storage.</p>
+        </div>
+      </form>
+
+      <div class="flex flex-wrap items-center justify-between gap-4 border border-line bg-panel p-5">
+        <div><p class="text-[10px] font-bold uppercase tracking-wide2 text-subtle">Need to correct an order?</p><p class="mt-1 text-sm font-semibold">Support replies within one business day.</p></div>
+        <a href="{{ROOT}}contact.html" class="btn btn-dark btn-sm">Contact support</a>
+      </div>
+    </div>
+  </div>
+</div>

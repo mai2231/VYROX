@@ -1,0 +1,59 @@
+<!-- @title: Inventory — VYROX Admin @desc: Sample stock management with alerts, adjustments and audit log. @page: inventory -->
+
+<div class="flex flex-wrap items-end justify-between gap-4">
+  <div>
+    <p class="text-[9px] font-bold uppercase tracking-brand text-subtle">Commerce / Inventory</p>
+    <h1 class="mt-1 font-display text-3xl uppercase leading-none sm:text-4xl">Inventory</h1>
+    <p class="mt-2 text-xs text-subtle">Stock levels, adjustments and audit log.</p>
+  </div>
+  <button type="button" class="btn btn-outline btn-sm" data-admin-inventory-export>Export CSV</button>
+</div>
+
+<div class="mt-5 grid gap-3 sm:grid-cols-3">
+  <div class="kpi-card"><p class="text-[9px] font-bold uppercase tracking-brand text-subtle">Unique SKUs</p><p class="kpi-value mt-2">24</p><p class="mt-1 text-[10px] text-subtle">Catalogue entries</p></div>
+  <div class="kpi-card"><p class="text-[9px] font-bold uppercase tracking-brand text-subtle">Units in stock</p><p class="kpi-value mt-2" data-admin-inventory-units>0</p><p class="mt-1 text-[10px] text-subtle">Across all variants</p></div>
+  <div class="kpi-card border-red/40"><p class="text-[9px] font-bold uppercase tracking-brand text-red">Low stock</p><p class="kpi-value mt-2 text-red" data-admin-inventory-low>0</p><p class="mt-1 text-[10px] text-subtle">10 units or fewer</p></div>
+</div>
+
+<div class="mt-4 grid gap-3 sm:grid-cols-4">
+  <div class="admin-filter">
+    <input id="admin-inventory-search" type="search" placeholder="Product or SKU" class="input input-sm pl-9" data-admin-inventory-search autocomplete="off">
+    <svg class="pointer-events-none absolute left-3 top-1/2 h-3.5 w-3.5 -translate-y-1/2 text-subtle" aria-hidden="true"><use href="{{ROOT}}assets/icons/lucide-sprite.svg#i-search"></use></svg>
+  </div>
+  <select id="admin-inventory-filter" class="input input-sm w-auto" data-admin-inventory-filter>
+    <option value="all">All stock</option>
+    <option value="low">Low stock</option>
+    <option value="out">Out of stock</option>
+    <option value="healthy">Healthy</option>
+  </select>
+</div>
+
+<div class="admin-table-wrap mt-3">
+  <table class="data-table min-w-[680px]">
+    <thead><tr><th>Product</th><th class="hidden sm:table-cell">SKU</th><th>Stock</th><th class="hidden md:table-cell">State</th><th class="hidden lg:table-cell text-right">Price</th><th class="text-right">Adjust</th></tr></thead>
+    <tbody data-admin-inventory-body></tbody>
+  </table>
+</div>
+
+<div class="mt-4 border border-line bg-panel p-4">
+  <p class="text-[10px] font-bold uppercase tracking-wide2 text-subtle">Inventory log</p>
+  <ul class="mt-2 divide-y divide-line max-h-[220px] overflow-y-auto" data-admin-inventory-log></ul>
+</div>
+
+<div class="modal-backdrop" data-admin-stock-modal role="dialog" aria-modal="true" aria-labelledby="admin-stock-title">
+  <div class="modal-panel max-w-md">
+    <div class="flex items-start justify-between gap-3 border-b border-line p-5">
+      <div><p class="text-[9px] font-bold uppercase tracking-brand text-red">Inventory</p><h2 id="admin-stock-title" class="font-display text-2xl uppercase leading-none" data-admin-stock-title>Adjust stock</h2></div>
+      <button type="button" class="icon-btn -mr-2 -mt-2" data-admin-stock-close aria-label="Close stock editor"><svg class="h-5 w-5" aria-hidden="true"><use href="{{ROOT}}assets/icons/lucide-sprite.svg#i-x"></use></svg></button>
+    </div>
+    <form class="space-y-4 p-5" data-admin-stock-form novalidate>
+      <div><label for="stock-id" class="label">Product</label><p class="mt-1 text-[11px] font-semibold truncate" data-admin-stock-product></p></div>
+      <div><label for="stock-value" class="label">Units on hand</label><input id="stock-value" name="stock" type="number" min="0" step="1" class="input" required></div>
+      <div><label for="stock-reason" class="label">Reason</label><select id="stock-reason" name="reason" class="input"><option value="Stocktake correction">Stocktake correction</option><option value="Inbound shipment">Inbound shipment</option><option value="Damaged write-off">Damaged write-off</option><option value="Customer return">Customer return</option></select></div>
+      <div class="flex justify-end gap-2 border-t border-line pt-4">
+        <button type="button" class="btn btn-ghost btn-sm" data-admin-stock-close>Cancel</button>
+        <button type="submit" class="btn btn-dark btn-sm">Save stock</button>
+      </div>
+    </form>
+  </div>
+</div>

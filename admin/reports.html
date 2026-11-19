@@ -1,0 +1,178 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Reports — VYROX Admin @desc: Sample reports by category and payment method with date range and CSV export. @page: reports</title>
+  <meta name="description" content="VYROX — Your World. Your Rules. Premium general commerce, built for the bold.">
+  <meta name="robots" content="noindex,nofollow">
+  <meta name="theme-color" content="#111111">
+  <link rel="icon" href="../assets/logo/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../dist/css/vyrox.css">
+  <script>
+    (function () {
+      try {
+        var saved = JSON.parse(localStorage.getItem('vyrox_theme_v1') || 'null');
+        var dark = saved === 'dark' || (saved !== 'light' && window.matchMedia('(prefers-color-scheme: dark)').matches);
+        if (dark) document.documentElement.classList.add('dark');
+        document.documentElement.dataset.theme = dark ? 'dark' : 'light';
+      } catch (e) { /* cosmetic */ }
+    })();
+  </script>
+</head>
+<body data-page="reports" data-root="../" data-admin class="bg-panel text-body">
+  <a class="skip-link" href="#main">Skip to content</a>
+<div class="admin-shell">
+  <aside class="admin-sidebar" data-admin-sidebar aria-label="Admin navigation">
+    <div class="flex h-16 shrink-0 items-center justify-between border-b border-white/10 px-4">
+      <a href="../index.html" class="flex items-center gap-2" aria-label="VYROX storefront">
+        <svg viewBox="0 0 44 44" class="h-7 w-7" aria-hidden="true"><path d="M2 4h10l10 26L32 4h10L28 40H16L2 4Z" fill="#E31B32"/><rect x="33" y="4" width="7" height="7" fill="currentColor"/></svg>
+        <span class="admin-brand-text font-display text-2xl leading-none tracking-tight text-white">VYROX<span class="ml-1 align-top text-[8px] font-sans font-bold uppercase tracking-brand text-red">Admin</span></span>
+      </a>
+      <button type="button" class="text-white/50 transition hover:text-white lg:hidden" data-admin-close aria-label="Close admin menu">
+        <svg class="h-5 w-5" aria-hidden="true"><use href="../assets/icons/lucide-sprite.svg#i-x"></use></svg>
+      </button>
+    </div>
+
+    <nav class="flex-1 overflow-y-auto py-3">
+      <p class="admin-group-title">Overview</p>
+      <a href="../admin/index.html" class="admin-nav-link ">
+        <svg aria-hidden="true"><use href="../assets/icons/lucide-sprite.svg#i-layout-dashboard"></use></svg><span class="admin-label">Dashboard</span>
+      </a>
+      <p class="admin-group-title">Commerce</p>
+      <a href="../admin/products.html" class="admin-nav-link ">
+        <svg aria-hidden="true"><use href="../assets/icons/lucide-sprite.svg#i-box"></use></svg><span class="admin-label">Products</span>
+      </a>
+      <a href="../admin/categories.html" class="admin-nav-link ">
+        <svg aria-hidden="true"><use href="../assets/icons/lucide-sprite.svg#i-folder-tree"></use></svg><span class="admin-label">Categories</span>
+      </a>
+      <a href="../admin/orders.html" class="admin-nav-link ">
+        <svg aria-hidden="true"><use href="../assets/icons/lucide-sprite.svg#i-receipt"></use></svg><span class="admin-label">Orders</span><span class="ml-auto bg-red px-1.5 py-0.5 text-[9px] font-bold text-white admin-label">6</span>
+      </a>
+      <a href="../admin/payments.html" class="admin-nav-link ">
+        <svg aria-hidden="true"><use href="../assets/icons/lucide-sprite.svg#i-credit-card"></use></svg><span class="admin-label">Payments</span>
+      </a>
+      <a href="../admin/customers.html" class="admin-nav-link ">
+        <svg aria-hidden="true"><use href="../assets/icons/lucide-sprite.svg#i-users"></use></svg><span class="admin-label">Customers</span>
+      </a>
+      <a href="../admin/inventory.html" class="admin-nav-link ">
+        <svg aria-hidden="true"><use href="../assets/icons/lucide-sprite.svg#i-package"></use></svg><span class="admin-label">Inventory</span>
+      </a>
+      <p class="admin-group-title">Growth</p>
+      <a href="../admin/coupons.html" class="admin-nav-link ">
+        <svg aria-hidden="true"><use href="../assets/icons/lucide-sprite.svg#i-tag"></use></svg><span class="admin-label">Coupons</span>
+      </a>
+      <a href="../admin/reviews.html" class="admin-nav-link ">
+        <svg aria-hidden="true"><use href="../assets/icons/lucide-sprite.svg#i-star"></use></svg><span class="admin-label">Reviews</span>
+      </a>
+      <a href="../admin/reports.html" class="admin-nav-link is-active">
+        <svg aria-hidden="true"><use href="../assets/icons/lucide-sprite.svg#i-bar-chart-3"></use></svg><span class="admin-label">Reports</span>
+      </a>
+      <p class="admin-group-title">System</p>
+      <a href="../admin/settings.html" class="admin-nav-link ">
+        <svg aria-hidden="true"><use href="../assets/icons/lucide-sprite.svg#i-settings"></use></svg><span class="admin-label">Settings</span>
+      </a>
+      <a href="../admin/users.html" class="admin-nav-link ">
+        <svg aria-hidden="true"><use href="../assets/icons/lucide-sprite.svg#i-shield-check"></use></svg><span class="admin-label">Admin users</span>
+      </a>
+    </nav>
+
+    <div class="shrink-0 border-t border-white/10 p-4">
+      <a href="../index.html" class="flex items-center gap-3 text-[11px] font-semibold uppercase tracking-wide2 text-white/60 transition hover:text-white">
+        <svg class="h-4 w-4" aria-hidden="true"><use href="../assets/icons/lucide-sprite.svg#i-external-link"></use></svg><span class="admin-label">View storefront</span>
+      </a>
+      <button type="button" class="mt-4 flex w-full items-center gap-3 border border-white/15 p-2.5 text-left transition hover:border-white/30" data-admin-profile>
+        <span class="flex h-8 w-8 shrink-0 items-center justify-center bg-red font-display text-sm text-white">AR</span>
+        <span class="admin-label min-w-0"><span class="block truncate text-[11px] font-semibold text-white">Alexis Ramos</span><span class="block truncate text-[9px] uppercase tracking-wide2 text-white/40">Owner · demo</span></span>
+      </button>
+    </div>
+  </aside>
+
+  <div class="admin-scrim hidden" data-admin-scrim></div>
+
+  <div class="admin-main">
+    <header class="admin-topbar">
+      <button type="button" class="icon-btn -ml-2 lg:hidden" data-admin-open aria-label="Open admin menu" aria-controls="admin-sidebar" aria-expanded="false">
+        <svg class="h-5 w-5" aria-hidden="true"><use href="../assets/icons/lucide-sprite.svg#i-menu"></use></svg>
+      </button>
+      <button type="button" class="icon-btn hidden lg:inline-flex" data-admin-collapse aria-label="Collapse sidebar">
+        <svg class="h-5 w-5" aria-hidden="true"><use href="../assets/icons/lucide-sprite.svg#i-panel-left"></use></svg>
+      </button>
+      <div class="hidden min-w-0 sm:block">
+        <p class="text-[9px] font-bold uppercase tracking-brand text-subtle">VYROX Console</p>
+        <p class="truncate text-xs font-semibold text-body" data-admin-crumb>Reports — VYROX Admin @desc: Sample reports by category and payment method with date range and CSV export. @page: reports</p>
+      </div>
+      <div class="ml-auto flex items-center gap-2 sm:gap-3">
+        <span class="demo-chip hidden sm:inline-flex">Sample data</span>
+        <span class="hidden text-right text-[10px] leading-tight text-subtle md:block" data-admin-date></span>
+        <button type="button" class="icon-btn" data-theme-toggle aria-label="Toggle dark mode">
+          <svg class="h-4 w-4 dark:hidden" aria-hidden="true"><use href="../assets/icons/lucide-sprite.svg#i-moon"></use></svg>
+          <svg class="hidden h-4 w-4 dark:block" aria-hidden="true"><use href="../assets/icons/lucide-sprite.svg#i-sun"></use></svg>
+        </button>
+        <a href="../admin/settings.html" class="flex h-9 w-9 items-center justify-center bg-ink font-display text-xs text-white dark:bg-white dark:text-ink" aria-label="Admin settings">AR</a>
+      </div>
+    </header>
+
+    <main id="main" class="min-w-0 flex-1 p-4 sm:p-6 lg:p-8">
+      
+
+<div class="flex flex-wrap items-end justify-between gap-4">
+  <div>
+    <p class="text-[9px] font-bold uppercase tracking-brand text-subtle">Commerce / Reports</p>
+    <h1 class="mt-1 font-display text-3xl uppercase leading-none sm:text-4xl">Reports</h1>
+    <p class="mt-2 text-xs text-subtle">Sample reporting over demo orders.</p>
+  </div>
+  <div class="flex flex-wrap gap-2">
+    <button type="button" class="btn btn-outline btn-sm" data-admin-reports-export>Export CSV</button>
+    <button type="button" class="btn btn-dark btn-sm" data-admin-report-range="7" title="Last 7 days">7D</button>
+    <button type="button" class="btn btn-dark btn-sm" data-admin-report-range="30" title="Last 30 days">30D</button>
+    <button type="button" class="btn btn-dark btn-sm" data-admin-report-range="90" title="Last 90 days">90D</button>
+  </div>
+</div>
+
+<div class="mt-5 grid gap-3 sm:grid-cols-4">
+  <div class="kpi-card"><p class="text-[9px] font-bold uppercase tracking-brand text-subtle">Revenue (range)</p><p class="kpi-value mt-2" data-admin-report-revenue>₱0</p><p class="mt-1 text-[10px] text-subtle">Paid sample orders</p></div>
+  <div class="kpi-card"><p class="text-[9px] font-bold uppercase tracking-brand text-subtle">Orders</p><p class="kpi-value mt-2" data-admin-report-orders>0</p><p class="mt-1 text-[10px] text-subtle">In the window</p></div>
+  <div class="kpi-card"><p class="text-[9px] font-bold uppercase tracking-brand text-subtle">Average order</p><p class="kpi-value mt-2" data-admin-report-aov>₱0</p><p class="mt-1 text-[10px] text-subtle">Revenue ÷ paid orders</p></div>
+  <div class="kpi-card"><p class="text-[9px] font-bold uppercase tracking-brand text-subtle">Units</p><p class="kpi-value mt-2" data-admin-report-units>0</p><p class="mt-1 text-[10px] text-subtle">Line quantities</p></div>
+</div>
+
+<div class="mt-4 flex flex-wrap items-end justify-between gap-3 border border-line bg-surface p-3">
+  <div class="flex flex-wrap items-center gap-2">
+    <label class="text-[9px] font-bold uppercase tracking-wide2 text-subtle">From</label><input type="date" class="input input-sm" data-admin-report-from>
+    <label class="ml-3 text-[9px] font-bold uppercase tracking-wide2 text-subtle">To</label><input type="date" class="input input-sm" data-admin-report-to>
+    <button type="button" class="btn btn-dark btn-sm" data-admin-report-apply>Apply range</button>
+  </div>
+  <span class="text-[10px] text-subtle">Paid orders and demo products only.</span>
+</div>
+
+<div class="admin-table-wrap mt-3">
+  <table class="data-table min-w-[600px]">
+    <thead><tr><th>Category</th><th>Share</th><th class="text-right">Revenue</th></tr></thead>
+    <tbody data-admin-reports-body></tbody>
+  </table>
+</div>
+
+<div class="mt-4 border border-line bg-surface p-4">
+  <p class="text-[10px] font-bold uppercase tracking-wide2 text-subtle">Payment mix</p>
+  <ul class="mt-2" data-admin-report-payments></ul>
+</div>
+
+<div class="mt-4 border border-line bg-panel p-4">
+  <p class="text-[10px] font-bold uppercase tracking-wide2 text-subtle">Report demo behaviour</p>
+  <p class="mt-1 text-xs text-subtle">Recalculated locally from `vyrox_orders_v1` and demo orders. Export builds a CSV of the current window.</p>
+</div>
+
+    </main>
+
+    <footer class="border-t border-line px-4 py-4 text-[10px] uppercase tracking-wide2 text-subtle sm:px-6 lg:px-8">
+      VYROX Admin · Phase 1 demonstration interface · Figures are sample data only
+    </footer>
+  </div>
+</div>
+  <script type="module" src="../src/js/main.js"></script>
+</body>
+</html>

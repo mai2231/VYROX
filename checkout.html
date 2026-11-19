@@ -1,0 +1,625 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Checkout — VYROX @desc: Demo checkout in three steps. No payment is captured; orders await manual verification. @page: checkout</title>
+  <meta name="description" content="VYROX — Your World. Your Rules. Premium general commerce, built for the bold.">
+  <meta name="theme-color" content="#111111">
+  <meta property="og:title" content="Checkout — VYROX @desc: Demo checkout in three steps. No payment is captured; orders await manual verification. @page: checkout">
+  <meta property="og:description" content="VYROX — Your World. Your Rules. Premium general commerce, built for the bold.">
+  <meta property="og:type" content="website">
+  <link rel="icon" href="./assets/logo/favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="./assets/logo/mobile-mark.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./dist/css/vyrox.css">
+  <script>
+    (function () {
+      try {
+        var saved = JSON.parse(localStorage.getItem('vyrox_theme_v1') || 'null');
+        var dark = saved === 'dark' || (saved !== 'light' && window.matchMedia('(prefers-color-scheme: dark)').matches);
+        if (dark) document.documentElement.classList.add('dark');
+        document.documentElement.dataset.theme = dark ? 'dark' : 'light';
+      } catch (e) { /* theme is cosmetic */ }
+    })();
+  </script>
+</head>
+<body data-page="checkout" data-root="./" class="bg-surface text-body">
+<a class="skip-link" href="#main">Skip to content</a>
+
+<!-- announcement -->
+<div class="bg-ink text-white">
+  <div class="container-vyrox flex h-9 items-center justify-between gap-4 text-[10px] font-medium uppercase tracking-[0.16em]">
+    <div class="marquee-host overflow-hidden flex items-center gap-4 min-w-0">
+      <div class="marquee-track flex items-center gap-8 shrink-0">
+        <span class="flex items-center gap-2">
+          <span class="hidden h-1.5 w-1.5 shrink-0 bg-red sm:block"></span>
+          Free shipping over ₱2,500
+        </span>
+        <span class="hidden text-red sm:inline">◆</span>
+        <span class="flex items-center gap-2">
+          Cash on delivery nationwide
+        </span>
+        <span class="hidden text-red sm:inline">◆</span>
+        <span class="flex items-center gap-2">
+          GCash · Maya · Bank
+        </span>
+        <span class="hidden text-red sm:inline">◆</span>
+        <span class="flex items-center gap-2">
+          Curated in Manila
+        </span>
+        <!-- duplicated for a seamless infinite loop -->
+        <span class="flex items-center gap-2">
+          <span class="hidden h-1.5 w-1.5 shrink-0 bg-red sm:block"></span>
+          Free shipping over ₱2,500
+        </span>
+        <span class="hidden text-red sm:inline">◆</span>
+        <span class="flex items-center gap-2">
+          Cash on delivery nationwide
+        </span>
+        <span class="hidden text-red sm:inline">◆</span>
+        <span class="flex items-center gap-2">
+          GCash · Maya · Bank
+        </span>
+        <span class="hidden text-red sm:inline">◆</span>
+        <span class="flex items-center gap-2">
+          Curated in Manila
+        </span>
+      </div>
+    </div>
+    <div class="hidden items-center gap-5 text-white/60 sm:flex">
+      <a href="./tracking.html" class="transition hover:text-white">Track order</a>
+      <a href="./faq.html" class="transition hover:text-white">Help</a>
+      <span class="flex items-center gap-1 text-white/40">PH · PHP ₱</span>
+    </div>
+  </div>
+</div>
+
+<header id="site-header" data-header class="sticky top-0 z-40 border-b border-line bg-surface/95 backdrop-blur transition-shadow duration-300">
+  <div class="container-vyrox flex h-[68px] items-center gap-2 sm:gap-4">
+    <button type="button" class="icon-btn -ml-2 lg:hidden" data-menu-open aria-label="Open menu" aria-controls="mobile-menu" aria-expanded="false">
+      <svg class="h-5 w-5" aria-hidden="true"><use href="./assets/icons/lucide-sprite.svg#i-menu"></use></svg>
+    </button>
+
+    <a href="./index.html" class="mr-auto flex shrink-0 items-center gap-2 lg:mr-6" aria-label="VYROX home">
+      <svg viewBox="0 0 44 44" class="h-8 w-8" aria-hidden="true">
+        <path d="M2 4h10l10 26L32 4h10L28 40H16L2 4Z" fill="#E31B32"/>
+        <rect x="33" y="4" width="7" height="7" fill="currentColor"/>
+      </svg>
+      <span class="font-display text-[26px] leading-none tracking-tight">VYROX</span>
+    </a>
+
+    <nav class="hidden h-full items-center gap-6 lg:flex" aria-label="Primary">
+      <div class="group/mega h-full" data-mega-wrap>
+        <button type="button" class="nav-link " data-mega-trigger aria-expanded="false" aria-controls="mega-panel">
+          Shop
+          <svg class="ml-1 h-3 w-3 transition group-hover/mega:rotate-180" aria-hidden="true"><use href="./assets/icons/lucide-sprite.svg#i-chevron-down"></use></svg>
+        </button>
+      </div>
+      <a href="./shop.html?sort=newest" class="nav-link ">New In</a>
+      <a href="./categories.html" class="nav-link ">Categories</a>
+      <a href="./shop.html?sale=1" class="nav-link text-red ">Sale</a>
+      <a href="./about.html" class="nav-link ">About</a>
+      <a href="./contact.html" class="nav-link ">Contact</a>
+    </nav>
+
+    <form class="relative ml-auto hidden w-56 xl:block" role="search" action="./shop.html" method="get">
+      <label for="nav-search" class="sr-only">Search products</label>
+      <svg class="pointer-events-none absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-subtle" aria-hidden="true"><use href="./assets/icons/lucide-sprite.svg#i-search"></use></svg>
+      <input id="nav-search" name="q" type="search" placeholder="Search VYROX" autocomplete="off" class="h-10 w-full border border-line bg-panel pl-9 pr-3 text-xs placeholder:text-subtle/70 focus:border-red focus:bg-surface focus:outline-none">
+    </form>
+
+    <div class="flex items-center">
+      <button type="button" class="icon-btn xl:hidden" data-search-open aria-label="Search">
+        <svg class="h-5 w-5" aria-hidden="true"><use href="./assets/icons/lucide-sprite.svg#i-search"></use></svg>
+      </button>
+
+      <button type="button" class="icon-btn hidden sm:inline-flex" data-theme-toggle aria-label="Toggle dark mode" aria-pressed="false">
+        <svg class="h-5 w-5 dark:hidden" aria-hidden="true"><use href="./assets/icons/lucide-sprite.svg#i-moon"></use></svg>
+        <svg class="hidden h-5 w-5 dark:block" aria-hidden="true"><use href="./assets/icons/lucide-sprite.svg#i-sun"></use></svg>
+      </button>
+
+      <div class="relative hidden sm:block">
+        <button type="button" class="icon-btn" data-account-toggle aria-label="Account menu" aria-expanded="false" aria-controls="account-menu">
+          <svg class="h-5 w-5" aria-hidden="true"><use href="./assets/icons/lucide-sprite.svg#i-user"></use></svg>
+        </button>
+        <div id="account-menu" data-account-menu class="invisible absolute right-0 top-full z-50 w-56 translate-y-2 border border-line bg-surface p-2 opacity-0 shadow-panel transition-all duration-200" role="menu">
+          <div class="border-b border-line px-3 pb-3 pt-2">
+            <p class="text-[10px] font-bold uppercase tracking-wide2 text-subtle">Demo storefront</p>
+            <p class="mt-1 text-xs text-subtle">Accounts arrive in Phase 3.</p>
+          </div>
+          <a href="./login.html" class="flex items-center gap-2 px-3 py-2.5 text-xs font-semibold uppercase tracking-wide2 hover:bg-panel" role="menuitem">
+            <svg class="h-4 w-4" aria-hidden="true"><use href="./assets/icons/lucide-sprite.svg#i-log-out"></use></svg> Sign in
+          </a>
+          <a href="./profile.html?demo=1" class="flex items-center gap-2 px-3 py-2.5 text-xs font-semibold uppercase tracking-wide2 hover:bg-panel" role="menuitem">
+            <svg class="h-4 w-4" aria-hidden="true"><use href="./assets/icons/lucide-sprite.svg#i-user"></use></svg> Demo profile
+          </a>
+          <a href="./orders.html" class="flex items-center gap-2 px-3 py-2.5 text-xs font-semibold uppercase tracking-wide2 hover:bg-panel" role="menuitem">
+            <svg class="h-4 w-4" aria-hidden="true"><use href="./assets/icons/lucide-sprite.svg#i-package"></use></svg> Orders
+          </a>
+          <a href="./admin/index.html" class="flex items-center gap-2 px-3 py-2.5 text-xs font-semibold uppercase tracking-wide2 text-red hover:bg-panel" role="menuitem">
+            <svg class="h-4 w-4" aria-hidden="true"><use href="./assets/icons/lucide-sprite.svg#i-layout-dashboard"></use></svg> Admin console
+          </a>
+        </div>
+      </div>
+
+      <a href="./wishlist.html" class="icon-btn" aria-label="Wishlist">
+        <svg class="h-5 w-5" aria-hidden="true"><use href="./assets/icons/lucide-sprite.svg#i-heart"></use></svg>
+        <span class="count-badge hidden" data-wishlist-count>0</span>
+      </a>
+
+      <button type="button" class="icon-btn" data-cart-open aria-label="Open shopping bag" aria-controls="cart-drawer" aria-expanded="false">
+        <svg class="h-5 w-5" aria-hidden="true"><use href="./assets/icons/lucide-sprite.svg#i-shopping-bag"></use></svg>
+        <span class="count-badge hidden" data-cart-count>0</span>
+      </button>
+    </div>
+  </div>
+
+  <!-- mega menu -->
+  <div id="mega-panel" class="mega-panel" data-mega-panel>
+    <div class="container-vyrox grid gap-8 py-9 lg:grid-cols-[1fr_320px]">
+      <div>
+        <p class="mb-4 text-[10px] font-bold uppercase tracking-brand text-subtle">Shop the VYROX catalogue</p>
+        <div class="grid grid-cols-2 gap-x-6 gap-y-1 sm:grid-cols-4">
+          <a href="./shop.html?category=fashion" class="group flex items-center justify-between border-b border-line py-2.5 text-sm font-semibold transition hover:text-red"><span>Fashion</span><span class="text-[10px] text-subtle">04</span></a>
+          <a href="./shop.html?category=electronics" class="group flex items-center justify-between border-b border-line py-2.5 text-sm font-semibold transition hover:text-red"><span>Electronics</span><span class="text-[10px] text-subtle">04</span></a>
+          <a href="./shop.html?category=accessories" class="group flex items-center justify-between border-b border-line py-2.5 text-sm font-semibold transition hover:text-red"><span>Accessories</span><span class="text-[10px] text-subtle">03</span></a>
+          <a href="./shop.html?category=beauty" class="group flex items-center justify-between border-b border-line py-2.5 text-sm font-semibold transition hover:text-red"><span>Beauty</span><span class="text-[10px] text-subtle">03</span></a>
+          <a href="./shop.html?category=home" class="group flex items-center justify-between border-b border-line py-2.5 text-sm font-semibold transition hover:text-red"><span>Home &amp; Living</span><span class="text-[10px] text-subtle">03</span></a>
+          <a href="./shop.html?category=lifestyle" class="group flex items-center justify-between border-b border-line py-2.5 text-sm font-semibold transition hover:text-red"><span>Lifestyle</span><span class="text-[10px] text-subtle">03</span></a>
+          <a href="./shop.html?category=sports" class="group flex items-center justify-between border-b border-line py-2.5 text-sm font-semibold transition hover:text-red"><span>Sports</span><span class="text-[10px] text-subtle">02</span></a>
+          <a href="./shop.html?category=general" class="group flex items-center justify-between border-b border-line py-2.5 text-sm font-semibold transition hover:text-red"><span>Essentials</span><span class="text-[10px] text-subtle">02</span></a>
+        </div>
+        <div class="mt-6 flex flex-wrap gap-3 text-[11px] font-semibold uppercase tracking-wide2 text-subtle">
+          <a href="./shop.html?sale=1" class="text-red underline-grow">Up to 30% off</a>
+          <a href="./shop.html?sort=newest" class="underline-grow">New arrivals</a>
+          <a href="./shop.html?sort=popular" class="underline-grow">Best sellers</a>
+          <a href="./categories.html" class="underline-grow">All categories</a>
+        </div>
+      </div>
+      <a href="./shop.html?sale=1" class="relative hidden overflow-hidden bg-ink p-6 text-white lg:block">
+        <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&fit=crop&w=600&q=80" alt="" class="absolute inset-0 h-full w-full object-cover opacity-40 transition duration-700 hover:scale-105" loading="lazy" onerror="this.style.display='none'">
+        <div class="relative flex h-full flex-col justify-end">
+          <span class="badge badge-red mb-3 w-fit">Limited drop</span>
+          <p class="font-display text-3xl leading-none">THE RED<br>ROOM</p>
+          <p class="mt-2 text-[11px] text-white/70">Up to 30% off selected pieces.</p>
+          <span class="mt-4 inline-flex items-center gap-2 text-[11px] font-bold uppercase tracking-wide2">Shop the drop <svg class="h-4 w-4" aria-hidden="true"><use href="./assets/icons/lucide-sprite.svg#i-arrow-right"></use></svg></span>
+        </div>
+      </a>
+    </div>
+  </div>
+</header>
+<!-- shared overlays: cart drawer, mobile menu, search, quick view, confirm, toasts -->
+<div data-scrim class="fixed inset-0 z-[60] hidden bg-ink/60 backdrop-blur-[2px]" hidden></div>
+
+<aside id="cart-drawer" data-cart-drawer class="fixed inset-y-0 right-0 z-[70] flex w-full max-w-[440px] translate-x-full flex-col border-l border-line bg-surface transition-transform duration-300" style="transition-timing-function:cubic-bezier(.22,1,.36,1)" aria-hidden="true" aria-labelledby="cart-drawer-title" role="dialog" aria-modal="true">
+  <div class="flex h-16 shrink-0 items-center justify-between border-b border-line px-5">
+    <div class="flex items-center gap-2">
+      <h2 id="cart-drawer-title" class="font-display text-xl uppercase">Your bag</h2>
+      <span class="badge badge-soft" data-cart-count-drawer>0</span>
+    </div>
+    <button type="button" class="icon-btn" data-cart-close aria-label="Close bag">
+      <svg class="h-5 w-5" aria-hidden="true"><use href="./assets/icons/lucide-sprite.svg#i-x"></use></svg>
+    </button>
+  </div>
+
+  <div class="border-b border-line bg-panel px-5 py-3">
+    <p class="text-[11px] text-subtle" data-ship-text>Spend ₱2,500 for free shipping.</p>
+    <div class="progress-track mt-2"><span class="progress-fill" data-ship-bar style="width:0%"></span></div>
+  </div>
+
+  <div class="flex-1 overflow-y-auto px-5" data-cart-lines></div>
+
+  <div class="hidden flex-1 flex-col items-center justify-center gap-4 px-6 text-center" data-cart-empty>
+    <svg class="h-10 w-10 text-subtle" aria-hidden="true"><use href="./assets/icons/lucide-sprite.svg#i-shopping-bag"></use></svg>
+    <p class="font-display text-2xl uppercase">Bag is empty</p>
+    <p class="text-xs text-subtle">Start with the pieces everyone is watching.</p>
+    <a href="./shop.html" class="btn btn-dark btn-sm">Shop now</a>
+  </div>
+
+  <div class="shrink-0 border-t border-line p-5" data-cart-footer>
+    <dl class="space-y-2 text-sm">
+      <div class="flex items-center justify-between"><dt class="text-subtle">Subtotal</dt><dd data-cart-subtotal class="font-semibold">₱0</dd></div>
+      <div class="flex items-center justify-between text-[11px] text-subtle"><dt>Shipping</dt><dd>Calculated at checkout</dd></div>
+      <div class="flex items-center justify-between border-t border-line pt-2"><dt class="text-xs font-bold uppercase tracking-wide2">Total</dt><dd data-cart-total class="font-display text-xl">₱0</dd></div>
+    </dl>
+    <a href="./checkout.html" class="btn btn-primary btn-block mt-4" data-cart-checkout>
+      Checkout
+      <svg class="h-4 w-4" aria-hidden="true"><use href="./assets/icons/lucide-sprite.svg#i-arrow-right"></use></svg>
+    </a>
+    <a href="./cart.html" class="mt-3 block text-center text-[11px] font-semibold uppercase tracking-wide2 text-subtle underline-grow">View full bag</a>
+    <p class="mt-4 text-center text-[10px] text-subtle">Demo bag · stored only in this browser</p>
+  </div>
+</aside>
+
+<div id="mobile-menu" class="fixed inset-y-0 left-0 z-[70] flex w-[86%] max-w-sm -translate-x-full flex-col border-r border-line bg-surface transition-transform duration-300" style="transition-timing-function:cubic-bezier(.22,1,.36,1)" aria-hidden="true" aria-labelledby="mobile-menu-title" role="dialog" aria-modal="true">
+  <div class="flex h-16 shrink-0 items-center justify-between border-b border-line px-4">
+    <a href="./index.html" class="flex items-center gap-2" aria-label="VYROX home">
+      <svg viewBox="0 0 44 44" class="h-7 w-7" aria-hidden="true"><path d="M2 4h10l10 26L32 4h10L28 40H16L2 4Z" fill="#E31B32"/></svg>
+      <span id="mobile-menu-title" class="font-display text-2xl tracking-tight">VYROX</span>
+    </a>
+    <button type="button" class="icon-btn" data-menu-close aria-label="Close menu">
+      <svg class="h-5 w-5" aria-hidden="true"><use href="./assets/icons/lucide-sprite.svg#i-x"></use></svg>
+    </button>
+  </div>
+  <nav class="flex-1 overflow-y-auto px-4 py-4" aria-label="Mobile primary">
+    <ul class="space-y-1">
+      <li><a href="./shop.html" class="flex items-center justify-between py-3 text-lg font-semibold">Shop all <svg class="h-4 w-4 text-subtle" aria-hidden="true"><use href="./assets/icons/lucide-sprite.svg#i-chevron-right"></use></svg></a></li>
+      <li><a href="./shop.html?sort=newest" class="flex items-center justify-between py-3 text-lg font-semibold">New in <svg class="h-4 w-4 text-subtle" aria-hidden="true"><use href="./assets/icons/lucide-sprite.svg#i-chevron-right"></use></svg></a></li>
+      <li><a href="./shop.html?sale=1" class="flex items-center justify-between py-3 text-lg font-semibold text-red">Sale <svg class="h-4 w-4" aria-hidden="true"><use href="./assets/icons/lucide-sprite.svg#i-chevron-right"></use></svg></a></li>
+    </ul>
+    <p class="mb-2 mt-6 text-[10px] font-bold uppercase tracking-brand text-subtle">Categories</p>
+    <div class="grid grid-cols-2 gap-1.5">
+      <a href="./shop.html?category=fashion" class="border border-line px-3 py-2.5 text-xs font-semibold">Fashion</a>
+      <a href="./shop.html?category=electronics" class="border border-line px-3 py-2.5 text-xs font-semibold">Electronics</a>
+      <a href="./shop.html?category=accessories" class="border border-line px-3 py-2.5 text-xs font-semibold">Accessories</a>
+      <a href="./shop.html?category=beauty" class="border border-line px-3 py-2.5 text-xs font-semibold">Beauty</a>
+      <a href="./shop.html?category=home" class="border border-line px-3 py-2.5 text-xs font-semibold">Home</a>
+      <a href="./shop.html?category=sports" class="border border-line px-3 py-2.5 text-xs font-semibold">Sports</a>
+    </div>
+    <p class="mb-2 mt-6 text-[10px] font-bold uppercase tracking-brand text-subtle">Account</p>
+    <ul class="space-y-1 text-sm">
+      <li><a href="./login.html" class="flex items-center gap-3 py-2.5"><svg class="h-4 w-4 text-subtle" aria-hidden="true"><use href="./assets/icons/lucide-sprite.svg#i-log-out"></use></svg> Sign in</a></li>
+      <li><a href="./wishlist.html" class="flex items-center gap-3 py-2.5"><svg class="h-4 w-4 text-subtle" aria-hidden="true"><use href="./assets/icons/lucide-sprite.svg#i-heart"></use></svg> Wishlist</a></li>
+      <li><a href="./orders.html" class="flex items-center gap-3 py-2.5"><svg class="h-4 w-4 text-subtle" aria-hidden="true"><use href="./assets/icons/lucide-sprite.svg#i-package"></use></svg> Orders</a></li>
+      <li><a href="./tracking.html" class="flex items-center gap-3 py-2.5"><svg class="h-4 w-4 text-subtle" aria-hidden="true"><use href="./assets/icons/lucide-sprite.svg#i-truck"></use></svg> Track order</a></li>
+    </ul>
+  </nav>
+  <div class="shrink-0 border-t border-line p-4">
+    <div class="flex items-center justify-between">
+      <span class="text-[10px] font-bold uppercase tracking-wide2 text-subtle">Demo storefront</span>
+      <button type="button" class="flex items-center gap-2 border border-line px-3 py-1.5 text-[10px] font-bold uppercase tracking-wide2" data-theme-toggle aria-label="Toggle dark mode">
+        <svg class="h-3.5 w-3.5 dark:hidden" aria-hidden="true"><use href="./assets/icons/lucide-sprite.svg#i-moon"></use></svg>
+        <svg class="hidden h-3.5 w-3.5 dark:block" aria-hidden="true"><use href="./assets/icons/lucide-sprite.svg#i-sun"></use></svg>
+        Theme
+      </button>
+    </div>
+  </div>
+</div>
+
+<div id="search-panel" class="fixed inset-x-0 top-0 z-[75] -translate-y-full border-b border-line bg-surface transition-transform duration-300" style="transition-timing-function:cubic-bezier(.22,1,.36,1)" aria-hidden="true" role="dialog" aria-modal="true" aria-label="Search VYROX">
+  <div class="container-vyrox py-5">
+    <form action="./shop.html" method="get" role="search" class="flex items-center gap-3 border-b border-line pb-4">
+      <svg class="h-5 w-5 shrink-0 text-subtle" aria-hidden="true"><use href="./assets/icons/lucide-sprite.svg#i-search"></use></svg>
+      <label for="global-search" class="sr-only">Search products</label>
+      <input id="global-search" data-search-input name="q" type="search" placeholder="Search products, categories…" autocomplete="off" class="h-10 w-full bg-transparent font-display text-2xl uppercase tracking-tight placeholder:text-subtle/50 focus:outline-none sm:text-3xl">
+      <button type="button" class="icon-btn" data-search-close aria-label="Close search">
+        <svg class="h-5 w-5" aria-hidden="true"><use href="./assets/icons/lucide-sprite.svg#i-x"></use></svg>
+      </button>
+    </form>
+    <div class="mt-4 flex flex-wrap items-center gap-2">
+      <span class="text-[10px] font-bold uppercase tracking-wide2 text-subtle">Trending</span>
+      <a href="./shop.html?q=headphones" class="chip">headphones</a>
+      <a href="./shop.html?q=tee" class="chip">boxy tee</a>
+      <a href="./shop.html?q=serum" class="chip">glow serum</a>
+      <a href="./shop.html?q=sneakers" class="chip">sneakers</a>
+    </div>
+    <div class="mt-4 max-h-[46vh] overflow-y-auto" data-search-results></div>
+  </div>
+</div>
+
+<div id="quick-view" class="fixed inset-0 z-[90] hidden items-center justify-center bg-ink/70 p-4 backdrop-blur-sm" data-quickview role="dialog" aria-modal="true" aria-label="Quick view">
+  <button type="button" class="absolute inset-0 cursor-default" data-quickview-close aria-label="Close quick view"></button>
+  <div class="relative max-h-[92vh] w-full max-w-4xl overflow-y-auto border border-line bg-surface shadow-panel anim-scale-in" data-quickview-content></div>
+</div>
+
+<div id="confirm-modal" class="fixed inset-0 z-[95] hidden items-center justify-center bg-ink/70 p-4 backdrop-blur-sm" data-confirm-modal role="dialog" aria-modal="true" aria-labelledby="confirm-title">
+  <div class="w-full max-w-sm border border-line bg-surface p-6 shadow-panel anim-scale-in">
+    <p class="eyebrow">Please confirm</p>
+    <h2 id="confirm-title" data-confirm-title class="mt-2 font-display text-2xl uppercase">Are you sure?</h2>
+    <p data-confirm-body class="mt-2 text-sm text-subtle">This demo action cannot be undone.</p>
+    <div class="mt-6 flex justify-end gap-2">
+      <button type="button" class="btn btn-outline btn-sm" data-confirm-cancel>Cancel</button>
+      <button type="button" class="btn btn-primary btn-sm" data-confirm-ok>Confirm</button>
+    </div>
+  </div>
+</div>
+
+<div data-toast-host class="pointer-events-none fixed bottom-4 right-4 z-[100] flex w-[calc(100%-2rem)] max-w-sm flex-col gap-2" aria-live="polite" aria-atomic="false"></div>
+<main id="main">
+
+
+<section class="border-b border-line bg-soft">
+  <div class="container-vyrox py-8">
+    <nav class="breadcrumb" aria-label="Breadcrumb"><a href="{{ROOT}}index.html">Home</a><span>/</span><a href="{{ROOT}}cart.html">Bag</a><span>/</span><span class="text-body">Checkout</span></nav>
+    <div class="mt-4 flex flex-wrap items-end justify-between gap-4">
+      <div>
+        <p class="eyebrow">Secure demo checkout</p>
+        <h1 class="display-xl mt-2" data-checkout-title>CHECKOUT.</h1>
+      </div>
+      <span class="demo-chip">Payment is not captured in Phase 1</span>
+    </div>
+
+    <ol class="mt-7 grid gap-2 sm:grid-cols-3" aria-label="Checkout progress">
+      <li class="flex items-center gap-3 border border-line bg-surface px-4 py-3" data-step-dot="1">
+        <span class="flex h-7 w-7 shrink-0 items-center justify-center bg-ink font-display text-xs text-white">01</span>
+        <span><span class="block text-[10px] font-bold uppercase tracking-wide2">Details</span><span class="text-[10px] text-subtle">Who and where</span></span>
+      </li>
+      <li class="flex items-center gap-3 border border-line bg-surface px-4 py-3" data-step-dot="2">
+        <span class="flex h-7 w-7 shrink-0 items-center justify-center border border-line font-display text-xs">02</span>
+        <span><span class="block text-[10px] font-bold uppercase tracking-wide2">Delivery &amp; payment</span><span class="text-[10px] text-subtle">How it gets there</span></span>
+      </li>
+      <li class="flex items-center gap-3 border border-line bg-surface px-4 py-3" data-step-dot="3">
+        <span class="flex h-7 w-7 shrink-0 items-center justify-center border border-line font-display text-xs">03</span>
+        <span><span class="block text-[10px] font-bold uppercase tracking-wide2">Review</span><span class="text-[10px] text-subtle">Confirm the order</span></span>
+      </li>
+    </ol>
+  </div>
+</section>
+
+<section class="section-tight">
+  <div class="container-vyrox">
+    <div data-checkout-empty class="hidden border border-line bg-surface px-6 py-16 text-center">
+      <p class="font-display text-3xl uppercase">Your bag is empty.</p>
+      <p class="mx-auto mt-2 max-w-md text-sm text-subtle">Add a piece before checking out. Demo orders need at least one line item.</p>
+      <a href="{{ROOT}}shop.html" class="btn btn-primary mt-6">Shop the edit</a>
+    </div>
+
+    <form class="grid gap-8 lg:grid-cols-[1fr_380px]" data-checkout novalidate data-checkout-content>
+      <div class="min-w-0 space-y-6">
+        <!-- STEP 1 -->
+        <section class="border border-line bg-surface p-5 sm:p-6" data-step="1">
+          <div class="flex items-center justify-between gap-3 border-b border-line pb-4">
+            <h2 class="font-display text-2xl uppercase">Contact &amp; shipping</h2>
+            <span class="text-[9px] font-bold uppercase tracking-brand text-subtle">Step 01</span>
+          </div>
+          <p class="mt-4 text-xs text-subtle">All fields marked required. Demo autofill: <a href="{{ROOT}}checkout.html?demo=1" class="font-semibold text-red underline">use sample account</a>.</p>
+
+          <div class="mt-5 grid gap-4 sm:grid-cols-2">
+            <div><label for="co-first" class="label">First name *</label><input id="co-first" name="firstName" type="text" class="input" autocomplete="given-name" data-rules="required"><p class="field-error" data-error-for="co-first" hidden></p></div>
+            <div><label for="co-last" class="label">Last name *</label><input id="co-last" name="lastName" type="text" class="input" autocomplete="family-name" data-rules="required"><p class="field-error" data-error-for="co-last" hidden></p></div>
+            <div><label for="co-email" class="label">Email *</label><input id="co-email" name="email" type="email" class="input" autocomplete="email" data-rules="required|email"><p class="field-error" data-error-for="co-email" hidden></p></div>
+            <div><label for="co-phone" class="label">Mobile *</label><input id="co-phone" name="phone" type="tel" class="input" autocomplete="tel" placeholder="0917 123 4567" data-rules="required|phone"><p class="field-error" data-error-for="co-phone" hidden></p></div>
+            <div class="sm:col-span-2"><label for="co-line1" class="label">Address line 1 *</label><input id="co-line1" name="line1" type="text" class="input" autocomplete="address-line1" data-rules="required"><p class="field-error" data-error-for="co-line1" hidden></p></div>
+            <div class="sm:col-span-2"><label for="co-line2" class="label">Address line 2</label><input id="co-line2" name="line2" type="text" class="input" autocomplete="address-line2" placeholder="Unit, floor, landmark"></div>
+            <div><label for="co-city" class="label">City *</label><input id="co-city" name="city" type="text" class="input" autocomplete="address-level2" data-rules="required"><p class="field-error" data-error-for="co-city" hidden></p></div>
+            <div><label for="co-region" class="label">Region *</label><select id="co-region" name="region" class="input" data-region data-rules="required"><option>Metro Manila</option><option>Cavite</option><option>Laguna</option><option>Batangas</option><option>Rizal</option><option>Bulacan</option><option>Pampanga</option><option>Cebu</option><option>Davao</option><option>Iloilo</option><option>Baguio</option><option>Other province</option></select><p class="field-error" data-error-for="co-region" hidden></p></div>
+            <div><label for="co-postal" class="label">Postal code *</label><input id="co-postal" name="postal" type="text" inputmode="numeric" class="input" autocomplete="postal-code" data-rules="required|postal"><p class="field-error" data-error-for="co-postal" hidden></p></div>
+            <div class="flex items-end"><label class="flex cursor-pointer items-start gap-2.5 text-[11px] leading-relaxed text-subtle"><input type="checkbox" class="checkbox mt-0.5" data-rules="checked"><span>Save this address to my demo address book.</span></label></div>
+          </div>
+
+          <div class="mt-6 flex justify-end">
+            <button type="button" class="btn btn-primary" data-next-step="2">Continue to delivery <svg class="h-4 w-4" aria-hidden="true"><use href="{{ROOT}}assets/icons/lucide-sprite.svg#i-arrow-right"></use></svg></button>
+          </div>
+        </section>
+
+        <!-- STEP 2 -->
+        <section class="hidden border border-line bg-surface p-5 sm:p-6" data-step="2">
+          <div class="flex items-center justify-between gap-3 border-b border-line pb-4">
+            <h2 class="font-display text-2xl uppercase">Delivery &amp; payment</h2>
+            <span class="text-[9px] font-bold uppercase tracking-brand text-subtle">Step 02</span>
+          </div>
+
+          <fieldset class="mt-5">
+            <legend class="label">Delivery speed</legend>
+            <div class="grid gap-2 sm:grid-cols-2">
+              <button type="button" class="border border-red bg-red/5 p-4 text-left" data-delivery-option="standard" aria-checked="true" role="radio">
+                <span class="flex items-center justify-between"><span class="text-xs font-bold uppercase tracking-wide2">Standard</span><span class="text-[10px] font-semibold">3–5 days</span></span>
+                <span class="mt-1 block text-[11px] text-subtle">₱99 Metro Manila · ₱149 provincial · free over ₱2,500</span>
+              </button>
+              <button type="button" class="border border-line p-4 text-left" data-delivery-option="express" aria-checked="false" role="radio">
+                <span class="flex items-center justify-between"><span class="text-xs font-bold uppercase tracking-wide2">Express</span><span class="text-[10px] font-semibold">1–2 days</span></span>
+                <span class="mt-1 block text-[11px] text-subtle">Adds ₱150 · priority dispatch before 2PM</span>
+              </button>
+            </div>
+          </fieldset>
+
+          <fieldset class="mt-6">
+            <legend class="label">Payment method</legend>
+            <div class="grid gap-2 sm:grid-cols-2">
+              <button type="button" class="border border-red bg-red/5 p-4 text-left" data-payment-option="gcash" aria-checked="true" role="radio">
+                <span class="flex items-center gap-2 text-xs font-bold uppercase tracking-wide2"><svg class="h-4 w-4" aria-hidden="true"><use href="{{ROOT}}assets/icons/lucide-sprite.svg#i-smartphone"></use></svg> GCash</span>
+                <span class="mt-1 block text-[11px] text-subtle">Scan the demo QR, then enter a reference.</span>
+              </button>
+              <button type="button" class="border border-line p-4 text-left" data-payment-option="maya" aria-checked="false" role="radio">
+                <span class="flex items-center gap-2 text-xs font-bold uppercase tracking-wide2"><svg class="h-4 w-4" aria-hidden="true"><use href="{{ROOT}}assets/icons/lucide-sprite.svg#i-wallet"></use></svg> Maya</span>
+                <span class="mt-1 block text-[11px] text-subtle">Same flow — verification is manual in Phase 1.</span>
+              </button>
+              <button type="button" class="border border-line p-4 text-left" data-payment-option="cod" aria-checked="false" role="radio">
+                <span class="flex items-center gap-2 text-xs font-bold uppercase tracking-wide2"><svg class="h-4 w-4" aria-hidden="true"><use href="{{ROOT}}assets/icons/lucide-sprite.svg#i-banknote"></use></svg> Cash on delivery</span>
+                <span class="mt-1 block text-[11px] text-subtle">Pay the courier. Marked unpaid until handover.</span>
+              </button>
+              <button type="button" class="border border-line p-4 text-left" data-payment-option="bank" aria-checked="false" role="radio">
+                <span class="flex items-center gap-2 text-xs font-bold uppercase tracking-wide2"><svg class="h-4 w-4" aria-hidden="true"><use href="{{ROOT}}assets/icons/lucide-sprite.svg#i-landmark"></use></svg> Bank transfer</span>
+                <span class="mt-1 block text-[11px] text-subtle">Use the demo account details and upload a reference.</span>
+              </button>
+            </div>
+          </fieldset>
+
+          <div class="mt-5 border border-line bg-panel p-4" data-payment-panel="gcash">
+            <div class="flex flex-col gap-4 sm:flex-row sm:items-center">
+              <div class="grid h-28 w-28 shrink-0 place-items-center border border-line bg-white p-2" aria-label="Demo QR code placeholder">
+                <div class="grid grid-cols-5 gap-1">
+                  <span class="h-3 w-3 bg-ink"></span><span class="h-3 w-3 bg-ink"></span><span class="h-3 w-3 bg-white"></span><span class="h-3 w-3 bg-ink"></span><span class="h-3 w-3 bg-ink"></span>
+                  <span class="h-3 w-3 bg-ink"></span><span class="h-3 w-3 bg-white"></span><span class="h-3 w-3 bg-ink"></span><span class="h-3 w-3 bg-white"></span><span class="h-3 w-3 bg-ink"></span>
+                  <span class="h-3 w-3 bg-white"></span><span class="h-3 w-3 bg-ink"></span><span class="h-3 w-3 bg-ink"></span><span class="h-3 w-3 bg-ink"></span><span class="h-3 w-3 bg-white"></span>
+                  <span class="h-3 w-3 bg-ink"></span><span class="h-3 w-3 bg-white"></span><span class="h-3 w-3 bg-ink"></span><span class="h-3 w-3 bg-white"></span><span class="h-3 w-3 bg-ink"></span>
+                  <span class="h-3 w-3 bg-ink"></span><span class="h-3 w-3 bg-ink"></span><span class="h-3 w-3 bg-white"></span><span class="h-3 w-3 bg-ink"></span><span class="h-3 w-3 bg-ink"></span>
+                </div>
+              </div>
+              <div class="min-w-0">
+                <p class="text-[10px] font-bold uppercase tracking-wide2 text-red">Demo payment interface</p>
+                <p class="mt-1 text-xs leading-relaxed text-subtle">Scan the placeholder QR or send to <strong class="text-body">VYROX Demo · 0917 000 0000</strong>. Then enter the reference below. Nothing is charged.</p>
+              </div>
+            </div>
+          </div>
+          <div class="mt-5 hidden border border-line bg-panel p-4" data-payment-panel="maya">
+            <p class="text-[10px] font-bold uppercase tracking-wide2 text-red">Maya demo</p>
+            <p class="mt-1 text-xs leading-relaxed text-subtle">Use reference <strong class="text-body">MAYA-DEMO-8841</strong> to simulate a pending transfer. Verification happens in the demo admin queue.</p>
+          </div>
+          <div class="mt-5 hidden border border-line bg-panel p-4" data-payment-panel="cod">
+            <p class="text-[10px] font-bold uppercase tracking-wide2 text-red">Cash on delivery</p>
+            <p class="mt-1 text-xs leading-relaxed text-subtle">Prepare exact change if possible. The order stays <strong class="text-body">Unpaid · on delivery</strong> until the courier confirms handover.</p>
+          </div>
+          <div class="mt-5 hidden border border-line bg-panel p-4" data-payment-panel="bank">
+            <p class="text-[10px] font-bold uppercase tracking-wide2 text-red">Bank transfer demo</p>
+            <p class="mt-1 text-xs leading-relaxed text-subtle">Account: <strong class="text-body">VYROX Demo · 0012 3456 7890</strong>. Enter your transfer reference below. Never send real money to demo details.</p>
+          </div>
+
+          <div class="mt-5 grid gap-4 sm:grid-cols-2">
+            <div><label for="co-reference" class="label">Payment reference</label><input id="co-reference" name="reference" type="text" class="input" placeholder="e.g. 8841-220" autocomplete="off"><p class="mt-1 text-[10px] text-subtle">Optional for COD. Sample only.</p></div>
+            <div>
+              <label for="co-proof" class="label">Proof of payment</label>
+              <label for="co-proof" class="flex cursor-pointer items-center gap-3 border border-dashed border-line bg-panel px-3 py-2.5 text-[11px] text-subtle transition hover:border-red">
+                <svg class="h-4 w-4 shrink-0" aria-hidden="true"><use href="{{ROOT}}assets/icons/lucide-sprite.svg#i-upload"></use></svg>
+                <span data-proof-label>PNG or JPG, up to 5MB</span>
+              </label>
+              <input id="co-proof" type="file" accept="image/png,image/jpeg" class="sr-only" data-proof-upload>
+            </div>
+          </div>
+
+          <div class="mt-6 flex flex-wrap justify-between gap-3">
+            <button type="button" class="btn btn-ghost" data-prev-step="1"><svg class="h-4 w-4" aria-hidden="true"><use href="{{ROOT}}assets/icons/lucide-sprite.svg#i-arrow-left"></use></svg> Back</button>
+            <button type="button" class="btn btn-primary" data-next-step="3">Review order <svg class="h-4 w-4" aria-hidden="true"><use href="{{ROOT}}assets/icons/lucide-sprite.svg#i-arrow-right"></use></svg></button>
+          </div>
+        </section>
+
+        <!-- STEP 3 -->
+        <section class="hidden border border-line bg-surface p-5 sm:p-6" data-step="3">
+          <div class="flex items-center justify-between gap-3 border-b border-line pb-4">
+            <h2 class="font-display text-2xl uppercase">Review &amp; place order</h2>
+            <span class="text-[9px] font-bold uppercase tracking-brand text-subtle">Step 03</span>
+          </div>
+
+          <div class="mt-5" data-review-summary></div>
+
+          <div class="mt-6 border border-line bg-panel p-4">
+            <label class="flex cursor-pointer items-start gap-2.5 text-[11px] leading-relaxed text-subtle">
+              <input type="checkbox" class="checkbox mt-0.5" data-rules="checked">
+              <span>I understand this is a Phase 1 demonstration. No payment is captured and the order is stored only in this browser.</span>
+            </label>
+          </div>
+
+          <div class="mt-6 flex flex-wrap justify-between gap-3">
+            <button type="button" class="btn btn-ghost" data-prev-step="2"><svg class="h-4 w-4" aria-hidden="true"><use href="{{ROOT}}assets/icons/lucide-sprite.svg#i-arrow-left"></use></svg> Back</button>
+            <button type="button" class="btn btn-primary" data-place-order>Place order · Awaiting payment verification</button>
+          </div>
+          <p class="mt-3 text-right text-[10px] text-subtle">By placing this demo order you create a sample record in <code>localStorage</code>.</p>
+        </section>
+      </div>
+
+      <aside class="space-y-4 lg:sticky lg:top-[112px] lg:h-fit">
+        <div class="border border-line bg-surface p-5">
+          <div class="flex items-center justify-between">
+            <h2 class="font-display text-2xl uppercase">Your order</h2>
+            <span class="text-[10px] font-bold uppercase tracking-wide2 text-subtle"><span data-checkout-count>0</span> items</span>
+          </div>
+
+          <div class="mt-3 divide-y divide-line" data-checkout-lines></div>
+
+          <div class="mt-4 space-y-2 border-t border-line pt-4 text-xs">
+            <div class="flex justify-between"><span class="text-subtle">Subtotal</span><span class="font-semibold" data-checkout-subtotal>₱0</span></div>
+            <div class="flex justify-between"><span class="text-subtle">Discount</span><span class="font-semibold text-emerald-600 dark:text-emerald-400" data-checkout-discount>₱0</span></div>
+            <div class="flex justify-between"><span class="text-subtle">Shipping</span><span class="font-semibold" data-checkout-shipping>₱0</span></div>
+            <div class="flex justify-between text-[10px]"><span class="text-subtle">Express upgrade</span><span class="text-subtle" data-checkout-express>—</span></div>
+            <div class="flex items-center justify-between border-t border-line pt-3"><span class="text-[10px] font-bold uppercase tracking-wide2">Total</span><span class="font-display text-2xl" data-checkout-total>₱0</span></div>
+          </div>
+
+          <p class="mt-3 hidden items-center gap-2 text-[10px] font-semibold uppercase tracking-wide2 text-emerald-600 dark:text-emerald-400" data-checkout-coupon>
+            <svg class="h-3.5 w-3.5" aria-hidden="true"><use href="{{ROOT}}assets/icons/lucide-sprite.svg#i-tag"></use></svg> Coupon <span data-checkout-coupon-code></span> applied
+          </p>
+          <p class="mt-3 text-[10px] leading-relaxed text-subtle">VAT inclusive. Totals come from the same pricing module as the bag, admin orders and tracking.</p>
+        </div>
+
+        <div class="border border-line bg-panel p-4">
+          <div class="flex items-center gap-2 text-[10px] font-bold uppercase tracking-wide2 text-subtle">
+            <svg class="h-4 w-4 text-red" aria-hidden="true"><use href="{{ROOT}}assets/icons/lucide-sprite.svg#i-shield-check"></use></svg> Phase 1 payment policy
+          </div>
+          <p class="mt-2 text-[11px] leading-relaxed text-subtle">No card numbers, e-wallet credentials or proof files are stored. Orders remain <strong class="text-body">Awaiting verification</strong> until an admin approves them in the demo queue.</p>
+        </div>
+
+        <a href="{{ROOT}}cart.html" class="inline-flex items-center gap-2 text-[10px] font-bold uppercase tracking-wide2 text-subtle hover:text-red"><svg class="h-3.5 w-3.5" aria-hidden="true"><use href="{{ROOT}}assets/icons/lucide-sprite.svg#i-arrow-left"></use></svg> Back to bag</a>
+      </aside>
+    </form>
+  </div>
+</section>
+
+</main>
+<footer class="mt-auto border-t border-line bg-surface">
+  <div class="border-b border-line bg-ink text-white">
+    <div class="container-vyrox grid gap-8 py-12 lg:grid-cols-[1.1fr_1fr] lg:items-center lg:py-14">
+      <div>
+        <p class="eyebrow !text-red-bright">Join the list</p>
+        <h2 class="mt-3 font-display text-3xl leading-none sm:text-4xl">EARLY ACCESS.<br>NO NOISE.</h2>
+        <p class="mt-3 max-w-md text-sm text-white/60">Drops, restocks and members-only pricing. One email a week. Unsubscribe whenever.</p>
+      </div>
+      <form data-validate data-newsletter class="flex flex-col gap-3 sm:flex-row" novalidate>
+        <div class="flex-1">
+          <label for="footer-email" class="sr-only">Email address</label>
+          <input id="footer-email" name="email" type="email" data-rules="required|email" class="h-12 w-full border border-white/20 bg-white/5 px-4 text-sm text-white placeholder:text-white/40 focus:border-red focus:outline-none" placeholder="you@email.com" autocomplete="email">
+          <p class="mt-1 hidden text-[11px] text-red-bright" data-error-for="footer-email"></p>
+        </div>
+        <button type="submit" class="btn btn-primary h-12 shrink-0">Subscribe
+          <svg class="h-4 w-4" aria-hidden="true"><use href="./assets/icons/lucide-sprite.svg#i-arrow-right"></use></svg>
+        </button>
+      </form>
+    </div>
+  </div>
+
+  <div class="container-vyrox grid gap-10 py-14 sm:grid-cols-2 lg:grid-cols-[1.4fr_repeat(3,1fr)]">
+    <div>
+      <a href="./index.html" class="inline-flex items-center gap-2" aria-label="VYROX home">
+        <svg viewBox="0 0 44 44" class="h-9 w-9" aria-hidden="true"><path d="M2 4h10l10 26L32 4h10L28 40H16L2 4Z" fill="#E31B32"/><rect x="33" y="4" width="7" height="7" fill="currentColor"/></svg>
+        <span class="font-display text-3xl leading-none tracking-tight">VYROX</span>
+      </a>
+      <p class="mt-4 max-w-xs text-sm leading-relaxed text-subtle">General commerce for people who move differently. Curated in Manila, shipped nationwide.</p>
+      <p class="mt-5 font-display text-lg tracking-brand text-red">YOUR WORLD. YOUR RULES.</p>
+      <div class="mt-5 flex gap-2">
+        <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" class="flex h-9 w-9 items-center justify-center border border-line transition hover:border-red hover:text-red" aria-label="VYROX on Instagram"><svg class="h-4 w-4" aria-hidden="true"><use href="./assets/icons/lucide-sprite.svg#i-instagram"></use></svg></a>
+        <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" class="flex h-9 w-9 items-center justify-center border border-line transition hover:border-red hover:text-red" aria-label="VYROX on Facebook"><svg class="h-4 w-4" aria-hidden="true"><use href="./assets/icons/lucide-sprite.svg#i-facebook"></use></svg></a>
+        <a href="https://youtube.com" target="_blank" rel="noopener noreferrer" class="flex h-9 w-9 items-center justify-center border border-line transition hover:border-red hover:text-red" aria-label="VYROX on YouTube"><svg class="h-4 w-4" aria-hidden="true"><use href="./assets/icons/lucide-sprite.svg#i-youtube"></use></svg></a>
+      </div>
+    </div>
+
+    <nav aria-label="Shop links">
+      <h3 class="mb-4 text-[10px] font-bold uppercase tracking-brand text-subtle">Shop</h3>
+      <ul class="space-y-2.5 text-sm">
+        <li><a href="./shop.html" class="link-underline">All products</a></li>
+        <li><a href="./shop.html?sort=newest" class="link-underline">New arrivals</a></li>
+        <li><a href="./shop.html?sort=popular" class="link-underline">Best sellers</a></li>
+        <li><a href="./categories.html" class="link-underline">Categories</a></li>
+        <li><a href="./shop.html?sale=1" class="link-underline text-red">Sale</a></li>
+      </ul>
+    </nav>
+
+    <nav aria-label="Account links">
+      <h3 class="mb-4 text-[10px] font-bold uppercase tracking-brand text-subtle">Account</h3>
+      <ul class="space-y-2.5 text-sm">
+        <li><a href="./login.html" class="link-underline">Sign in</a></li>
+        <li><a href="./register.html" class="link-underline">Create account</a></li>
+        <li><a href="./orders.html" class="link-underline">Orders</a></li>
+        <li><a href="./wishlist.html" class="link-underline">Wishlist</a></li>
+        <li><a href="./tracking.html" class="link-underline">Track an order</a></li>
+      </ul>
+    </nav>
+
+    <nav aria-label="Company links">
+      <h3 class="mb-4 text-[10px] font-bold uppercase tracking-brand text-subtle">Company</h3>
+      <ul class="space-y-2.5 text-sm">
+        <li><a href="./about.html" class="link-underline">About VYROX</a></li>
+        <li><a href="./contact.html" class="link-underline">Contact</a></li>
+        <li><a href="./faq.html" class="link-underline">FAQ</a></li>
+        <li><a href="./privacy-policy.html" class="link-underline">Privacy policy</a></li>
+        <li><a href="./terms.html" class="link-underline">Terms</a></li>
+      </ul>
+    </nav>
+  </div>
+
+  <div class="border-t border-line">
+    <div class="container-vyrox flex flex-col gap-4 py-6 text-[11px] text-subtle sm:flex-row sm:items-center sm:justify-between">
+      <p>© <span data-year>2026</span> VYROX Commerce. Demonstration storefront — Phase 1 frontend.</p>
+      <div class="flex flex-wrap items-center gap-2">
+        <span class="text-[9px] font-bold uppercase tracking-wide2 text-subtle">We accept</span>
+        <span class="border border-line px-2 py-1 text-[9px] font-bold uppercase tracking-wide2">GCash</span>
+        <span class="border border-line px-2 py-1 text-[9px] font-bold uppercase tracking-wide2">Maya</span>
+        <span class="border border-line px-2 py-1 text-[9px] font-bold uppercase tracking-wide2">COD</span>
+        <span class="border border-line px-2 py-1 text-[9px] font-bold uppercase tracking-wide2">Bank</span>
+      </div>
+    </div>
+  </div>
+</footer>
+  <script type="module" src="./src/js/main.js"></script>
+</body>
+</html>
